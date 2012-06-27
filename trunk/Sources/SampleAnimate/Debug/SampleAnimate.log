@@ -1,8 +1,0 @@
-﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(299,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
-  main.cpp
-d:\utils\game_install\game\sources\sampleanimate\main.cpp(47): warning C4101: 'eType' : unreferenced local variable
-d:\utils\game_install\game\sources\sampleanimate\main.cpp(49): warning C4101: 'zInputExplosion' : unreferenced local variable
-d:\utils\game_install\game\sources\sampleanimate\main.cpp(48): warning C4101: 'eID' : unreferenced local variable
-  LINK : D:\Utils\game_install\Game\Output\SampleAnimate.exe not found or not built by the last incremental link; performing full link
-  SampleAnimate.vcxproj -> D:\Utils\game_install\Game\Output\SampleAnimate.exe
-          1 file(s) copied.
