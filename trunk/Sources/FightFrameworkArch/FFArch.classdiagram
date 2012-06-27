@@ -1,0 +1,1199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="7ec4c201-55cd-432b-987b-0642d1d3ccd3" name="FFArch" linkedPackageId="8ad0b55f-170f-42a1-b913-435df930fef1" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <appliedStereotypesInternal>
+    <stereotypeInstance Id="3136a502-c144-4b0e-a21c-0f260f86835b" name="metamodel" profile="StandardProfileL3">
+      <elementDefinition Id="9c7d496c-4eaa-45bf-8d7b-587d48cee2a3" />
+    </stereotypeInstance>
+  </appliedStereotypesInternal>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="9cf26fa9-c2f5-4e8d-858f-2267a5c4a6aa" name="FFObject" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="e5152617-b120-4b56-a124-b6f81915885c" />
+        <ownedAttributesInternal>
+          <property Id="0872c5d0-4529-409c-9c3b-09dfc4a5a1d9" name="_position" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="8df5d632-88e9-436a-99cb-35a9c0eda05e" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c9930af9-a36f-49ad-9be5-4730500a2ea0" LastKnownName="orxVECTOR" />
+            </type_NamedElement>
+          </property>
+          <property Id="8d749a7c-d055-4e3b-a18d-f5903ac55a8b" name="_color" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="8f4a63ab-8bea-47ab-9e7d-f248fce5a707" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f554ff69-f44b-4e4b-a89a-58903c3975bf" LastKnownName="orxCOLOR" />
+            </type_NamedElement>
+          </property>
+          <property Id="32475475-158d-4281-84c5-939fdd35cf62" name="_rotation" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="0ce00113-74bc-4e8d-b5a3-129006f15599" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="fc824872-df3c-4913-a5f2-5dca905b3355" LastKnownName="orxFLOAT" />
+            </type_NamedElement>
+          </property>
+          <property Id="e487c44d-8e46-41be-a48b-fc54385a44a2" name="_object" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="fe718155-7bf1-448f-9ab4-caf48e179186" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="63b6a070-349f-4899-8036-d9edb417a0c8" LastKnownName="orxOBJECT" />
+            </type_NamedElement>
+          </property>
+          <property Id="f36adba9-22b1-4ca3-87fc-221400075daa" name="_nameGfgFile" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="31169d4d-d97e-4d13-84d0-a4bd5f4866c4" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="fe856ead-05d2-44f9-a6ea-0473753cf49f" LastKnownName="orxSTRING" />
+            </type_NamedElement>
+          </property>
+          <property Id="f1fcb59d-e28f-4d72-8913-69a6bc503b80" name="_ size" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="3a1dd131-8f90-451f-b448-9e0cc70bb1d9" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c9930af9-a36f-49ad-9be5-4730500a2ea0" LastKnownName="orxVECTOR" />
+            </type_NamedElement>
+          </property>
+          <property Id="39162c2b-c710-4845-9bcb-784375f687af" name="_scale" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="f79126b9-5a0f-47c0-9476-55373d91d170" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c9930af9-a36f-49ad-9be5-4730500a2ea0" LastKnownName="orxVECTOR" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="6fa475b3-cc3b-416d-9da4-8202c772d7b0" name="Create" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="3d39a144-9550-424f-b86a-e125e242dcda" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="29a821db-10f5-4a05-8490-0e918fd0e65a" direction="Return" isUnique="false">
+                  <elementDefinition Id="304bff3a-38b1-4250-91f3-7181a5a1b276" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="66043b9e-03a3-453b-bfed-a241bb54a9fa" LastKnownName="orxSTATUS" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="9ef59e80-a2e7-41d5-b639-8a28f0b64de6" name="SetPosition" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="9bf1ff08-7d3a-42ce-af03-e0b5e9f18138" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="4781eee3-bd7d-4d7e-8d2e-037b7ec50a57" name="orxVECTOR" direction="In" isUnique="false">
+                  <elementDefinition Id="b690a14b-b886-47e8-96d4-3e8b8be896e1" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="15af7471-0511-44bb-a7c1-623a310029e9" name="SetColor" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="29e1c69e-fa8a-4b17-86b5-bd104664eafc" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="a8331ec2-2a86-4739-a524-dc2b9a4314eb" name="orxCOLOR" direction="In" isUnique="false">
+                  <elementDefinition Id="760a7063-b3d6-49ec-863e-768dda1ea88b" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="2cb60b07-fad5-492f-9b97-9607eb567c0a" name="SetRotation" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="a99e1f54-6630-4898-9393-486384a1bb14" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="7f9122c7-5e5a-4d43-9303-fcac7bc7fff4" name="orxFLOAT" direction="In" isUnique="false">
+                  <elementDefinition Id="0cc86c6e-04fe-4d08-b3b7-e1449b43f475" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="119361cd-24bb-41a7-b749-6f5905bf251c" name="GetPosition" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="58de49d7-d934-478a-b6f9-7e1f18bff76c" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="5f2eacf5-28a6-4700-8980-5f9e63660552" direction="Return" isUnique="false">
+                  <elementDefinition Id="10943a5f-88c0-4741-8aa1-9f46da95eb49" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="c9930af9-a36f-49ad-9be5-4730500a2ea0" LastKnownName="orxVECTOR" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="805d30b8-da71-475b-8226-a57700f361b0" name="GetColor" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="406638ba-f969-4602-aea6-ea67adf4e6f4" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="652011b5-9bbd-4e55-97aa-0c05d31fd8ba" direction="Return" isUnique="false">
+                  <elementDefinition Id="cb54b3fb-528b-4f4b-854e-be0d159878fd" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="f554ff69-f44b-4e4b-a89a-58903c3975bf" LastKnownName="orxCOLOR" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="6fd6da9c-8c98-4273-9029-2a485507c144" name="GetRotation" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="a6e76d6c-39a2-4ebe-9b55-ed9877955fa9" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ae7c9f1e-cba0-49a1-a885-ef37d23128be" direction="Return" isUnique="false">
+                  <elementDefinition Id="b61482fe-0a59-4899-b571-a004be51ef33" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="fc824872-df3c-4913-a5f2-5dca905b3355" LastKnownName="orxFLOAT" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="0d02c305-0e99-4530-9cb4-c3def298ec1b" name="SetSize" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="a3112621-9be6-4f7e-8383-c2bd9b77a9b6" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="0f31c836-cb91-4a85-8443-728bb252e6bd" name="orxVECTOR" direction="In" isUnique="false">
+                  <elementDefinition Id="6dd06a30-3fa5-4a65-98e4-0cd0f0f0c1d2" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="427181ab-30c6-4fb4-884e-ef12e50319f7" name="GetSize" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="3a052d01-40d1-4bd1-9aaf-65fde2bfe996" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="42670c98-995d-44c2-bf9a-d941e65dcd87" direction="Return" isUnique="false">
+                  <elementDefinition Id="aa7e5a7b-dd9c-4e30-a5a5-5e6c4aa3cfa2" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="c9930af9-a36f-49ad-9be5-4730500a2ea0" LastKnownName="orxVECTOR" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="4a41f10e-9b39-42cf-b75b-aed8f1b6e164" name="SetScale" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="cae06f12-a83e-41c7-bb3f-1ccdc029a1d6" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="066c4cad-34f2-42ac-9606-82740c6c36a3" name="orxVECTOR" direction="In" isUnique="false">
+                  <elementDefinition Id="ae97d8c0-f188-4444-b1ad-de209c73b2b9" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="57a81c68-0d7f-41d0-aa39-fe6925d21733" name="GetScale" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="c2e06806-1c18-4b8f-98b2-db904f228f5d" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="2ee2571f-d448-49cb-9865-9c1ba27e4982" direction="Return" isUnique="false">
+                  <elementDefinition Id="97639c2d-9304-4e75-bd91-04d8c269335c" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="c9930af9-a36f-49ad-9be5-4730500a2ea0" LastKnownName="orxVECTOR" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="1f67c51c-a1c1-4c31-8eae-924b3f1d1104" name="FFStaticObject" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="44a53cc6-e451-4535-b2a3-913e0a3c2210" />
+        <generalsInternal>
+          <generalization Id="da3a26db-e33a-4642-9a7e-2118129c7105" isSubstitutable="false">
+            <classMoniker Id="9cf26fa9-c2f5-4e8d-858f-2267a5c4a6aa" LastKnownName="FFObject" />
+            <elementDefinition Id="66cce869-d32f-4dc8-a924-8dcdf1bb7058" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="e64bae0f-ede2-4646-ab4c-839e9ef8dd74" name="FFStaticAnimatedObject" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="898bc9b4-4afe-4929-b5d6-64f5f49531ac" />
+        <generalsInternal>
+          <generalization Id="4a172f5f-a974-455e-a566-1cb2badb07e4" isSubstitutable="false">
+            <classMoniker Id="1f67c51c-a1c1-4c31-8eae-924b3f1d1104" LastKnownName="FFStaticObject" />
+            <elementDefinition Id="34b81081-797b-41a7-bd87-d9c4a5812be6" />
+          </generalization>
+          <generalization Id="3dcc5a97-bb4e-45a3-ba40-a43e8a79e8ec" isSubstitutable="false">
+            <classMoniker Id="ae643abe-2766-455a-ac84-ce1651f75c05" LastKnownName="FFAnimatedObject" />
+            <elementDefinition Id="4d7c1790-98c6-416a-8d4c-b3d0931cfcdb" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="ef839eec-e216-45fd-93d3-6561d25ae6e6" name="FFDynamicObject" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="fc7d54a6-c5c0-4179-92f2-fad671fef7e6" />
+        <generalsInternal>
+          <generalization Id="ee54c26c-10e3-4288-a5c7-05a7097c320e" isSubstitutable="false">
+            <classMoniker Id="9cf26fa9-c2f5-4e8d-858f-2267a5c4a6aa" LastKnownName="FFObject" />
+            <elementDefinition Id="d8877aac-8e08-4f72-9c28-da610cd09117" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association Id="6518fcc2-88ce-472e-8c74-2f91edf08865" isDerived="false" sourceEndRoleName="FFDynamicObject" targetEndRoleName="IDynamicMoveStrategy" isLeaf="false" isAbstract="false">
+            <interfaceMoniker Id="e26be174-b8f0-4fa4-a819-6a04a9b0ebd5" LastKnownName="IDynamicMoveStrategy" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d7a60cee-c712-4c37-9b17-d313b74e7c09" name="FFDynamicObject" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="3232a13e-a666-4b95-9851-b959c56ecc23" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="bd1bfa94-6d67-42bd-8ac1-dbeb30e853c5" name="IDynamicMoveStrategy" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                  <elementDefinition Id="30b7fe12-fbaa-43b0-9c6d-7de99b9c3aba" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="b0259886-b1c0-419e-b536-270f7f54bc6a" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="ad1dd5e7-7d28-4462-9d13-b1342f092e1a" name="_startPosition" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="bbbd56fd-ebfc-401e-a413-f5e4e28fc84b" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c9930af9-a36f-49ad-9be5-4730500a2ea0" LastKnownName="orxVECTOR" />
+            </type_NamedElement>
+          </property>
+          <property Id="467821fa-22f5-42c4-b980-1caf8c4bb06b" name="_finishPosition" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="98186bea-7116-4550-ba58-85372a85f3c5" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c9930af9-a36f-49ad-9be5-4730500a2ea0" LastKnownName="orxVECTOR" />
+            </type_NamedElement>
+          </property>
+          <property Id="c59668b7-6d89-480f-8fb9-0e2e63d0fee6" name="_speed" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="4d9f0870-566a-4b75-bb79-c26b45fdb65f" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="fc824872-df3c-4913-a5f2-5dca905b3355" LastKnownName="orxFLOAT" />
+            </type_NamedElement>
+          </property>
+          <property Id="c53a71ff-41e6-4a1d-bd41-4217612d62ec" name="_isMove" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="f7b5b133-4629-46d3-943b-2e379737d519" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="fa7e9258-b647-47bd-aaa3-d35ad3b1e1ce" LastKnownName="bool" />
+            </type_NamedElement>
+          </property>
+          <property Id="5c378280-b396-4211-b84c-16226f49fb16" name="_moveStrategy" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="fe6d7f91-53f7-4de7-8be9-5efa6bf1ab87" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="6f14ece6-58fb-4c53-83bb-a976f8ec8009" LastKnownName="IDynamicMoveStrategy" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="f871260f-7d84-4f36-9c14-3f35cb2a6051" name="Move" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="0a23bed8-d042-4fb9-8735-dc8b620019e1" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="114df53d-008f-4dfa-9f86-333ab9137a0d" direction="Return" isUnique="false">
+                  <elementDefinition Id="16f6a0c4-f3ef-46e7-a552-48ce5bb2e8f4" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="fa7e9258-b647-47bd-aaa3-d35ad3b1e1ce" LastKnownName="bool" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="a8d621bb-3dcf-45f4-9d51-6091a6d0c984" name="IsMove" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="812e4689-30be-4422-a515-92e3c3242ead" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="4f878433-f3bd-42da-98cb-21f752adbd75" direction="Return" isUnique="false">
+                  <elementDefinition Id="54190fbf-edae-40cc-982b-e9593f8d5f88" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="fa7e9258-b647-47bd-aaa3-d35ad3b1e1ce" LastKnownName="bool" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="179b8995-8d79-4755-9d1b-9ad4d9c354f5" name="Stop" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="0eca3575-d974-4deb-ac48-57f71e6a728d" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="1bcf5688-3622-4c80-99f9-68f3cbe062e2" direction="Return" isUnique="false">
+                  <elementDefinition Id="050cc97b-a406-43f1-bdfa-f0c28c5ff1ac" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="9c2da88d-4e7b-451e-a206-8945f05e2e16" LastKnownName="void" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="31cc3555-3f4f-49d7-8c7c-4bdade51cac4" name="Pause" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="459ea5eb-1fc4-45d8-aa6c-7fe1ad4e369e" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="936534a8-a1fa-4515-9682-f327799393f9" direction="Return" isUnique="false">
+                  <elementDefinition Id="2ba55c15-099b-435b-8346-953f1d05eee8" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="9c2da88d-4e7b-451e-a206-8945f05e2e16" LastKnownName="void" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="b720191c-0810-478d-a86a-0c58e2c7aedc" name="CalcPath" visibility="Private" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="2c2466ca-b1c6-401d-ab64-94946d60fb4f" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="47f9d4af-415d-4633-99d0-9a85d926c89b" direction="Return" isUnique="false">
+                  <elementDefinition Id="3883dce9-a46d-4758-afbc-6583c42de18d" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="9c2da88d-4e7b-451e-a206-8945f05e2e16" LastKnownName="void" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="d5c3d08c-98b6-4401-bab5-6b5388676484" name="FFAnimatedDynamicObject" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="2013a8d6-8c8c-4d11-99ae-dd951a56c12e" />
+        <generalsInternal>
+          <generalization Id="87ab448f-cd85-45d5-94b0-c4532a84ccc5" isSubstitutable="false">
+            <classMoniker Id="ef839eec-e216-45fd-93d3-6561d25ae6e6" LastKnownName="FFDynamicObject" />
+            <elementDefinition Id="54451568-fbd7-47e8-8b8f-2badee655fba" />
+          </generalization>
+          <generalization Id="6b773073-7130-4a05-9978-8c1f3d74556c" isSubstitutable="false">
+            <classMoniker Id="ae643abe-2766-455a-ac84-ce1651f75c05" LastKnownName="FFAnimatedObject" />
+            <elementDefinition Id="356ed29c-ce5a-4e14-9606-6334fdb942d6" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="ae643abe-2766-455a-ac84-ce1651f75c05" name="FFAnimatedObject" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="bbe27d83-6bd4-43ba-8474-1bc8380705cd" />
+        <ownedAttributesInternal>
+          <property Id="20355c15-8d3b-4fc8-9521-6251088f62ce" name="_currentAnimation" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="356ac17e-e0fa-4595-922a-9763459e6f7a" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="fe856ead-05d2-44f9-a6ea-0473753cf49f" LastKnownName="orxSTRING" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="7d1c67e9-b710-45b3-8026-2cb8a3bf83f7" name="SetAnimation" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="652168a4-3c84-4f70-9538-1e08ed52cc1b" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="08f4b98b-00a9-468e-b4c6-fe7b4ba76f93" name="orxSTRING" direction="In" isUnique="false">
+                  <elementDefinition Id="cdb39049-0607-42d7-a88e-0d1c03f4b97a" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="7a404ee0-76c3-4ca2-8949-ee6b0bf102a3" name="GetAnimation" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="4a105a98-7ff9-4093-98d0-97aa1ab01c5b" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="15620936-2afc-4664-b6a0-c6ce4aeee079" direction="Return" isUnique="false">
+                  <elementDefinition Id="0089353a-f0ca-479b-9eb8-749df96b347e" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="fe856ead-05d2-44f9-a6ea-0473753cf49f" LastKnownName="orxSTRING" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="ed25ad5a-d60b-4a9e-bba5-6f8a152ed79f" name="FFMovableObject" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="d0d7773a-22c3-4072-af67-c8e3150f1bd0" />
+        <generalsInternal>
+          <generalization Id="0fdb3124-09ab-4ea7-bbb0-eab0d322fa16" isSubstitutable="false">
+            <classMoniker Id="9cf26fa9-c2f5-4e8d-858f-2267a5c4a6aa" LastKnownName="FFObject" />
+            <elementDefinition Id="9ae2cd65-ee61-4c27-9504-f5c96fde9812" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="7bf6dc6d-767e-432d-8d0b-e4786ace6b81" name="_currentMoveOperation" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="7cc89cdc-fd6f-4b12-8118-f501631e1ff3" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="5e8424d2-9ed1-4c74-9576-1c9a73c12abd" LastKnownName="FF_MOVE_OPERATION" />
+            </type_NamedElement>
+          </property>
+          <property Id="e531a095-f8e5-48e1-8657-dd78f5e15cfd" name="_currentMoveDirection" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="384150cc-50a5-4d84-a2ff-0d9d7a60cfce" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="d18af3e3-a983-4c71-885c-235b07be6e0f" LastKnownName="FF_MOVE_DIRECTION" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="6a8f25c8-5be6-42c1-b893-cbdb1b5ba27c" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="829c1782-5656-4290-a89c-2968de49e8cf" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="84988ec2-9787-4eb1-b2e6-4a283d99a169" direction="Return" isUnique="false">
+                  <elementDefinition Id="93194eeb-30f9-41f6-8067-207b9cbb5767" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="9c2da88d-4e7b-451e-a206-8945f05e2e16" LastKnownName="void" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="0256f44e-38b4-4ee5-b6a1-b68b3f591f65" name="GetMoveOpertion" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="03f74ad1-f23c-41e1-8fd6-8bdae74c1ca3" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ef23f25f-496a-43dd-b7ed-753f4ce609d0" direction="Return" isUnique="false">
+                  <elementDefinition Id="408bce3e-84b3-4a3f-a220-ffb3d711d64c" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="5e8424d2-9ed1-4c74-9576-1c9a73c12abd" LastKnownName="FF_MOVE_OPERATION" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="6dd27fff-4b9a-4e8d-9545-3a6a3b7d6b7c" name="SetMoveOperation" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="b5b82746-d4ed-4846-bb4c-a733debfe546" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="dcfbcfcc-92de-4eef-a53b-1580a65c7cad" direction="Return" isUnique="false">
+                  <elementDefinition Id="69d6b381-e5bf-4ebe-a174-872bbc17d68d" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d18af3e3-a983-4c71-885c-235b07be6e0f" LastKnownName="FF_MOVE_DIRECTION" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <enumeration Id="e8b43bbc-8dd5-4f69-8b79-262d925ee0b3" name="FF_MOVE_OPERATION" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="4632f6c2-432d-4d7b-a34c-d43e991c1b20" />
+        <ownedLiterals>
+          <enumerationLiteral Id="046e9819-fb66-4d3b-83a1-87738ffc53ac" name="FFMO_RIGHT_HAND_UPPERSTRIKE">
+            <elementDefinition Id="d88908e2-785b-45ac-a274-a3233c36cbf3" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="2c24dcc4-0a04-475b-ae93-7d1e4aa7a7c5" name="FFMO_RIGHT_HAND_LOWERSTRIKE">
+            <elementDefinition Id="f6745451-7f7f-4f3e-bffa-cdc2f3213622" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="204edd00-4f88-4380-b1fa-0c8d694dc4db" name="FFMO_RIGHT_FOOT_LOWERSTRIKE">
+            <elementDefinition Id="812c2cfb-64a5-4526-97e1-946d28994255" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="28c8f5e1-7e79-433c-a1e3-8a1a988c4b74" name="FFMO_RIGHT_FOOT_UPPERSTRIKE">
+            <elementDefinition Id="2bf9a264-c0b1-43fa-bce3-c06a48e18fcd" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="0e3db778-f1fe-4ecc-8d62-bb38636d273b" name="FFMO_RIGHT_STAND">
+            <elementDefinition Id="d10327c5-c0ab-474c-a34c-c94b1b7004a0" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="ad545fa9-6376-49ad-b3ca-de6e20832e7a" name="FFMO_RIGHT_WALKING">
+            <elementDefinition Id="be08c1f9-e1c0-481e-92f4-9d1814710718" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="8b6aa60a-ef6d-4226-89c9-1f26fc3e4d17" name="FFMO_LEFT_STAND">
+            <elementDefinition Id="689e41b4-1d56-433f-a7b9-b9faca3f443f" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="a421e9ba-07e9-4f44-a0d9-7389c8070721" name="FFMO_LEFT_WALKING">
+            <elementDefinition Id="fa9bc0cf-63b3-40f7-a988-b76a115f1c5f" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="fdf120ef-b302-4cc0-9370-1455390c6357" name="FFMO_LEFT_FOOT_LOWERSTRIKE">
+            <elementDefinition Id="9021e3a7-ded1-416d-a9c7-8e742adb6958" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="40fd5c07-3911-4ef7-a9e8-be00e80c6b73" name="FFMO_LEFT_FOOT_UPPERSTRIKE">
+            <elementDefinition Id="1e4d5b35-d5ff-4d8f-9901-df5638743158" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="821600c1-95c8-4bc9-aa1f-078b0cfc0e5c" name="FFMO_LEFT_HAND_LOWERSTRIKE">
+            <elementDefinition Id="06042e4d-aa07-43d5-bc2b-fffeb069c5b7" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="16140235-08e8-407e-9855-1aec30e69e97" name="FFMO_LEFT_HAND_UPPERSTRIKE">
+            <elementDefinition Id="6587ea6b-3052-4ecd-be10-a5554074c9ce" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="6af38fe5-6c03-4471-a614-cc6f6733a75b" name="FFMO_LEFT_JUMP">
+            <elementDefinition Id="a32b53e9-2e19-4741-b1c9-5ef2d7580600" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="67c5e905-af50-4c12-9cb3-c87df8f0acc2" name="FFMO_RIGHT_JUMP">
+            <elementDefinition Id="e125d612-a265-4512-94fb-4c96d5fef518" />
+          </enumerationLiteral>
+        </ownedLiterals>
+      </enumeration>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <enumeration Id="154599a2-d389-44d3-b02e-65c31db406e6" name="FF_MOVE_DIRECTION" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="afeffea7-443a-482e-a33e-0a91e22960f3" />
+        <ownedLiterals>
+          <enumerationLiteral Id="16cb7f08-4600-41bb-9a22-1c6440b8a2b6" name="FFMD_RIGHT">
+            <elementDefinition Id="291239ef-7e26-4cae-9769-f011ccdd3eb7" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="34f30def-426c-4a39-9137-8b26c566b681" name="FFMD_LEFT">
+            <elementDefinition Id="185f9671-b765-437f-b76f-cf9417bd085e" />
+          </enumerationLiteral>
+        </ownedLiterals>
+      </enumeration>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="19c33dfb-a7ea-46eb-9a0d-29ef7dd3eb11" name="FFAnimatedMovableObject" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="3731ee20-0217-481f-ba1f-d5b6219e181d" />
+        <generalsInternal>
+          <generalization Id="758d00c9-e6ba-4641-8054-4973a8c92da4" isSubstitutable="false">
+            <classMoniker Id="ed25ad5a-d60b-4a9e-bba5-6f8a152ed79f" LastKnownName="FFMovableObject" />
+            <elementDefinition Id="1413f13c-1ae8-4af3-a211-bdc3b30ed44d" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="607f5edc-d8ce-4acb-9aa6-48b4e6b99919" name="FFScene" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="4c83f55a-64ae-49b3-8473-fe96707992bc" />
+        <targetEnds>
+          <association Id="900207a6-fad2-40db-9ba8-36748e173365" isDerived="false" sourceEndRoleName="FFScene" targetEndRoleName="FFObject" isLeaf="false" isAbstract="false">
+            <classMoniker Id="9cf26fa9-c2f5-4e8d-858f-2267a5c4a6aa" LastKnownName="FFObject" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="fa9b77e7-c81d-44cc-bfe2-778a14c7d2f4" name="FFScene" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="ee2b497b-2df7-48e8-a1f9-08777ff6ffac" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="0a8878b2-809c-4ba3-a79d-30c0200317fe" name="FFObject" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="4c5c6811-de25-41d6-86f6-17ea13bb97b2" name="Lower" value="*">
+                      <elementDefinition Id="5cac458e-c272-48ea-8323-dca565e5d39f" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="e4b6dbbd-f3cc-4a53-8632-0f91b863c272" name="Upper" value="*">
+                      <elementDefinition Id="83f51998-c34c-43b6-b0e6-29c03ad4725c" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="e3bf93a4-2cff-4915-b067-194323bfc478" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="32527f64-c474-4712-b696-bbcdde84777d" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="c7cd293b-bbf5-4d9c-9779-6a72a82b11eb" name="_nameCfngFile" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="a95b67f7-9ee6-45cb-894a-1d5eb54c01f8" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="fe856ead-05d2-44f9-a6ea-0473753cf49f" LastKnownName="orxSTRING" />
+            </type_NamedElement>
+          </property>
+          <property Id="c296dcd6-0c92-41ea-9067-3cd5c007bc98" name="_parentManager" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="1d57ad9f-a388-4d59-bd7b-73bd453e4262" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="3549a65b-5e8a-456e-9dd1-7425255ece51" LastKnownName="FFGameManager" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="ccb50f87-67b1-46af-82da-b9d660747d03" name="Load" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="88312be8-7bc1-4fd2-a079-9d9d432e8479" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="68cbd714-efa2-4816-8064-5d672f1ab40c" direction="Return" isUnique="false">
+                  <elementDefinition Id="dd18926e-9ac0-4755-aceb-2eb4562be290" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="fa7e9258-b647-47bd-aaa3-d35ad3b1e1ce" LastKnownName="bool" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="733e19f1-da47-43f0-9c34-766d68518d55" name="Unload" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="8b26c1d1-4c53-4e34-8995-f018aced8417" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="1ebb47c4-032a-4a85-8ae5-0705808fd657" direction="Return" isUnique="false">
+                  <elementDefinition Id="cac07c13-80fe-4c60-b8a8-736562627d04" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="fa7e9258-b647-47bd-aaa3-d35ad3b1e1ce" LastKnownName="bool" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="25ceff9b-c7b1-4f8d-8edd-be449c1dd602" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="9fd28925-9b8a-46fa-ae6d-3fbea5a4fa83" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="218696f3-fef0-4f69-b478-76013f535cd0" direction="Return" isUnique="false">
+                  <elementDefinition Id="93152ef2-d554-43e5-88a1-cc05547d4ac5" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="fa7e9258-b647-47bd-aaa3-d35ad3b1e1ce" LastKnownName="bool" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="fe856ead-05d2-44f9-a6ea-0473753cf49f" name="orxSTRING" isAbstract="false" isLeaf="false" cachedFullName="orxSTRING">
+        <elementDefinition Id="a142c4b6-05d1-438d-9054-66e97969b200" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="fa7e9258-b647-47bd-aaa3-d35ad3b1e1ce" name="bool" isAbstract="false" isLeaf="false" cachedFullName="bool">
+        <elementDefinition Id="ff589358-5486-4b3e-bd88-94750882677a" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="c9930af9-a36f-49ad-9be5-4730500a2ea0" name="orxVECTOR" isAbstract="false" isLeaf="false" cachedFullName="orxVECTOR">
+        <elementDefinition Id="65141931-8e1f-423e-a9fd-5545f9f64f1e" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="f554ff69-f44b-4e4b-a89a-58903c3975bf" name="orxCOLOR" isAbstract="false" isLeaf="false" cachedFullName="orxCOLOR">
+        <elementDefinition Id="a38a6031-5bab-4194-970c-673123d1d384" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="63b6a070-349f-4899-8036-d9edb417a0c8" name="orxOBJECT" isAbstract="false" isLeaf="false" cachedFullName="orxOBJECT">
+        <elementDefinition Id="363c8b27-d7ff-4957-b829-cac4b2fb83fa" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="fc824872-df3c-4913-a5f2-5dca905b3355" name="orxFLOAT" isAbstract="false" isLeaf="false" cachedFullName="orxFLOAT">
+        <elementDefinition Id="d6f483a3-7138-4fb8-bc9d-49d026742af6" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="66043b9e-03a3-453b-bfed-a241bb54a9fa" name="orxSTATUS" isAbstract="false" isLeaf="false" cachedFullName="orxSTATUS">
+        <elementDefinition Id="e61c2b41-866a-415b-8def-4dd69995159f" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="9c2da88d-4e7b-451e-a206-8945f05e2e16" name="void" isAbstract="false" isLeaf="false" cachedFullName="void">
+        <elementDefinition Id="239fe447-1647-4d39-9291-959c679443c7" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="d18af3e3-a983-4c71-885c-235b07be6e0f" name="FF_MOVE_DIRECTION" isAbstract="false" isLeaf="false" cachedFullName="FightFrameworkArch::FF_MOVE_DIRECTION">
+        <elementDefinition Id="afeffea7-443a-482e-a33e-0a91e22960f3" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="5e8424d2-9ed1-4c74-9576-1c9a73c12abd" name="FF_MOVE_OPERATION" isAbstract="false" isLeaf="false" cachedFullName="FightFrameworkArch::FF_MOVE_OPERATION">
+        <elementDefinition Id="4632f6c2-432d-4d7b-a34c-d43e991c1b20" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="21b8b4ce-71b1-4703-ae6d-b15cf616e14b" name="FFGameScene" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="800125c3-843c-45fd-a4e7-680a031dea07" />
+        <generalsInternal>
+          <generalization Id="0a77e676-d15b-4f14-963a-f6bbcb909722" isSubstitutable="false">
+            <classMoniker Id="607f5edc-d8ce-4acb-9aa6-48b4e6b99919" LastKnownName="FFScene" />
+            <elementDefinition Id="edbdfcf9-de9e-4d55-9b83-bf3c1bbefc52" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association Id="06980bed-792b-44dd-945d-1ea885d0c97f" isDerived="false" sourceEndRoleName="FFGameScene" targetEndRoleName="FFAnimatedMovableObject" isLeaf="false" isAbstract="false">
+            <classMoniker Id="19c33dfb-a7ea-46eb-9a0d-29ef7dd3eb11" LastKnownName="FFAnimatedMovableObject" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a9193a6c-25d9-48c3-af98-b9e1932f5f15" name="FFGameScene" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="1d9c82eb-44ff-483f-887b-c373ed9f7685" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="9e21f72d-4d53-44ca-86f3-4e98c561206d" name="FFAnimatedMovableObject" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                  <lowerValueInternal>
+                    <literalString Id="1f2c9f36-fcc7-4a77-bd3c-59fcdf316603" name="Lower" value="2">
+                      <elementDefinition Id="d5bc4ef4-e640-4dce-af13-469549feb91e" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="2dc65010-6c24-443b-80e7-4ddd32dc4ac6" name="Upper" value="2">
+                      <elementDefinition Id="63b40c17-f14b-4aa8-8bc6-d7e9a9836c4f" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="8a9d621c-00a0-4d6f-ae4e-8cc7266425b9" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="c492ac30-fa05-44a3-846f-4708fd3dd68f" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="66abf8d6-7fa4-422d-bec9-453a34e8684c" name="_firstHero" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="3a4debac-8c37-454c-a35c-0d8348085e04" />
+          </property>
+          <property Id="826c4360-fabb-4ab4-9923-715b79738444" name="_secondHero" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="46d54eaa-a244-4b66-9daf-4f4ce091d4fd" />
+          </property>
+          <property Id="ba965150-a7ad-4956-aabf-c56df12611b7" name="_listStaticEntity" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="5338b46a-55ff-4c29-ac0a-24c01acddbe1" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="43429e0c-d605-4ff6-a045-798edbb9f0bc" LastKnownName="std::vector&lt;FfStaticObject&gt;" />
+            </type_NamedElement>
+          </property>
+          <property Id="41325485-7a3f-4cfb-9a68-e53a1f82b80c" name="listStaticAnimatedEntity" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="8783e70b-3cf4-4707-a316-ffcb9e5ab98d" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="2a83b102-6e84-47f5-8be5-03fb4cdd74f7" LastKnownName="std::vector&lt;FFStaticAnimatedObjcet&gt;" />
+            </type_NamedElement>
+          </property>
+          <property Id="8e76aee5-0b43-42df-925d-92ba5d2193e3" name="listDynamicEntity" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="6787668b-3f8c-4b80-af5d-441111a1fa89" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="7d290aff-3a49-4627-ba42-71fe89df00d5" LastKnownName="std::vector&lt;FfDynamicObject&gt;" />
+            </type_NamedElement>
+          </property>
+          <property Id="d2411505-a1d6-44be-9ea8-6aa768741d48" name="listDynamicAnimatedEntity" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="385d2b11-12bf-4d8a-a588-fa4766a63287" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="6bddb50d-5643-44e0-99bb-13ee3a296bdf" LastKnownName="std::vector&lt;FFDynamicAnimatedObjejct&gt;" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="3549a65b-5e8a-456e-9dd1-7425255ece51" name="FFGameManager" isAbstract="false" isLeaf="false" cachedFullName="FFGameManager">
+        <elementDefinition Id="e5b73df5-8fe2-4f7f-b74d-103fb16615a2" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="290f3e3c-65c8-4a52-966f-a2ac560794f0" name="FFUIScene" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="24166d34-99dc-4176-9e28-c52de7baaa9a" />
+        <generalsInternal>
+          <generalization Id="f2d8cc86-f330-4b3a-93b3-dd9fa4656109" isSubstitutable="false">
+            <classMoniker Id="607f5edc-d8ce-4acb-9aa6-48b4e6b99919" LastKnownName="FFScene" />
+            <elementDefinition Id="14e506a2-abb3-4f95-bbea-9354c73758bf" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation Id="b4f5504b-4311-4c30-a58f-40547ba6a0bd" name="Save" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="0343aa9e-3fb1-4015-8f41-cde0ac850ffd" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="4260817e-3f00-484f-a6bc-b8e6eeb958a6" direction="Return" isUnique="false">
+                  <elementDefinition Id="c663e16e-1b95-43cd-a44b-16b17bf165ba" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="9c2da88d-4e7b-451e-a206-8945f05e2e16" LastKnownName="void" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="e37a401e-5f7d-42b1-b64f-70417bf9f273" name="Save" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="43e033e0-c643-41e0-87b9-0cd4ec8866c6" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="0b9e00bd-97fc-4d01-aa6b-12b79b7c1356" name="orxSTRING" direction="In" isUnique="false">
+                  <elementDefinition Id="96475740-7c18-4a86-ab40-c6a12f029f79" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f1091944-17e3-4171-8093-0233ed0de60e" direction="Return" isUnique="false">
+                  <elementDefinition Id="2203a634-9495-4199-a747-ffdf8324813e" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="9c2da88d-4e7b-451e-a206-8945f05e2e16" LastKnownName="void" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="a8279dbb-481f-48ad-81fa-48190bb0d910" name="FFGameManager" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="f25300d9-5601-4693-b3f4-0db9f4ddf503" />
+        <targetEnds>
+          <association Id="bfd9635f-6ff7-4dec-aada-8941f6c684e8" isDerived="false" sourceEndRoleName="FFGameManager" targetEndRoleName="FFScene" isLeaf="false" isAbstract="false">
+            <classMoniker Id="607f5edc-d8ce-4acb-9aa6-48b4e6b99919" LastKnownName="FFScene" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="df452d81-d459-44b1-959e-beb62f56033c" name="FFGameManager" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="062c99b6-1ae5-4a61-9dce-2059010dc028" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b0e347a7-e8b7-4a7c-834f-7bb37c72b824" name="FFScene" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                  <lowerValueInternal>
+                    <literalString Id="f0ffeebe-3e4c-4024-a4d6-8988ea3070c3" name="Lower" value="*">
+                      <elementDefinition Id="7d6f82fa-281d-4bce-82c5-2d2a86d118d3" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="1194be9c-bc0d-4a0a-9a41-a2e40e08fc28" name="Upper" value="*">
+                      <elementDefinition Id="4422e597-5fd7-4564-bab8-235e03d3f5a1" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="1e585958-c963-4f40-abed-21d3d81015a0" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="a42696ac-3aa3-41c2-8ed9-a2f49459a80d" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="e0d15370-8b3e-4663-aded-3f7e069d077d" name="_listScene" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="5936dc98-7fba-4105-9ca3-9a02b2ac11da" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="837f8320-186c-4309-b114-b537c6f32219" LastKnownName="std::vector&lt;FFGameScene&gt;" />
+            </type_NamedElement>
+          </property>
+          <property Id="010f0560-ca9d-4e43-8a39-99ca88bf0c52" name="_currentScene" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="320bf6c3-2e84-42eb-bfab-067855ebd7d0" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f19f1590-549b-4204-afb2-1a1943b4e12b" LastKnownName="FFScene" />
+            </type_NamedElement>
+          </property>
+          <property Id="2471225c-cf19-4036-8f66-82e7ec698942" name="_fileConfigName" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="adaf068c-91cb-4e88-af23-632dfcead93e" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="fe856ead-05d2-44f9-a6ea-0473753cf49f" LastKnownName="orxSTRING" />
+            </type_NamedElement>
+          </property>
+          <property Id="15c69b28-3d86-4f4b-ae5f-20e91a8b5e74" name="_mainMenuScene" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="1ed77f88-4ead-48de-b0da-d96864aa2bac" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="621ae346-ddb6-4c6b-8f6b-cc3a26f657cc" LastKnownName="FFScene" />
+            </type_NamedElement>
+          </property>
+          <property Id="431ac27a-8484-40e9-a62a-a07a45923a8e" name="_listUIScene" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="37c2abe0-ea4d-4bf3-ae10-fbaea87edace" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c5f49f4a-4867-4163-a050-f9ffac2581d9" LastKnownName="std::vector&lt;FFUIScene&gt;" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="0cb7082d-030f-4485-934b-21ede229922c" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="b579582c-5fbd-45c7-bcda-e85199991e8b" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="22b7e0ee-d492-4a9f-93f0-938b860e510a" direction="Return" isUnique="false">
+                  <elementDefinition Id="0ba8d4e1-afcd-4047-a48a-ded8f2a628a6" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="9c2da88d-4e7b-451e-a206-8945f05e2e16" LastKnownName="void" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="92ccc2f0-7f49-4196-84b7-651e02fa0088" name="Load" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="74d796bf-11a0-45f5-9136-208515cfc4ec" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="1fc6aa29-37da-4229-8ea0-e054825d2b90" direction="Return" isUnique="false">
+                  <elementDefinition Id="2ce002bf-376a-4b7d-92cd-ce62f108936c" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="9c2da88d-4e7b-451e-a206-8945f05e2e16" LastKnownName="void" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="f19f1590-549b-4204-afb2-1a1943b4e12b" name="FFScene" isAbstract="false" isLeaf="false" cachedFullName="FightFrameworkArch::FFScene">
+        <elementDefinition Id="4c83f55a-64ae-49b3-8473-fe96707992bc" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="621ae346-ddb6-4c6b-8f6b-cc3a26f657cc" name="FFScene" isAbstract="false" isLeaf="false" cachedFullName="FightFrameworkArch::FFScene">
+        <elementDefinition Id="4c83f55a-64ae-49b3-8473-fe96707992bc" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="837f8320-186c-4309-b114-b537c6f32219" name="std::vector&lt;FFGameScene&gt;" isAbstract="false" isLeaf="false" cachedFullName="std::vector&lt;FFGameScene&gt;">
+        <elementDefinition Id="acf025a0-4dda-437f-82cf-47a1a33552c4" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="c5f49f4a-4867-4163-a050-f9ffac2581d9" name="std::vector&lt;FFUIScene&gt;" isAbstract="false" isLeaf="false" cachedFullName="std::vector&lt;FFUIScene&gt;">
+        <elementDefinition Id="c921ecc2-4b29-496e-a740-a0dcd426001f" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="1197a4a9-5ccd-4073-9dae-96e87ae8c9fb" name="FFApplication" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="948c3876-22d4-4b9d-86a6-5140a9f95018" />
+        <targetEnds>
+          <association Id="3bfcf4c8-f5b0-4c6e-8ab3-984e2102266f" isDerived="false" sourceEndRoleName="FFApplication" targetEndRoleName="FFGameManager" isLeaf="false" isAbstract="false">
+            <classMoniker Id="a8279dbb-481f-48ad-81fa-48190bb0d910" LastKnownName="FFGameManager" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="94a2663b-64dc-4929-a8cd-7522042bce68" name="FFApplication" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="b543b116-3d35-460c-b91d-25fb726a5cd2" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d6749009-c6f4-4e83-af56-7d6623eba53b" name="FFGameManager" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                  <elementDefinition Id="3b686596-b6f7-454d-b7ba-a5db53b52fa9" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="d950db6b-e666-47a2-89bb-3b6f055439ac" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="75bcaae7-4046-4018-8a20-03eb27af496a" name="_instance" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="d5ec9935-5aa7-44f7-be02-ee1652cb9615" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="d2421da2-373d-416a-b16f-8679efaa3c72" LastKnownName="FFApplication" />
+            </type_NamedElement>
+          </property>
+          <property Id="09db8ffb-823f-4d11-b0d6-29f98501cb32" name="_gameManager" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="a3a2dcfc-1eb2-4b49-ba33-92ed90aa4125" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="d92a9abe-4146-45c7-b180-52282a2401cb" LastKnownName="FFGameManager" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="d1a90376-b10a-4d53-b598-2a4d9c505322" name="EventHandler" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="48e85b72-7867-40f9-b479-721b10ccc6fc" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="379c8b9e-3719-42af-874d-d6f698451a1d" direction="Return" isUnique="false">
+                  <elementDefinition Id="63e98315-5322-4185-bf11-61d11e5a4427" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="66043b9e-03a3-453b-bfed-a241bb54a9fa" LastKnownName="orxSTATUS" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="358d7250-5970-4796-a5e0-00b93322090d" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="a0ce4231-fcd6-490a-a88d-3c8a596a6dbf" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="bbbb7760-c8e0-4e2f-9c06-b5fc41c5a147" direction="Return" isUnique="false">
+                  <elementDefinition Id="29bfdc61-18af-4a85-a912-82f1957376d1" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="66043b9e-03a3-453b-bfed-a241bb54a9fa" LastKnownName="orxSTATUS" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="f2d07cfe-dcab-49f3-a3af-8bb5befa3a54" name="Init" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="5929af57-1720-496f-bd50-a637de691b54" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="df86ece1-7daf-426d-9740-0af269f7e2bf" direction="Return" isUnique="false">
+                  <elementDefinition Id="591dbfef-cc3f-4ab7-90f8-4f2a54c20edd" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="66043b9e-03a3-453b-bfed-a241bb54a9fa" LastKnownName="orxSTATUS" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="d285f683-347e-43b4-a4dd-f7200ef8275c" name="Exit" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="ffc868d0-38e3-408d-a93a-b24b25a922d2" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ac7946ee-99b0-4cf0-a2a6-0446d64e0a5e" direction="Return" isUnique="false">
+                  <elementDefinition Id="4f958e54-a212-4f50-a012-c47ca538ba13" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="9c2da88d-4e7b-451e-a206-8945f05e2e16" LastKnownName="void" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="41753ef2-d5df-475c-a72f-dde38dd0d69e" name="Run" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="e6e85244-90da-4aaa-8dcb-699416e250a3" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="e4d6ed3a-9c51-4ffe-a77e-0cf7506b44bd" direction="Return" isUnique="false">
+                  <elementDefinition Id="9f9dee74-0864-4556-8df3-2b016f2e9649" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="66043b9e-03a3-453b-bfed-a241bb54a9fa" LastKnownName="orxSTATUS" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="d2421da2-373d-416a-b16f-8679efaa3c72" name="FFApplication" isAbstract="false" isLeaf="false" cachedFullName="FightFrameworkArch::FFApplication">
+        <elementDefinition Id="948c3876-22d4-4b9d-86a6-5140a9f95018" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="d92a9abe-4146-45c7-b180-52282a2401cb" name="FFGameManager" isAbstract="false" isLeaf="false" cachedFullName="FightFrameworkArch::FFGameManager">
+        <elementDefinition Id="f25300d9-5601-4693-b3f4-0db9f4ddf503" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="43429e0c-d605-4ff6-a045-798edbb9f0bc" name="std::vector&lt;FfStaticObject&gt;" isAbstract="false" isLeaf="false" cachedFullName="std::vector&lt;FfStaticObject&gt;">
+        <elementDefinition Id="a994336a-72af-4970-8b24-58b08d29c70a" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="2a83b102-6e84-47f5-8be5-03fb4cdd74f7" name="std::vector&lt;FFStaticAnimatedObjcet&gt;" isAbstract="false" isLeaf="false" cachedFullName="std::vector&lt;FFStaticAnimatedObjcet&gt;">
+        <elementDefinition Id="7166a0dc-5082-4515-8b7d-d1955cfc280e" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="7d290aff-3a49-4627-ba42-71fe89df00d5" name="std::vector&lt;FfDynamicObject&gt;" isAbstract="false" isLeaf="false" cachedFullName="std::vector&lt;FfDynamicObject&gt;">
+        <elementDefinition Id="609125be-2730-4ea8-92d0-ceb3c683d610" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="6bddb50d-5643-44e0-99bb-13ee3a296bdf" name="std::vector&lt;FFDynamicAnimatedObjejct&gt;" isAbstract="false" isLeaf="false" cachedFullName="std::vector&lt;FFDynamicAnimatedObjejct&gt;">
+        <elementDefinition Id="6649e68c-8e17-43b0-81dd-919727e07780" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="e26be174-b8f0-4fa4-a819-6a04a9b0ebd5" name="IDynamicMoveStrategy" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="82c7c02a-bb39-45d3-9565-95ca0bf77bfa" />
+        <ownedOperations>
+          <operation Id="30bbccb2-75fc-4e88-9e4d-9db3b32a530c" name="ReadConfiguration" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="c124d233-c52b-470a-bc54-00baa64b1697" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="8501d058-44fd-49d0-abfc-ee597b790bda" direction="Return" isUnique="false">
+                  <elementDefinition Id="5a5d8696-e1e4-4a4d-a0b3-eaff8a36ac83" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="9c2da88d-4e7b-451e-a206-8945f05e2e16" LastKnownName="void" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="114e84c2-62d7-4728-97a6-d5553888d4eb" name="Calculate" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="ad035ee6-9219-4aab-a524-2f8a18174b1f" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="d73bd41d-ef04-4232-9305-3adf2c60198f" direction="Return" isUnique="false">
+                  <elementDefinition Id="4d34eee0-08c2-4d50-be96-89523c1053b0" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="9c2da88d-4e7b-451e-a206-8945f05e2e16" LastKnownName="void" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="be063668-03eb-4da9-86dd-6644da217361" name="orxVECTOR" direction="In" isUnique="false">
+                  <elementDefinition Id="e7ef23f3-9902-4b80-839b-624d2dcb2b0b" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="60342207-1c3b-4159-aeea-22cf33abc6f3" name="orxCLOCK_INFO" direction="In" isUnique="false">
+                  <elementDefinition Id="019e51a1-d639-48ec-b852-9483bca0676c" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="36fef742-76bf-4dbf-82eb-9f4952ffa9f7" name="LineMoveStrategy" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="c565c989-f568-4fe4-93c1-4484cb0fe2eb" />
+        <suppliersInternal>
+          <interfaceRealization Id="4949a852-4d4b-421a-ba11-5bc123977f3d">
+            <interfaceMoniker Id="e26be174-b8f0-4fa4-a819-6a04a9b0ebd5" LastKnownName="IDynamicMoveStrategy" />
+            <elementDefinition Id="2ea8ebc9-7199-46af-b262-7771d9347c11" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property Id="a2df4566-4088-4576-82a5-113429e40f7e" name="_startPosition" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="522d70e6-6dc7-41e9-a2e8-46835ebd3d37" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c9930af9-a36f-49ad-9be5-4730500a2ea0" LastKnownName="orxVECTOR" />
+            </type_NamedElement>
+          </property>
+          <property Id="edbdeed3-1ed5-4d79-920f-2606b4f97312" name="_finishPosition" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="8a18c075-601f-4e87-b328-becd4fbe3794" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c9930af9-a36f-49ad-9be5-4730500a2ea0" LastKnownName="orxVECTOR" />
+            </type_NamedElement>
+          </property>
+          <property Id="91aa31d6-6348-4cea-99f4-196b2cf667c4" name="_speed" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="0d01fff3-0619-4ca1-b3eb-aa699c2a1a16" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="fc824872-df3c-4913-a5f2-5dca905b3355" LastKnownName="orxFLOAT" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="ada9d9af-66b8-4226-890e-fb319ca0f664" name="ReadConfiguration" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="4390f161-5bcf-4f70-ba90-8a043112e5b9" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="40e6022c-4ac4-4c77-8582-56fd6be8d85b" direction="Return" isUnique="false">
+                  <elementDefinition Id="2a4e1d2f-c02d-4a54-a1d6-126642c62a7b" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="9c2da88d-4e7b-451e-a206-8945f05e2e16" LastKnownName="void" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="2193b70f-22a6-4a3e-bd01-57ec3607e956" name="Calculate" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="96a55a15-1611-421e-a5f7-47aca6e914bc" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="78a2aff5-0e63-4f61-9884-7317f88f82b8" name="orxVECTOR" direction="In" isUnique="false">
+                  <elementDefinition Id="bc6f300f-1cb3-47ca-87e6-d765df913aee" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="577cfa13-9e89-4212-9630-b1ca2f4c78c1" name="orxCLOCK_INFO" direction="In" isUnique="false">
+                  <elementDefinition Id="ef85805e-2892-461b-a7e8-abfcd02ba653" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="8b355c26-41bb-4a33-9edc-4c5a77c2accb" direction="Return" isUnique="false">
+                  <elementDefinition Id="60b8bfbe-771b-4be2-b599-c33643acdd12" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="9c2da88d-4e7b-451e-a206-8945f05e2e16" LastKnownName="void" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="6f14ece6-58fb-4c53-83bb-a976f8ec8009" name="IDynamicMoveStrategy" isAbstract="false" isLeaf="false" cachedFullName="FightFrameworkArch::IDynamicMoveStrategy">
+        <elementDefinition Id="82c7c02a-bb39-45d3-9565-95ca0bf77bfa" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="0546971b-bd79-4699-8588-b862d711a1bd" name="DynamicMoveStrategyFactory" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="ca9049da-7fdb-44b2-977a-6a1b31150270" />
+        <ownedOperationsInternal>
+          <operation Id="076fb553-8fee-4997-822c-6549de7cfe41" name="CreateMoveStrategy" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="ca5f338a-80db-4243-a51e-f81dd35dbb7c" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ec442d40-bbc2-411b-b69e-b217bc172314" name="FF_DYNAMIC_MODE_STRATEGY" direction="In" isUnique="false">
+                  <elementDefinition Id="c0785375-3173-49e9-9b6f-a7234df82b38" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="49703283-8547-4eac-9c64-37e99a3befcd" direction="Return" isUnique="false">
+                  <elementDefinition Id="7745f002-4b2b-4504-a9de-f58fe34206a2" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="6f14ece6-58fb-4c53-83bb-a976f8ec8009" LastKnownName="IDynamicMoveStrategy" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="8ad0b55f-170f-42a1-b913-435df930fef1" name="FightFrameworkArch">
+    <elementDefinition Id="0ce451aa-c109-4a40-b04a-f07967e56ca0" />
+    <profileInstances>
+      <packageHasProfileInstances Id="1cacae24-9f3c-49cc-bd53-243cc0220664">
+        <profileInstance Id="f7e0472b-3b91-456f-8733-72001e708d48" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="7766c8a1-aae3-483f-a08a-351aa8ffbde2">
+        <profileInstance Id="ebc39523-74be-48cc-871e-0491f8ab2b8e" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</logicalClassDesignerModel>

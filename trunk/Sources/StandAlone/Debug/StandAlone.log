@@ -1,0 +1,7 @@
+﻿  samain.cpp
+d:\utils\game_install\game\sources\standalone\samain.cpp(47): warning C4101: 'eType' : unreferenced local variable
+d:\utils\game_install\game\sources\standalone\samain.cpp(49): warning C4101: 'zInputExplosion' : unreferenced local variable
+d:\utils\game_install\game\sources\standalone\samain.cpp(48): warning C4101: 'eID' : unreferenced local variable
+  LINK : D:\Utils\game_install\Game\Output\StandAlone.exe not found or not built by the last incremental link; performing full link
+  StandAlone.vcxproj -> D:\Utils\game_install\Game\Output\StandAlone.exe
+          1 file(s) copied.

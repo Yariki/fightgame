@@ -1,0 +1,6 @@
+﻿  main.cpp
+  FFApplication.cpp
+  Generating Code...
+LINK : warning LNK4098: defaultlib 'LIBCMTD' conflicts with use of other libs; use /NODEFAULTLIB:library
+  SampleGame.vcxproj -> D:\Utils\game_install\Game\Output\SampleGame.exe
+          1 file(s) copied.

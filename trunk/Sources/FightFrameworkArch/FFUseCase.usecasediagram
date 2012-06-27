@@ -1,0 +1,562 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="adad9464-0251-4a95-8e60-63386699b220" name="FFUseCase" linkedPackageId="e2c024c6-0cc6-4adc-8b57-a3e562500889" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <ownedCommentsInternal>
+    <comment Id="92f6bdee-c79c-48e6-ab39-cd4fec01fdd1">
+      <elementDefinition Id="a99f9b93-96f9-41af-ada7-d622c9240010" />
+      <body>Also it's can be or game scene or some ui interface, which must be loaded and represent on display. Then it must be unloaded.
+</body>
+      <annotatedElements>
+        <actorMoniker Id="e7f49e24-7f36-47b4-a987-e047b0c60c31" LastKnownName="Scene" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="29031263-c2b7-432d-82c8-82ae9c2ec409" name="Object" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="302e0637-2aca-4595-b2a4-e9a6234e78de" />
+        <targetEnds>
+          <association Id="2917a640-487a-4483-aa35-42698e435eed" isDerived="false" sourceEndRoleName="Object" targetEndRoleName="UseCase1" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="f996d6f4-66fd-4a7b-a07a-0ad88fac5150" LastKnownName="We can create object from config file, change  position, change color, change rotation" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="49c1719a-626c-4f0e-8cf7-893f4f7fb83d" name="Object" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="0e34ab04-4196-4d26-b3bb-7d6ec54b7b2b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="7798b038-d04a-4260-aadd-47c98b2981c9" name="UseCase1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="8a67f17d-9a75-4649-a658-561e32cce07f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="4d8b176f-e664-48d8-b575-5d0b48920dd4" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="d924aabd-d224-47e6-9492-a993885ccfd1" name="StaticObject" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="dae861be-115f-4cab-8080-42601f2d2baa" />
+        <generalsInternal>
+          <generalization Id="ee3f1782-e624-445f-9d09-b41e6af0c520" isSubstitutable="false">
+            <actorMoniker Id="d924aabd-d224-47e6-9492-a993885ccfd1" LastKnownName="StaticObject" />
+            <elementDefinition Id="febe498e-c4ac-458d-b1f2-38b80671643d" />
+          </generalization>
+          <generalization Id="01448208-bc1c-4ebb-96df-de7e27f79186" isSubstitutable="false">
+            <actorMoniker Id="29031263-c2b7-432d-82c8-82ae9c2ec409" LastKnownName="Object" />
+            <elementDefinition Id="b51d7ac7-174b-403f-9164-f15e8d291368" />
+          </generalization>
+        </generalsInternal>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="f996d6f4-66fd-4a7b-a07a-0ad88fac5150" name="We can create object from config file, change  position, change color, change rotation" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="004fcb6b-42d5-4d8f-b006-a6bc71b8d38d" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="cd5d241c-919e-4d48-8327-ac73c8b4308b" name="StaticAnimatedObject" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="3ffab3a6-1658-4902-8e8e-935cf2fdeed6" />
+        <generalsInternal>
+          <generalization Id="670451cb-6c44-4bc4-aa5c-8be764790039" isSubstitutable="false">
+            <actorMoniker Id="d924aabd-d224-47e6-9492-a993885ccfd1" LastKnownName="StaticObject" />
+            <elementDefinition Id="623d912b-fa24-4e46-a789-8e16103644ab" />
+          </generalization>
+          <generalization Id="34be6d57-4bac-490c-b6dc-f3f9cf1c5ce5" isSubstitutable="false">
+            <actorMoniker Id="9fe6fb85-a617-444a-ad76-65e3089da018" LastKnownName="AnimatedObject" />
+            <elementDefinition Id="b1422607-0e3f-4662-8400-3484814a3699" />
+          </generalization>
+        </generalsInternal>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="2446e736-f46d-42a6-9e1c-5825c044d497" name="DynamicObject" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="fde37115-ae8d-48d2-ada7-386938dc6900" />
+        <generalsInternal>
+          <generalization Id="90c3fbda-3b3e-4b1b-b6e2-747e787ddb16" isSubstitutable="false">
+            <actorMoniker Id="29031263-c2b7-432d-82c8-82ae9c2ec409" LastKnownName="Object" />
+            <elementDefinition Id="f8ef4be7-5469-4643-9400-9c0a6c262bd2" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association Id="ef9b928e-0d42-4056-af7c-6edb4a54426b" isDerived="false" sourceEndRoleName="DynamicObject" targetEndRoleName="We can move object in scene. It's can be particle object or texture. Object can move with help of some algoritm without keyboard or mouse manipulation" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="ee3df7b5-74ad-468a-8ca9-9f16c4951e1f" LastKnownName="We can move object in scene. It's can be particle object or texture. Object can move with help of some algoritm without keyboard or mouse manipulation" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ab0045c8-7852-4665-a791-796118b11f89" name="DynamicObject" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="55f3e1f1-c225-48a0-8886-7963e2a776bd" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b58a735f-7c79-4705-9489-662acb6a7033" name="We can move object in scene. It's can be particle object or texture. Object can move with help of some algoritm without keyboard or mouse manipulation" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="e65fba41-057a-469d-8234-c985a2ec6f95" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="11686d57-5d7c-4e9d-a1b6-1e3962fd9ef6" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="ee3df7b5-74ad-468a-8ca9-9f16c4951e1f" name="We can move object in scene. It's can be particle object or texture. Object can move with help of some algoritm without keyboard or mouse manipulation" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d46baf8d-d21b-4afc-9c4e-ad8edf5bfc07" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="8027dcd9-4c6e-4151-abdd-bf877d96cb2f" name="DynamicAnimatedObject" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ea3bb607-838f-4cef-b199-dcbebb01930a" />
+        <generalsInternal>
+          <generalization Id="dee2b772-a7ca-43cd-abe8-3e509d3b88c9" isSubstitutable="false">
+            <actorMoniker Id="2446e736-f46d-42a6-9e1c-5825c044d497" LastKnownName="DynamicObject" />
+            <elementDefinition Id="aeac503d-a56a-4da5-be98-70516f4aa279" />
+          </generalization>
+          <generalization Id="07ee272a-b258-44fd-9053-76955ca80056" isSubstitutable="false">
+            <actorMoniker Id="9fe6fb85-a617-444a-ad76-65e3089da018" LastKnownName="AnimatedObject" />
+            <elementDefinition Id="a4824c7d-3a33-4f5a-bfa5-498736d710d1" />
+          </generalization>
+        </generalsInternal>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="dbef8181-5617-446d-9b1a-782dd4217ab6" name="MovableObject" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="87f070e8-c4e4-4244-9870-2d5f5794637a" />
+        <generalsInternal>
+          <generalization Id="589f0efb-fac9-4a9f-87de-b3ed29adc719" isSubstitutable="false">
+            <actorMoniker Id="29031263-c2b7-432d-82c8-82ae9c2ec409" LastKnownName="Object" />
+            <elementDefinition Id="482a7df4-66b6-43c0-83fd-9a0482cff145" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association Id="550bfacc-edb0-4720-bdf6-94752d70ca43" isDerived="false" sourceEndRoleName="MovableObject" targetEndRoleName="We can control object by key or mouse (position,etc) " isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="93dd68e1-711e-4d88-a054-3edf086fd284" LastKnownName="We can control object by key or mouse (position,etc) " />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4e3bbb28-b657-4bb2-8492-8d8b8a34d7e8" name="MovableObject" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="ad7078fd-7c8b-4a0e-b0c2-3970a6ab7d86" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ee0e333f-3142-40af-9d0f-aa7b3977f745" name="We can control object by key or mouse (position,etc) " isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="6697bcac-0f3a-4458-9fd9-9ee43d3b0558" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="e18078bc-4ca0-4be1-9477-b578a703e4c9" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="93dd68e1-711e-4d88-a054-3edf086fd284" name="We can control object by key or mouse (position,etc) " isAbstract="false" isLeaf="false">
+        <elementDefinition Id="42ea77c9-d542-4d4f-97e4-a90027d22434" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="0b312c30-b1d0-4182-928e-764344e67d72" name="MovableAnimatedObject" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2621b101-630a-41fe-9247-34d802a4ea35" />
+        <generalsInternal>
+          <generalization Id="e862d5cd-6b35-4c02-894b-22731e85c845" isSubstitutable="false">
+            <actorMoniker Id="dbef8181-5617-446d-9b1a-782dd4217ab6" LastKnownName="MovableObject" />
+            <elementDefinition Id="ac52a62e-292f-4fb9-b27d-0489f818757f" />
+          </generalization>
+          <generalization Id="10b62d4b-a9ce-4200-8c46-454f6a1d0d4f" isSubstitutable="false">
+            <actorMoniker Id="9fe6fb85-a617-444a-ad76-65e3089da018" LastKnownName="AnimatedObject" />
+            <elementDefinition Id="5becf5e4-59f9-416e-b4c6-4972cea21a2f" />
+          </generalization>
+        </generalsInternal>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="e7f49e24-7f36-47b4-a987-e047b0c60c31" name="Scene" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="cad6ef0e-25b7-48cf-b4af-7fddbc1dae5b" />
+        <targetEnds>
+          <association Id="0fa8f027-d352-4f8f-8b1b-7b73ba2e1068" isDerived="false" sourceEndRoleName="Scene" targetEndRoleName="Load configuration file of scene" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="dcf76057-71b8-47af-9159-294a2c4e442f" LastKnownName="Load configuration file of scene" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="428a8030-76fe-44b4-af39-dce07dab984c" name="Scene" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="7e272ac2-d51e-4622-a0af-02c58f538bb7" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="87573dc6-495a-4633-b5e9-6bf7c0b9a8b3" name="Load configuration file of scene" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="1a5b379b-43d6-44fb-9b0d-f3782a5b5d4b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="76e343fe-c7b3-430e-8304-ab9b0090403d" />
+          </association>
+          <association Id="10a4dcbf-47c7-4d38-92ef-e58be6fce06b" isDerived="false" sourceEndRoleName="Scene" targetEndRoleName="Create all obejcts (it can content as a static as a dynamic objects )" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="550e559b-4612-4f18-91f1-a74ed04a91f9" LastKnownName="Create all objects (it can content as a static as a dynamic objects )" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="966ef879-9a28-4b6f-8024-3e54982376d3" name="Scene" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="6ef88f28-760f-40ac-9895-330444a0bc17" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="6362de79-cda3-4759-b9ac-3fe36b413ea3" name="Create all obejcts (it can content as a static as a dynamic objects )" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="1f9c9b16-65f9-433c-b703-29de4c9b3906" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="c347e3e8-e2f0-4915-94a5-bac9effea642" />
+          </association>
+          <association Id="4c9d7947-c0ab-4720-84ac-5c6811f009b4" isDerived="false" sourceEndRoleName="Scene" targetEndRoleName="Unload scene (delete all objects)" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="ee4a99ac-646e-4952-88a9-310052e7257a" LastKnownName="Unload scene (delete all objects)" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c240ffd8-9b48-4c67-90f6-3c0ec603e42f" name="Scene" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="d0513456-a43d-43d0-b1a0-1b96274b6d08" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="244dd863-1287-4686-903b-0237654ed9c2" name="Unload scene (delete all objects)" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="d9cc6e15-97ec-48a9-9f07-f9c90b5e7daa" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="e01ec74a-e1ba-4d96-b42c-4df1fd39c6ff" />
+          </association>
+          <association Id="335e9e12-013b-4c2f-9e34-dae69dafaff5" isDerived="false" sourceEndRoleName="Scene" targetEndRoleName="Translate all messages to movable object " isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="ada2e3bf-151c-4b75-aead-658cbf1b2e87" LastKnownName="Translate all messages to movable object " />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8a1557a5-92a2-42b5-b8b0-3cd5f239d64f" name="Scene" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="73470173-cbba-46d8-8f98-114a08f92034" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5e9424cf-4a49-418a-be1a-458f69367c3d" name="Translate all messages to movable object " isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="cad4d9bc-6fdf-4720-9c22-ae39570ca7ca" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="8f9b2bfa-757f-4c53-a342-a35f18a675a2" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="dcf76057-71b8-47af-9159-294a2c4e442f" name="Load configuration file of scene" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="cf692597-87dc-4a8e-8e03-fddcb1c3c38b" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="550e559b-4612-4f18-91f1-a74ed04a91f9" name="Create all objects (it can content as a static as a dynamic objects )" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="443854df-c94d-4031-9249-abc0f809caa3" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="ee4a99ac-646e-4952-88a9-310052e7257a" name="Unload scene (delete all objects)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="fa797af5-c812-484f-8bde-6f84b542c66d" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="ada2e3bf-151c-4b75-aead-658cbf1b2e87" name="Translate all messages to movable object " isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d4656aee-fc36-420c-b739-619b1e98b6aa" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="f65eac48-1ce9-4bf0-bcd5-b0beabffb974" name="GameManager" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d641491e-bb14-49f7-96d1-f1db3eb3d474" />
+        <targetEnds>
+          <association Id="c86fe91b-6ee3-4365-9b99-892b0617e528" isDerived="false" sourceEndRoleName="Actor1" targetEndRoleName="store list of all scene, which can be loaded during the &quot;game&quot;." isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="6f21f04f-2da5-4ef4-acf6-0206c49477f0" LastKnownName="store list of all scene, which can be loaded during the &quot;game&quot;." />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="7f058054-4cba-4b76-badb-dfca0d4b521d" name="Actor1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="21ace764-a8b0-465a-9d2a-b9bf594bfa18" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="9d70a09f-1c78-4537-b713-7e97d972ef52" name="store list of all scene, which can be loaded during the &quot;game&quot;." isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="28c726dc-9391-4c8c-8a49-0378def38030" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="5f56208a-18f5-4ff0-b703-490ae77d4686" />
+          </association>
+          <association Id="f23628d7-1182-4638-84b8-b3f2b4d0ab95" isDerived="false" sourceEndRoleName="Actor1" targetEndRoleName="store current loaded  scene" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="18e5768b-0da7-48c4-8025-fc31925aedf8" LastKnownName="store current loaded  scene" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d9275e3a-8bc2-492c-9ac7-7f1e5bc62d72" name="Actor1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="0cc28417-ed35-4c06-a9e7-23da17c4db94" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="bb345f7e-27c7-474a-bed2-5218b2def610" name="store current loaded  scene" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="949363b0-6ac3-4273-a030-f823ecfb7234" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="2ba5defb-958e-4105-8a0e-729491bd6e2d" />
+          </association>
+          <association Id="163e4950-44e4-46d6-89e4-39a62018fd36" isDerived="false" sourceEndRoleName="GameManager" targetEndRoleName="It load main configuration file" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="02075ddb-c030-43a8-92d9-7c23e812fde7" LastKnownName="It load main configuration file" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="bb04d9f6-d82d-4797-bcf5-a18eed67acef" name="GameManager" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="d6f733f5-3f8b-478f-b601-fba78b0f5571" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="015e924c-6c75-479d-9506-6ec889ad1d73" name="It load main configuration file" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="5b3f60b8-fbb2-45c9-8bad-a21f15611b9d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="88843d3f-93b2-4af2-841b-2f100b23ebc7" />
+          </association>
+          <association Id="ebff13d3-a8ec-4005-ad08-2e18ba6ba539" isDerived="false" sourceEndRoleName="GameManager" targetEndRoleName="we can store pointer on  main menu scene" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="1e3d0b8f-47e1-4d64-9cb8-22f66dfc15cb" LastKnownName="we can store pointer on  main menu scene" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ae7e5253-51ca-48aa-91de-477ef079b80e" name="GameManager" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="c5df5be4-171f-491b-89f4-8c60f1ea79bd" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="236a4aea-92a2-4bb0-9425-56aed0204770" name="we can store pointer on  main menu scene" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="6f3aa03a-987e-4eab-8ae0-08ea541a33ad" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="3c5c446b-6e83-47e0-b667-7c783a380340" />
+          </association>
+          <association Id="3e1c31de-d10f-4834-acc6-190abe0090be" isDerived="false" sourceEndRoleName="GameManager" targetEndRoleName="translate event to current scene" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="6936d90a-db37-4a3b-9dd1-f63d3b58c065" LastKnownName="translate event to current scene" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="35f1452f-2eb5-4ed0-b086-3db24775fc6c" name="GameManager" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="e2c0a1e9-7742-4702-889d-9a0fd029efc8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="832b804c-4cd1-40cb-b62d-742197d00182" name="translate event to current scene" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="8c939973-fdb2-4c5d-a041-316d8be8c7b8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="ab22da3d-0d65-49e0-bcda-1d56281fcfc6" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="6f21f04f-2da5-4ef4-acf6-0206c49477f0" name="store list of all scene, which can be loaded during the &quot;game&quot;." isAbstract="false" isLeaf="false">
+        <elementDefinition Id="67d10734-0a13-4614-b515-96763927aea8" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="18e5768b-0da7-48c4-8025-fc31925aedf8" name="store current loaded  scene" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="4bfd832e-023a-4a24-86c4-9d62bda2ba77" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="02075ddb-c030-43a8-92d9-7c23e812fde7" name="It load main configuration file" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="cf3ef860-f12f-4fd7-b200-c37779da7c9b" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="fe738b1a-53d9-418f-962c-c6496c5d6ff3" name="GameScene" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="67f242e0-4bf4-412d-84c6-d2e24c7ed4b2" />
+        <generalsInternal>
+          <generalization Id="a0384091-cfc8-4038-a804-08a8c46b737e" isSubstitutable="false">
+            <actorMoniker Id="e7f49e24-7f36-47b4-a987-e047b0c60c31" LastKnownName="Scene" />
+            <elementDefinition Id="c9376f1c-edb7-4641-a1cb-0fe62fa94bfc" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association Id="3833c355-0689-47d7-8d11-6a4d11c245ee" isDerived="false" sourceEndRoleName="GameScene" targetEndRoleName="Load scene file, where we  store information for game" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="f94b7b6c-097a-4cae-8c66-ea8caf4694d4" LastKnownName="Load scene  file, where we  store information for game" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c7bb1c78-2b7d-46f6-8097-c1d4ec28e843" name="GameScene" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="d81715cc-3a96-488a-b98b-2986df9c343e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="45abec83-c1a1-4f8a-8dea-8ab82fccab39" name="Load scene file, where we  store information for game" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="4b753805-25ae-438c-94cd-b986b0dc7354" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="822176eb-03e0-47c3-9314-879afa88f61c" />
+          </association>
+          <association Id="edb2593c-83a7-49d0-85c3-65ea99c228df" isDerived="false" sourceEndRoleName="GameScene" targetEndRoleName="Load and hellp to manipulate  heros of game" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="d9bb32db-7ef9-44aa-8562-d8f22f724982" LastKnownName="Load and hellp to manipulate  heros of game" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="61da03ee-e942-4455-a13c-3ad0184b271e" name="GameScene" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="4e074bf0-abf9-4cf4-827b-d7c17e11532e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="087e5a42-78ac-4b89-9ad6-d12fe6e4899c" name="Load and hellp to manipulate  heros of game" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="fa5e3838-ccff-4a5b-aed3-96523cf34037" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="ea2ecd5f-d685-4e19-86cc-c0db661b7ca5" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="a788e075-23ce-4bd3-b39f-c1fff2252612" name="UIScene" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="108f4a49-1993-44ee-855d-8fee21237845" />
+        <generalsInternal>
+          <generalization Id="173d7e22-50e7-4547-b406-d5b93b2f121e" isSubstitutable="false">
+            <actorMoniker Id="e7f49e24-7f36-47b4-a987-e047b0c60c31" LastKnownName="Scene" />
+            <elementDefinition Id="508ea7df-6fde-48d2-bb2a-3002799a2f26" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association Id="2a038c92-db70-422e-a868-465023c6057a" isDerived="false" sourceEndRoleName="UIScene" targetEndRoleName="Load file, where we store information for UI (Main menu, Configuration, Help, etc)" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="b516788a-253e-4fa2-8cf3-cf6ff7220f01" LastKnownName="Load file, where we store information for UI (Main menu, Configuration, Help, etc)" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a9bd4916-4e70-4299-8ee3-ac3ecfa21356" name="UIScene" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="4d77278d-17d8-4046-9002-11ddba7d3413" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="be2f2390-3e2f-4693-905f-a43f14f65f4e" name="Load file, where we store information for UI (Main menu, Configuration, Help, etc)" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="498fa902-1619-4317-ae3c-5dc91ce91b88" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="c5460118-f5dc-4023-a50c-b907f79b6a57" />
+          </association>
+          <association Id="c560bf33-49aa-4993-838c-9758a9c2e71d" isDerived="false" sourceEndRoleName="UIScene" targetEndRoleName="load configuration  of  game, help to configure them and store them in configuration file" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="5e2c86ef-177e-49b7-8a52-a2df1e038ff4" LastKnownName="load configuration  of  game, help to configure them and store them in configuration file" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="0df0241c-2353-44ee-9efe-eec7414d0ca4" name="UIScene" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="ba80cdbc-fe5a-48c2-b254-9e281d958cc9" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="7b76dba1-cf04-4cf9-9ae2-6fb46cf793ed" name="load configuration  of  game, help to configure them and store them in configuration file" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="6792272a-114f-479c-8102-53580b43b0d7" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="b593cd58-ac77-464f-bc4d-d27a8185c496" />
+          </association>
+          <association Id="377352ce-4fb4-4a75-850e-804af8ff5d00" isDerived="false" sourceEndRoleName="UIScene" targetEndRoleName="Maybe, we can  apply  configuration in runtime" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="7c018854-a00e-4c6b-bd92-c91a5e08e6a1" LastKnownName="Maybe, we can  apply  configuration in runtime" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3fadc298-b786-4e44-ab3c-45b9b1ff4ab2" name="UIScene" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="cbb82070-48f1-4b62-a155-e455b114641b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="bbd1fa82-19f0-4d43-9b51-9bd03354c499" name="Maybe, we can  apply  configuration in runtime" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="dcc79b46-d03e-4a28-aca1-236c6dec0cfa" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="bae9800c-f470-4acc-b02e-a6d41750a50a" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="f94b7b6c-097a-4cae-8c66-ea8caf4694d4" name="Load scene  file, where we  store information for game" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e366d518-982c-4b08-918f-7b9a8de5af52" />
+        <extendedCases>
+          <extend Id="34236d7f-01ee-42b3-95d5-9489bb633177">
+            <useCaseMoniker Id="dcf76057-71b8-47af-9159-294a2c4e442f" LastKnownName="Load configuration file of scene" />
+            <elementDefinition Id="038ee659-7ed1-4930-adf6-07690660f21c" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="d9bb32db-7ef9-44aa-8562-d8f22f724982" name="Load and hellp to manipulate  heros of game" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="cf2edfae-8b86-42dc-8ac4-3b4e2b1697d6" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="b516788a-253e-4fa2-8cf3-cf6ff7220f01" name="Load file, where we store information for UI (Main menu, Configuration, Help, etc)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ccde64f0-0331-4e6f-8698-bbe0188d9e34" />
+        <extendedCases>
+          <extend Id="6091c858-bb7a-4632-acc0-37197f7b3318">
+            <useCaseMoniker Id="dcf76057-71b8-47af-9159-294a2c4e442f" LastKnownName="Load configuration file of scene" />
+            <elementDefinition Id="c6e9d1df-3242-48fc-895d-b73f6ea34043" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="5e2c86ef-177e-49b7-8a52-a2df1e038ff4" name="load configuration  of  game, help to configure them and store them in configuration file" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c57e01fe-2f57-45c9-bc1c-351b42858dcd" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="7c018854-a00e-4c6b-bd92-c91a5e08e6a1" name="Maybe, we can  apply  configuration in runtime" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ded54d84-30b9-47c1-89a8-0b60e924349e" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="1e3d0b8f-47e1-4d64-9cb8-22f66dfc15cb" name="we can store pointer on  main menu scene" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="53299798-69a2-4f72-b58d-0462c86f9604" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="6936d90a-db37-4a3b-9dd1-f63d3b58c065" name="translate event to current scene" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b119c6a1-15c8-4783-b77d-5a693bdbcde1" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="9fe6fb85-a617-444a-ad76-65e3089da018" name="AnimatedObject" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b67702b0-06dc-43cb-a616-fb7738aabbee" />
+        <targetEnds>
+          <association Id="b9462f02-748a-44c9-86aa-7c351725a646" isDerived="false" sourceEndRoleName="AnimatedObject" targetEndRoleName="We can set animation for this object, control animation1" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="1e6a3100-0fa1-4f31-bd87-c7a9158503e2" LastKnownName="We can set animation for this object, control animation1" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f8d460c4-eb01-454c-aeda-b2afb111a631" name="AnimatedObject" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="df71dbb8-7b26-44dc-abe2-f7ab1d938930" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="05e04ea7-3503-4c6e-9740-29cb7844ca1a" name="We can set animation for this object, control animation1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="2536757b-ae3f-4ebe-aa53-b4719deb491d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="3c245317-a3ae-44ff-95fd-aeebf78097ea" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="1e6a3100-0fa1-4f31-bd87-c7a9158503e2" name="We can set animation for this object, control animation1" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="4dc2548a-a92d-4b41-b2cd-f5c49b924d6a" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="e2c024c6-0cc6-4adc-8b57-a3e562500889" name="FightFrameworkArch">
+    <elementDefinition Id="0ce451aa-c109-4a40-b04a-f07967e56ca0" />
+    <profileInstances>
+      <packageHasProfileInstances Id="5ec38ddc-d2ac-46ac-a12d-c712164856f4">
+        <profileInstance Id="3b23d4fe-3167-4ebd-9a88-70b6236e7867" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="97c47fc5-83e3-4526-9df4-b5c76c1a8984">
+        <profileInstance Id="dbe4d29e-75cd-40fc-9a45-77e5d8af0086" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</useCaseModelRoot>
