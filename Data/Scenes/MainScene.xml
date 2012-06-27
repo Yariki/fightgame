@@ -1,0 +1,17 @@
+<Scene Name="main">
+  <StaticObjects>
+    <StaticObjects Filename="..\data\Ini\Ground.ini" />
+	<StaticObjects Filename="..\data\Ini\Wall.ini" />
+	<StaticObjects Filename="..\data\Ini\Grass.ini" />
+	<StaticObjects Filename="..\data\Ini\Grass2.ini" />
+  </StaticObjects>
+  <StaticAnimatedObjects>
+	<StaticAnimatedObject Filename="..\data\Ini\Tree.ini" />
+  </StaticAnimatedObjects>
+  <DynamicObjects>
+	<DynamicObject Filename="..\data\Ini\DynamicObject.ini" />
+  </DynamicObjects>
+  <DynamicAnimatedObjects>
+	<DynamicAnimatedObject Filename="..\data\Ini\DynamicAminObject.ini" />
+  </DynamicAnimatedObjects>
+</Scene>

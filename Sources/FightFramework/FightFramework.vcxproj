@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\FFAnimatedObject.h" />
+    <ClInclude Include="include\FFBaseControl.h" />
+    <ClInclude Include="include\FFBaseUiScene.h" />
+    <ClInclude Include="include\FFDefines.h" />
+    <ClInclude Include="include\FFDynamicAnimatedObject.h" />
+    <ClInclude Include="include\FFDynamicMoveStrategyFactory.h" />
+    <ClInclude Include="include\FFDynamicObject.h" />
+    <ClInclude Include="include\FFEnums.h" />
+    <ClInclude Include="include\FFGameManager.h" />
+    <ClInclude Include="include\FFGameScene.h" />
+    <ClInclude Include="include\FFInclude.h" />
+    <ClInclude Include="include\FFInputManager.h" />
+    <ClInclude Include="include\FFLineMoveStrategy.h" />
+    <ClInclude Include="include\FFMovableAnimatedObject.h" />
+    <ClInclude Include="include\FFMovableObject.h" />
+    <ClInclude Include="include\FFObject.h" />
+    <ClInclude Include="include\FFScene.h" />
+    <ClInclude Include="include\FFStaticAnimatedObject.h" />
+    <ClInclude Include="include\FFStaticObject.h" />
+    <ClInclude Include="include\FFStructure.h" />
+    <ClInclude Include="include\IDynamicMoveStrategy.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\FFAnimatedObject.cpp" />
+    <ClCompile Include="src\FFDynamicAnimatedObject.cpp" />
+    <ClCompile Include="src\FFDynamicMoveStrategyFactory.cpp" />
+    <ClCompile Include="src\FFDynamicObject.cpp" />
+    <ClCompile Include="src\FFGameManager.cpp" />
+    <ClCompile Include="src\FFGameScene.cpp" />
+    <ClCompile Include="src\FFInputManager.cpp" />
+    <ClCompile Include="src\FFLineMoveStrategy.cpp" />
+    <ClCompile Include="src\FFMovableAnimatedObject.cpp" />
+    <ClCompile Include="src\FFMovableObject.cpp" />
+    <ClCompile Include="src\FFObject.cpp" />
+    <ClCompile Include="src\FFScene.cpp" />
+    <ClCompile Include="src\FFStaticAnimatedObject.cpp" />
+    <ClCompile Include="src\FFStaticObject.cpp" />
+    <ClCompile Include="src\IDynamicMoveStrategy.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="MainGame.xml" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A04E1AC5-D169-474E-AEE4-123236C0D1B0}</ProjectGuid>
+    <RootNamespace>FightFramework</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)Output\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)ROutput\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(SolutionDir)Toolkits\orx\include;$(SolutionDir)Sources\tinyxml;$(ProjectDir)include\</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>__orxDEBUG__;__orxMSVC__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalLibraryDirectories>$(SolutionDir)Toolkits\orx\lib\dynamic;$(SolutionDir)Toolkits\TinyXml\lib\Debug\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>orxd.lib;tinyxml.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)Toolkits\orx\lib\dynamic;$(SolutionDir)Toolkits\TinyXml\lib\Debug</AdditionalLibraryDirectories>
+      <AdditionalDependencies>orxd.lib;tinyxml.lib</AdditionalDependencies>
+    </Lib>
+    <PostBuildEvent>
+      <Command>copy "$(ProjectDir)MainGame.xml" "$(OutDir)MainGame.xml"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(SolutionDir)Toolkits\orx\include;$(SolutionDir)Sources\tinyxml;$(ProjectDir)include\</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>__orxMSVC__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)Toolkits\orx\lib\dynamic;$(SolutionDir)Toolkits\TinyXml\lib\Release</AdditionalLibraryDirectories>
+      <AdditionalDependencies>orx.lib;tinyxml.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
+    <PostBuildEvent>
+      <Command>copy "$(ProjectDir)MainGame.xml" "$(OutDir)MainGame.xml"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

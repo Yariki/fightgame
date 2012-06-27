@@ -1,0 +1,8 @@
+﻿  uimain.cpp
+d:\utils\game_install\game\sources\sampleui\uimain.cpp(197): warning C4018: '>=' : signed/unsigned mismatch
+d:\utils\game_install\game\sources\sampleui\uimain.cpp(402): warning C4101: 'eType' : unreferenced local variable
+d:\utils\game_install\game\sources\sampleui\uimain.cpp(404): warning C4101: 'zInputExplosion' : unreferenced local variable
+d:\utils\game_install\game\sources\sampleui\uimain.cpp(403): warning C4101: 'eID' : unreferenced local variable
+  LINK : D:\Utils\game_install\Game\Output\SampleUI.exe not found or not built by the last incremental link; performing full link
+  SampleUI.vcxproj -> D:\Utils\game_install\Game\Output\SampleUI.exe
+          1 file(s) copied.

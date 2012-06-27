@@ -1,0 +1,6 @@
+﻿  tinyxmlparser.cpp
+  tinyxmlerror.cpp
+  tinyxml.cpp
+  tinystr.cpp
+  Generating Code...
+  tinyxml_lib.vcxproj -> D:\Utils\game_install\Game\Toolkits\TinyXml\lib\Debug\tinyxml.lib
