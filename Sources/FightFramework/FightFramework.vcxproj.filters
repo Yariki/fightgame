@@ -102,6 +102,15 @@
     <ClInclude Include="include\FFBaseControl.h">
       <Filter>Framework\Scene\Controls</Filter>
     </ClInclude>
+    <ClInclude Include="include\FFButton.h">
+      <Filter>Framework\Scene\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FFCheckBox.h">
+      <Filter>Framework\Scene\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FFComboChooseButton.h">
+      <Filter>Framework\Scene\Controls</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\FFAnimatedObject.cpp">
@@ -148,6 +157,18 @@
     </ClCompile>
     <ClCompile Include="src\FFInputManager.cpp">
       <Filter>Framework\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FFBaseControl.cpp">
+      <Filter>Framework\Scene\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FFButton.cpp">
+      <Filter>Framework\Scene\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FFCheckBox.cpp">
+      <Filter>Framework\Scene\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FFComboChooseButton.cpp">
+      <Filter>Framework\Scene\Controls</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

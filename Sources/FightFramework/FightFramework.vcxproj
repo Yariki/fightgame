@@ -14,6 +14,9 @@
     <ClInclude Include="include\FFAnimatedObject.h" />
     <ClInclude Include="include\FFBaseControl.h" />
     <ClInclude Include="include\FFBaseUiScene.h" />
+    <ClInclude Include="include\FFButton.h" />
+    <ClInclude Include="include\FFCheckBox.h" />
+    <ClInclude Include="include\FFComboChooseButton.h" />
     <ClInclude Include="include\FFDefines.h" />
     <ClInclude Include="include\FFDynamicAnimatedObject.h" />
     <ClInclude Include="include\FFDynamicMoveStrategyFactory.h" />
@@ -35,6 +38,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\FFAnimatedObject.cpp" />
+    <ClCompile Include="src\FFBaseControl.cpp" />
+    <ClCompile Include="src\FFButton.cpp" />
+    <ClCompile Include="src\FFCheckBox.cpp" />
+    <ClCompile Include="src\FFComboChooseButton.cpp" />
     <ClCompile Include="src\FFDynamicAnimatedObject.cpp" />
     <ClCompile Include="src\FFDynamicMoveStrategyFactory.cpp" />
     <ClCompile Include="src\FFDynamicObject.cpp" />

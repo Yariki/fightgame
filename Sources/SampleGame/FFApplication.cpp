@@ -1,5 +1,5 @@
 #include "FFApplication.h"
-
+#include "FFInputManager.h"
 
 FFApplication* FFApplication::_instance = NULL;
 
@@ -96,6 +96,7 @@ void FFApplication::Load()
 	if(orxConfig_HasSection(FF_MAIN_VIEWPORT) == orxTRUE)
 	{
 		orxViewport_CreateFromConfig(FF_MAIN_VIEWPORT);
+		FFInputManager::GetSingleton()->LoadInputSettings();
 		_manager = new FFGameManager();
 		_manager->Load();
 	}
