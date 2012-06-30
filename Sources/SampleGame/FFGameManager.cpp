@@ -95,3 +95,9 @@ bool FFGameManager::LoadMainScene(const TiXmlElement* root)
 
 	return true;
 }
+
+orxSTATUS FFGameManager::UserEventHandler(const orxEVENT* pEvent)
+{
+
+	return orxSTATUS_SUCCESS;
+}

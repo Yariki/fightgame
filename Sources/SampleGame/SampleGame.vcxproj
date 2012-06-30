@@ -80,6 +80,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="FFApplication.cpp" />
+    <ClCompile Include="FFGameManager.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -87,6 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FFApplication.h" />
+    <ClInclude Include="FFGameManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

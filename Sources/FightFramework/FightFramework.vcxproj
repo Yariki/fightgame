@@ -13,6 +13,7 @@
   <ItemGroup>
     <ClInclude Include="include\FFAnimatedObject.h" />
     <ClInclude Include="include\FFBaseControl.h" />
+    <ClInclude Include="include\FFBaseManager.h" />
     <ClInclude Include="include\FFBaseUiScene.h" />
     <ClInclude Include="include\FFButton.h" />
     <ClInclude Include="include\FFCheckBox.h" />
@@ -39,6 +40,7 @@
   <ItemGroup>
     <ClCompile Include="src\FFAnimatedObject.cpp" />
     <ClCompile Include="src\FFBaseControl.cpp" />
+    <ClCompile Include="src\FFBaseManager.cpp" />
     <ClCompile Include="src\FFButton.cpp" />
     <ClCompile Include="src\FFCheckBox.cpp" />
     <ClCompile Include="src\FFComboChooseButton.cpp" />
