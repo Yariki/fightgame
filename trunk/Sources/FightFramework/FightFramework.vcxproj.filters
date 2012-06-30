@@ -72,9 +72,6 @@
     <ClInclude Include="include\FFObject.h">
       <Filter>Framework\Objects</Filter>
     </ClInclude>
-    <ClInclude Include="include\FFGameManager.h">
-      <Filter>Framework\Manager</Filter>
-    </ClInclude>
     <ClInclude Include="include\FFScene.h">
       <Filter>Framework\Scene</Filter>
     </ClInclude>
@@ -139,9 +136,6 @@
     </ClCompile>
     <ClCompile Include="src\FFStaticObject.cpp">
       <Filter>Framework\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="src\FFGameManager.cpp">
-      <Filter>Framework\Manager</Filter>
     </ClCompile>
     <ClCompile Include="src\FFGameScene.cpp">
       <Filter>Framework\Scene</Filter>

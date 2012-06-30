@@ -1,6 +1,14 @@
 #ifndef __FFBASEMANAGER_H__
 #define __FFBASEMANAGER_H__
 
+#include "FFInclude.h"
+#include "FFScene.h"
+#include "FFGameScene.h"
+#include "FFBaseUiScene.h"
+
+
+
+
 class FFBaseManager
 {
 protected:
