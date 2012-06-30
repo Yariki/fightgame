@@ -7,7 +7,7 @@
 #include "FFGameManager.h"
 #include "FFButton.h"
 
-#define BTNS_FILE "../Data/Ini/Buttons.ini"
+
 
 class MainScene :
 	public FFBaseUiScene

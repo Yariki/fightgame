@@ -56,7 +56,7 @@ void FFComboChooseButton::Update(orxOBJECT* obj)
 			HoverLeft();
 		}
 	else if(obj == _rightButton)
-		if(isLeft && !isNew)
+		if(isLeft && isNew)
 		{
 			PressRight();
 			SetCurrentItem(false);

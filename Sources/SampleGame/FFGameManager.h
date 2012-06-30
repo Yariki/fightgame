@@ -8,6 +8,9 @@
 class FFGameManager : public FFBaseManager
 {
 
+protected:
+	std::vector<FFScene*> _listForDelete;
+
 public:
 	FFGameManager(void);
 	virtual ~FFGameManager(void);
