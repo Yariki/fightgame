@@ -52,6 +52,16 @@ void FFApplication::Update(const orxCLOCK_INFO* pClockInfo,void* pContext)
 
 orxSTATUS FFApplication::UserEventHandler(const orxEVENT* pEvent)
 {
+	SceneEvent* ev = static_cast<SceneEvent*>(pEvent->pstPayload);
+
+	switch(ev->GetEvent())
+	{
+		case FFUE_APPLICATION_CLOSE:	
+			orxLOG("FFUE_APPLICATION_CLOSE");
+			//orxSystem_Exit();
+			return orxSTATUS_SUCCESS;
+	}
+
 	FFApplication::instance()->UserEvent(pEvent);
 
 	return orxSTATUS_SUCCESS;
@@ -96,6 +106,7 @@ void FFApplication::Load()
 	if(orxConfig_HasSection(FF_MAIN_VIEWPORT) == orxTRUE)
 	{
 		orxViewport_CreateFromConfig(FF_MAIN_VIEWPORT);
+		orxInput_Load(orxSTRING_EMPTY);
 		FFInputManager::GetSingleton()->LoadInputSettings();
 		_manager = new FFGameManager();
 		_manager->Load();

@@ -8,7 +8,7 @@
 
 
 
-FFGameScene::FFGameScene(FFGameManager* gameManager,FF_DISPLAY_SIZE& size,orxSTRING filename)
+FFGameScene::FFGameScene(FFBaseManager* gameManager,FF_DISPLAY_SIZE& size,orxSTRING filename)
 	:FFScene(gameManager,size,filename)
 {
 	_type = FFST_GAMESCENE;

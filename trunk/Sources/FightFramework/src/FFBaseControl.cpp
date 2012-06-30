@@ -17,20 +17,20 @@ FFBaseControl::~FFBaseControl()
 		orxObject_Delete(_captionObject);
 }
 
-void FFBaseControl::SetPause()
+void FFBaseControl::Show()
 {
-	_isPaused = true;
+	_isHide = true;
 	if(_captionObject)
-		orxObject_Pause(_captionObject,_isPaused);
+		orxObject_Enable(_captionObject,_isHide);
 	if(_mainObject)
-		orxObject_Pause(_mainObject,_isPaused);
+		orxObject_Enable(_mainObject,_isHide);
 }
 
-void FFBaseControl::Unpause()
+void FFBaseControl::Hide()
 {
-	_isPaused = false;
+	_isHide = false;
 	if(_captionObject)
-		orxObject_Pause(_captionObject,_isPaused);
+		orxObject_Enable(_captionObject,_isHide);
 	if(_mainObject)
-		orxObject_Pause(_mainObject,_isPaused);
+		orxObject_Enable(_mainObject,_isHide);
 }

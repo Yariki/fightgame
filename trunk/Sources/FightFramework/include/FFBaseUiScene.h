@@ -8,8 +8,12 @@ class FFBaseUiScene : public FFScene
 {
 
 public:
-	FFBaseUiScene(FFGameManager* gameManager,FF_DISPLAY_SIZE& size):FFScene(gameManager,size) {}
-	virtual ~FFBaseUiScene();
+	FFBaseUiScene(FFBaseManager* gameManager,FF_DISPLAY_SIZE& size):FFScene(gameManager,size) {}
+	virtual ~FFBaseUiScene(){}
+
+public:
+	virtual void HideGUI() = 0;
+	virtual void ShowGUI() = 0;
 
 protected:
 	virtual void InitializeComponent() = 0;

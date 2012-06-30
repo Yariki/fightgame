@@ -21,15 +21,15 @@ protected:
 	orxOBJECT* _captionObject;
 	orxVECTOR _position;
 	orxCHAR _caption[MAX_NAME];
-	bool _isPaused;
+	bool _isHide;
 public:
 	FFBaseControl(FFBaseUiScene* parent,orxVECTOR& position, orxCHAR* name);
 	virtual ~FFBaseControl();
 
 public:
-	void SetPause();
-	void Unpause();
-	bool IsPaused() {return _isPaused;}
+	void Hide();
+	void Show();
+	bool IsHide() {return _isHide;}
 	virtual void Update(orxOBJECT* obj) = 0;
 };
 
