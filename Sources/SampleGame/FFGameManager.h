@@ -2,26 +2,11 @@
 #define __FFGAMEMANAGER_H__
 
 
-#pragma  once
-
-#include "FFInclude.h"
-#include "FFScene.h"
-#include "FFGameScene.h"
-#include "FFBaseUiScene.h"
+#include "FFBaseManager.h"
 
 
-class FFGameManager
+class FFGameManager : public FFBaseManager
 {
-protected:
-	FFScene*					_currentScene;
-	FFScene*					_mainScene;
-
-	std::vector<FFGameScene*>	_listScene;
-	std::vector<FFBaseUiScene*> _listUiScene;
-
-	std::stack<FFScene* > _listActiveScene;
-
-	orxSTRING			_fileConfigName;
 
 public:
 	FFGameManager(void);

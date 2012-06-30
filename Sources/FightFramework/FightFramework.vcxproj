@@ -23,7 +23,6 @@
     <ClInclude Include="include\FFDynamicMoveStrategyFactory.h" />
     <ClInclude Include="include\FFDynamicObject.h" />
     <ClInclude Include="include\FFEnums.h" />
-    <ClInclude Include="include\FFGameManager.h" />
     <ClInclude Include="include\FFGameScene.h" />
     <ClInclude Include="include\FFInclude.h" />
     <ClInclude Include="include\FFInputManager.h" />
@@ -47,7 +46,6 @@
     <ClCompile Include="src\FFDynamicAnimatedObject.cpp" />
     <ClCompile Include="src\FFDynamicMoveStrategyFactory.cpp" />
     <ClCompile Include="src\FFDynamicObject.cpp" />
-    <ClCompile Include="src\FFGameManager.cpp" />
     <ClCompile Include="src\FFGameScene.cpp" />
     <ClCompile Include="src\FFInputManager.cpp" />
     <ClCompile Include="src\FFLineMoveStrategy.cpp" />
