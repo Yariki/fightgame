@@ -3,6 +3,8 @@
 
 #define MAX_FILE_PATH 260
 
+#define BTNS_FILE "../Data/Ini/Buttons.ini"
+
 // names of section in main ini file
 #define  FF_MAIN_VIEWPORT							"Viewport"
 

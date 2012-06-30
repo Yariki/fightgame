@@ -2,6 +2,7 @@
 #include "orx.h"
 
 #include "MainScene.h"
+#include "OptionsScene.h"
 
 MainScene::MainScene(FFGameManager* gameManager, FF_DISPLAY_SIZE& size)
 	:FFBaseUiScene(gameManager,size)
@@ -121,6 +122,9 @@ void MainScene::OnChooseSceneClick()
 void MainScene::OnConfigClick()
 {
 	orxLOG("Options CLICK!!!!!");
+	HideGUI();
+	OptionsScene* optScene = new OptionsScene((FFGameManager*)_gameManager,_sizeDisplay);
+	optScene->Load();
 }
 
 void MainScene::OnExitClick()

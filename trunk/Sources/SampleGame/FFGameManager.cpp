@@ -51,6 +51,16 @@ orxSTATUS FFGameManager::Update(const orxCLOCK_INFO* pstClock)
 	{
 		_mainScene->Update(pstClock);
 	}
+	if(_listActiveScene.size() > 0)
+	{
+		_listActiveScene.top()->Update(pstClock);		
+	}
+	if(_listForDelete.size() > 0)
+	{
+		for(size_t i = 0; i < _listForDelete.size(); i++)
+			delete _listForDelete.at(i);
+		_listForDelete.clear();
+	}
 	return orxSTATUS_SUCCESS;
 }
 
@@ -113,11 +123,29 @@ orxSTATUS FFGameManager::UserEventHandler(const orxEVENT* pEvent)
 	{
 		case FFUE_UI_SCENE_SHOW:	
 			orxLOG("FFUE_UI_SCENE_SHOW");
+			_listActiveScene.push(ev->GetScene());
 			break;
 		case FFUE_UI_SCENE_CLOSE:	
 			orxLOG("FFUE_UI_SCENE_CLOSE");
+			if(_listActiveScene.size() > 0)
+			{
+				FFScene* active = _listActiveScene.top();
+				_listActiveScene.pop();
+				_listForDelete.push_back(active);
+				if(_listActiveScene.empty() && _mainScene->SceneType() == FFST_UISCENE)
+				{
+					((FFBaseUiScene*)_mainScene)->ShowGUI();
+				}
+				else
+				{
+					FFScene* next = _listActiveScene.top();
+					if(next->SceneType() == FFST_UISCENE)
+					{
+						((FFBaseUiScene*)next)->ShowGUI();
+					}
+				}
+			}
 			break;
-
 	}
 
 	return orxSTATUS_SUCCESS;

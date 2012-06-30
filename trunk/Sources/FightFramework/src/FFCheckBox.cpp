@@ -6,6 +6,7 @@ FFCheckBox::FFCheckBox(FFBaseUiScene* parent, orxVECTOR& position, orxCHAR* name
 	:FFBaseControl(parent,position,name)
 {
 	_OnCheckChange = oncheckchange != NULL ? oncheckchange : NULL;
+	_state = CHB_NORMAL;
 	_mainObject = orxObject_CreateFromConfig(CHECKBOX_SECTION);
 	if(_mainObject)
 	{
@@ -50,7 +51,14 @@ void FFCheckBox::Update(orxOBJECT* obj)
 		}
 	}
 	else
-		Normal();
+	{
+		if(GetState() == CHB_CHECK)
+			Check();
+		else if(GetState() == CHB_NORMAL)
+			Normal();
+
+	}
+		
 }
 
 void FFCheckBox::Normal()
