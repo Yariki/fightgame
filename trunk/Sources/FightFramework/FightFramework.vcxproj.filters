@@ -111,6 +111,9 @@
     <ClInclude Include="include\FFComboChooseButton.h">
       <Filter>Framework\Scene\Controls</Filter>
     </ClInclude>
+    <ClInclude Include="include\FFBaseManager.h">
+      <Filter>Framework\Manager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\FFAnimatedObject.cpp">
@@ -169,6 +172,9 @@
     </ClCompile>
     <ClCompile Include="src\FFComboChooseButton.cpp">
       <Filter>Framework\Scene\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FFBaseManager.cpp">
+      <Filter>Framework\Manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
