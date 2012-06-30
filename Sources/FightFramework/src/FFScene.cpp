@@ -1,17 +1,17 @@
 #include "FFScene.h"
 
 
-FFScene::FFScene(FFGameManager* gameManager)
+FFScene::FFScene(FFBaseManager* gameManager)
 	:_gameManager(gameManager)
 {
 }
 
-FFScene::FFScene(FFGameManager* gameManager,FF_DISPLAY_SIZE& size)
+FFScene::FFScene(FFBaseManager* gameManager,FF_DISPLAY_SIZE& size)
 	:_gameManager(gameManager),_sizeDisplay(size)
 {
 }
 
-FFScene::FFScene(FFGameManager* gameManager,FF_DISPLAY_SIZE& size,orxSTRING filename)
+FFScene::FFScene(FFBaseManager* gameManager,FF_DISPLAY_SIZE& size,orxSTRING filename)
 	:_gameManager(gameManager),_sizeDisplay(size),_nameCfngFile(filename)
 {
 }

@@ -3,7 +3,7 @@
 
 #include "FFInclude.h"
 
-class FFGameManager;
+class FFBaseManager;
 
 class FFScene
 {
@@ -11,13 +11,13 @@ protected:
 	orxSTRING			_nameCfngFile;
 	FF_SCENE_TYPE		_type;
 	FF_DISPLAY_SIZE		_sizeDisplay;
-	FFGameManager*		_gameManager;
+	FFBaseManager*		_gameManager;
 
 
 public:
-	FFScene(FFGameManager* gameManager);
-	FFScene(FFGameManager* gameManager,FF_DISPLAY_SIZE& size);
-	FFScene(FFGameManager* gameManager,FF_DISPLAY_SIZE& size,orxSTRING filename);
+	FFScene(FFBaseManager* gameManager);
+	FFScene(FFBaseManager* gameManager,FF_DISPLAY_SIZE& size);
+	FFScene(FFBaseManager* gameManager,FF_DISPLAY_SIZE& size,orxSTRING filename);
 	virtual ~FFScene(void);
 
 public:
@@ -37,7 +37,7 @@ private:
 class SceneEvent
 {
 public:
-	SceneEvent(FF_UI_EVENT ev, FFGameManager* manager, FFScene* scene)
+	SceneEvent(FF_UI_EVENT ev, FFBaseManager* manager, FFScene* scene)
 	{
 		_event = ev;
 		_gameManager = manager;
@@ -49,13 +49,13 @@ public:
 		_scene = NULL;
 	}
 
-	FFGameManager*	GetManager() {return _gameManager;}
+	FFBaseManager*	GetManager() {return _gameManager;}
 	FFScene*		GetScene()	{return _scene;}
 	FF_UI_EVENT		GetEvent() {return _event;}
 
 private:
 	FF_UI_EVENT		_event;
-	FFGameManager*	_gameManager;
+	FFBaseManager*	_gameManager;
 	FFScene*		_scene;
 };
 

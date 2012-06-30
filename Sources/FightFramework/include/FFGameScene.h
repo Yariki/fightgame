@@ -23,7 +23,7 @@ protected:
 	std::vector<FFDynamicAnimatedObject*>	_listDynamicAnimEntity;
 
 public:
-	FFGameScene(FFGameManager* gameManager,FF_DISPLAY_SIZE& size,orxSTRING filename);
+	FFGameScene(FFBaseManager* gameManager,FF_DISPLAY_SIZE& size,orxSTRING filename);
 	virtual ~FFGameScene(void);
 
 public:
