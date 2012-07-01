@@ -96,7 +96,6 @@ void OptionsScene::OnShow()
 
 void OptionsScene::OnClose()
 {
-	HideGUI();
 	SceneEvent ev(FFUE_UI_SCENE_CLOSE,_gameManager,this);
 	orxEVENT_SEND(orxEVENT_TYPE_USER_DEFINED,0,this,orxNULL,&ev);
 }
@@ -132,6 +131,6 @@ void OptionsScene::ShowGUI()
 
 void OptionsScene::OnBackClick()
 {
-	
+	HideGUI();
 	OnClose();
 }

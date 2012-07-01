@@ -47,18 +47,26 @@ orxSTATUS FFGameManager::Load()
 
 orxSTATUS FFGameManager::Update(const orxCLOCK_INFO* pstClock)
 {
-	if(_mainScene)
-	{
-		_mainScene->Update(pstClock);
-	}
+	
 	if(_listActiveScene.size() > 0)
 	{
 		_listActiveScene.top()->Update(pstClock);		
 	}
+	else if(_mainScene)
+	{
+		_mainScene->Update(pstClock);
+	} 
+
 	if(_listForDelete.size() > 0)
 	{
 		for(size_t i = 0; i < _listForDelete.size(); i++)
-			delete _listForDelete.at(i);
+		{
+			FFScene* scene = _listForDelete.at(i);
+			if(scene->SceneType() == FFST_UISCENE)
+				delete _listForDelete.at(i);
+			else if(scene->SceneType() == FFST_GAMESCENE)
+				scene->Unload();
+		}
 		_listForDelete.clear();
 	}
 	return orxSTATUS_SUCCESS;
@@ -146,7 +154,43 @@ orxSTATUS FFGameManager::UserEventHandler(const orxEVENT* pEvent)
 				}
 			}
 			break;
+		case FFUE_GAME_SCENE_SHOW:
+			orxLOG("FFUE_GAME_SCENE_SHOW");
+			_listActiveScene.push(ev->GetScene());
+			break;
+		case FFUE_GAME_SCENE_CLOSE:
+			orxLOG("FFUE_GAME_SCENE_CLOSE");
+			if(_listActiveScene.size() > 0)
+			{
+				FFScene* active = _listActiveScene.top();
+				_listActiveScene.pop();
+				_listForDelete.push_back(active);
+				if(_listActiveScene.empty() && _mainScene->SceneType() == FFST_UISCENE)
+				{
+					((FFBaseUiScene*)_mainScene)->ShowGUI();
+				}
+				else
+				{
+					FFScene* next = _listActiveScene.top();
+					if(next->SceneType() == FFST_UISCENE)
+					{
+						((FFBaseUiScene*)next)->ShowGUI();
+					}
+				}
+			}
+			break;
 	}
 
 	return orxSTATUS_SUCCESS;
+}
+
+
+void FFGameManager::LoadCurrentGameScene()
+{
+	if(_listScene.size() > 0)
+	{
+		((FFBaseUiScene*)_mainScene)->HideGUI();
+		
+		_listScene.at(0)->Load();
+	}
 }

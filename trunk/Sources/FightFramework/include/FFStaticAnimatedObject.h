@@ -25,8 +25,8 @@ public:
 	void					SetAnimation(FF_ANIMATION_OBJECT animation);
 	void					UpdateAnimation(const orxCLOCK_INFO* pClockInfo);
 
-private:
-	static void orxFASTCALL Update(const orxCLOCK_INFO* pClockInfo, void* pContext);
+	virtual void Update(const orxCLOCK_INFO* pClockInfo);
+
 
 	
 };

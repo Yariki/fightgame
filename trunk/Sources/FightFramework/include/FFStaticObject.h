@@ -15,7 +15,7 @@ public:
 	FFStaticObject(orxSTRING filename);
 	virtual ~FFStaticObject(void);
 
-
+	virtual void Update(const orxCLOCK_INFO* pClockInfo) {}
 
 public:
 	void Create();

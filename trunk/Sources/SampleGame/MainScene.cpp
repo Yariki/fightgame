@@ -109,7 +109,11 @@ void MainScene::OnClose()
 
 void MainScene::OnStartClick()
 {
-	_btnStart->Hide();
+	//_btnStart->Hide();
+	if(_gameManager)
+	{
+		_gameManager->LoadCurrentGameScene();
+	}
 	orxLOG("Start CLICK!!!!");
 }
 

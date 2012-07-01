@@ -22,12 +22,6 @@ FFStaticAnimatedObject::~FFStaticAnimatedObject(void)
 void FFStaticAnimatedObject::Create()
 {
 	FFStaticObject::Create();
-	orxCLOCK* pClockAnim = orxClock_FindFirst(orx2F(-1.0f),orxCLOCK_TYPE_CORE);
-	if(pClockAnim)
-	{
-		orxClock_Register(pClockAnim,Update,this,orxMODULE_ID_MAIN,
-			orxCLOCK_PRIORITY_NORMAL);
-	}
 }
 
 
@@ -55,13 +49,9 @@ void FFStaticAnimatedObject::SetAnimation(FF_ANIMATION_OBJECT animation)
 	}
 }
 
-void FFStaticAnimatedObject::Update(const orxCLOCK_INFO* pClockInfo, void* pContext)
+void FFStaticAnimatedObject::Update(const orxCLOCK_INFO* pClockInfo)
 {
-	FFStaticAnimatedObject* obj = static_cast<FFStaticAnimatedObject*>(pContext);
-	if(obj)
-	{
-		obj->UpdateAnimation(pClockInfo);
-	}
+	SetAnimation(FFAO_MAIN);
 }
 
 void FFStaticAnimatedObject::UpdateAnimation(const orxCLOCK_INFO* pClockInfo)

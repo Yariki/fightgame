@@ -12,8 +12,9 @@ FFScene::FFScene(FFBaseManager* gameManager,FF_DISPLAY_SIZE& size)
 }
 
 FFScene::FFScene(FFBaseManager* gameManager,FF_DISPLAY_SIZE& size,orxSTRING filename)
-	:_gameManager(gameManager),_sizeDisplay(size),_nameCfngFile(filename)
+	:_gameManager(gameManager),_sizeDisplay(size)
 {
+	orxString_Copy(_nameCfngFile,filename);
 }
 
 FFScene::~FFScene(void)

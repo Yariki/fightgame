@@ -38,8 +38,8 @@ protected:
 	bool					LoadDynamicAnimatedObject(const TiXmlElement* root);
 
 private:
-	void OnShow(){}
-	void OnClose(){}
+	void OnShow();
+	void OnClose();
 };
 
 #endif //__FFGAMESCENE_H__
