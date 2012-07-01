@@ -8,7 +8,7 @@ class FFBaseManager;
 class FFScene
 {
 protected:
-	orxSTRING			_nameCfngFile;
+	orxCHAR			_nameCfngFile[MAX_FILE_PATH];
 	FF_SCENE_TYPE		_type;
 	FF_DISPLAY_SIZE		_sizeDisplay;
 	FFBaseManager*		_gameManager;

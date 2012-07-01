@@ -20,6 +20,7 @@ public:
 	virtual orxSTATUS Load();
 	virtual orxSTATUS Update(const orxCLOCK_INFO* pstClock);
 	virtual orxSTATUS UserEventHandler(const orxEVENT* pEvent);
+	virtual void LoadCurrentGameScene();
 
 protected:
 	bool LoadGameScene(const TiXmlElement* root);

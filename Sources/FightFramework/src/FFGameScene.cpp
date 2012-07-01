@@ -1,5 +1,5 @@
 #include "FFGameScene.h"
-
+#include "FFInputManager.h"
 #define FF_STATIC_OBJECTS					"StaticObjects"
 #define FF_STATIC_ANIMATED_OBJECTS			"StaticAnimatedObjects"
 #define FF_DYNAMIC_OBJECTS					"DynamicObjects"
@@ -36,7 +36,7 @@ orxSTATUS FFGameScene::Load()
 	{
 		return orxSTATUS_FAILURE;
 	}
-
+	orxConfig_Clear();
 	bool staticLoad = LoadStatic(root);
 	bool staticAnim = LoadStaticAnimatedObject(root);
 	bool dynamicLoad = LoadDynamicObject(root);
@@ -71,7 +71,7 @@ orxSTATUS FFGameScene::Load()
 			_listDynamicAnimEntity.at(i)->Create();
 		}
 	}
-
+	OnShow();
 	return orxSTATUS_SUCCESS;
 }
 
@@ -109,6 +109,19 @@ orxSTATUS FFGameScene::Unload()
 
 orxSTATUS FFGameScene::Update(const orxCLOCK_INFO* pClockInfo)
 {
+	bool isNew;
+	bool isPress = FFInputManager::GetSingleton()->GetInputStatus("Escape",isNew);
+	if(isPress && isNew)
+	{
+		OnClose();
+		Unload();
+		return orxSTATUS_SUCCESS;
+	}
+
+	for(unsigned int i = 0; i < _listStaticAnimEntity.size();i++)
+	{
+		_listStaticAnimEntity.at(i)->Update(pClockInfo);
+	}
 	for(unsigned int i = 0; i < _listDynamicEntity.size();i++)
 	{
 		_listDynamicEntity.at(i)->Update(pClockInfo);
@@ -194,4 +207,16 @@ bool FFGameScene::LoadDynamicAnimatedObject(const TiXmlElement* root)
 		res = true;
 	}
 	return res;
+}
+
+void FFGameScene::OnShow()
+{
+	SceneEvent ev(FFUE_GAME_SCENE_SHOW,_gameManager,this);
+	orxEVENT_SEND(orxEVENT_TYPE_USER_DEFINED,0,this,orxNULL,&ev);
+}
+
+void FFGameScene::OnClose()
+{
+	SceneEvent ev(FFUE_GAME_SCENE_CLOSE,_gameManager,this);
+	orxEVENT_SEND(orxEVENT_TYPE_USER_DEFINED,0,this,orxNULL,&ev);
 }

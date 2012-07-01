@@ -31,7 +31,7 @@ public:
 	virtual orxSTATUS Load() = 0;
 	virtual orxSTATUS Update(const orxCLOCK_INFO* pstClock) = 0;
 	virtual orxSTATUS UserEventHandler(const orxEVENT* pEvent) = 0;
-
+	virtual void LoadCurrentGameScene() = 0;
 };
 
 
