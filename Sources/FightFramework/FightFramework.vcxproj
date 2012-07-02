@@ -31,6 +31,7 @@
     <ClInclude Include="include\FFMovableObject.h" />
     <ClInclude Include="include\FFObject.h" />
     <ClInclude Include="include\FFScene.h" />
+    <ClInclude Include="include\FFSceneManager.h" />
     <ClInclude Include="include\FFStaticAnimatedObject.h" />
     <ClInclude Include="include\FFStaticObject.h" />
     <ClInclude Include="include\FFStructure.h" />

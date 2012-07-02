@@ -7,6 +7,7 @@
 
 
 FFGameManager::FFGameManager(void)
+	:FFBaseManager()
 {
 	_fileConfigName = MAIN_GAME_FILE;
 }
@@ -17,11 +18,7 @@ FFGameManager::~FFGameManager(void)
 	{
 		delete _mainScene;
 	}
-	for(unsigned int i = 0; i < _listScene.size(); i++)
-	{
-		delete _listScene.at(i);
-	}
-	_listScene.clear();
+	_listFileScene.clear();
 }
 
 
@@ -52,6 +49,10 @@ orxSTATUS FFGameManager::Update(const orxCLOCK_INFO* pstClock)
 	{
 		_listActiveScene.top()->Update(pstClock);		
 	}
+	else if(_currentScene)
+	{
+		_currentScene->Update(pstClock);
+	}
 	else if(_mainScene)
 	{
 		_mainScene->Update(pstClock);
@@ -63,9 +64,10 @@ orxSTATUS FFGameManager::Update(const orxCLOCK_INFO* pstClock)
 		{
 			FFScene* scene = _listForDelete.at(i);
 			if(scene->SceneType() == FFST_UISCENE)
-				delete _listForDelete.at(i);
-			else if(scene->SceneType() == FFST_GAMESCENE)
 				scene->Unload();
+			else if(scene->SceneType() == FFST_GAMESCENE)
+				delete scene;
+			scene = NULL;
 		}
 		_listForDelete.clear();
 	}
@@ -79,18 +81,12 @@ bool FFGameManager::LoadGameScene(const TiXmlElement* root)
 	const TiXmlElement* gamescene = root->FirstChildElement(FF_MANAGER_GAMESCENES);
 	if(gamescene)
 	{
-		FF_DISPLAY_SIZE size = {0};
-		orxDisplay_GetScreenSize(&size._Width,&size._Height);
-		size._Top =  - size._Height / 2.0f;
-		size._Left = - size._Width / 2.0f;
-		size._Bottom = - size._Top;
-		size._Right = - size._Left;
+		
 		for(const TiXmlElement* node = gamescene->FirstChildElement(); node ; node = node->NextSiblingElement())
 		{
 			orxCHAR filename[MAX_FILE_PATH];
 			orxString_Copy(filename,node->Attribute(FF_MANAGER_FILENAMESCENE_ATTRIBUTE));
-			FFGameScene* scene = new FFGameScene(this,size,filename);
-			_listScene.push_back(scene);
+			_listFileScene.push_back(filename);
 		}
 		res = true;
 	}
@@ -101,9 +97,6 @@ bool FFGameManager::LoadGameScene(const TiXmlElement* root)
 
 bool FFGameManager::LoadMainScene(const TiXmlElement* root)
 {
-	//bool res = false;
-	//orxCHAR filemainScene[MAX_FILE_PATH]; 
-	//orxString_Copy(filemainScene, root->Attribute(FF_MANAGER__MAINSCENE_ATTRIBUTE));
 	FF_DISPLAY_SIZE size = {0};
 	orxDisplay_GetScreenSize(&size._Width,&size._Height);
 	size._Top =  - size._Height / 2.0f;
@@ -111,10 +104,7 @@ bool FFGameManager::LoadMainScene(const TiXmlElement* root)
 	size._Bottom = - size._Top;
 	size._Right = - size._Left;
 
-	//FFGameScene* main = new FFGameScene(this,size,filemainScene);
-	//main->Load();
-	//_mainScene = main;
-	//main = NULL;
+
 	MainScene* scene = new MainScene(this,size);
 	scene->Load();
 	_mainScene = scene;
@@ -131,27 +121,15 @@ orxSTATUS FFGameManager::UserEventHandler(const orxEVENT* pEvent)
 	{
 		case FFUE_UI_SCENE_SHOW:	
 			orxLOG("FFUE_UI_SCENE_SHOW");
-			_listActiveScene.push(ev->GetScene());
+			_currentScene = ev->GetScene();
 			break;
 		case FFUE_UI_SCENE_CLOSE:	
-			orxLOG("FFUE_UI_SCENE_CLOSE");
-			if(_listActiveScene.size() > 0)
 			{
-				FFScene* active = _listActiveScene.top();
-				_listActiveScene.pop();
+				orxLOG("FFUE_UI_SCENE_CLOSE");
+				FFBaseUiScene* active = static_cast<FFBaseUiScene*>(ev->GetScene());
+				_currentScene = NULL;
 				_listForDelete.push_back(active);
-				if(_listActiveScene.empty() && _mainScene->SceneType() == FFST_UISCENE)
-				{
-					((FFBaseUiScene*)_mainScene)->ShowGUI();
-				}
-				else
-				{
-					FFScene* next = _listActiveScene.top();
-					if(next->SceneType() == FFST_UISCENE)
-					{
-						((FFBaseUiScene*)next)->ShowGUI();
-					}
-				}
+				((FFBaseUiScene*)_mainScene)->Load();
 			}
 			break;
 		case FFUE_GAME_SCENE_SHOW:
@@ -167,14 +145,14 @@ orxSTATUS FFGameManager::UserEventHandler(const orxEVENT* pEvent)
 				_listForDelete.push_back(active);
 				if(_listActiveScene.empty() && _mainScene->SceneType() == FFST_UISCENE)
 				{
-					((FFBaseUiScene*)_mainScene)->ShowGUI();
+					((FFBaseUiScene*)_mainScene)->Load();
 				}
 				else
 				{
 					FFScene* next = _listActiveScene.top();
 					if(next->SceneType() == FFST_UISCENE)
 					{
-						((FFBaseUiScene*)next)->ShowGUI();
+						((FFBaseUiScene*)next)->Load();
 					}
 				}
 			}
@@ -187,10 +165,17 @@ orxSTATUS FFGameManager::UserEventHandler(const orxEVENT* pEvent)
 
 void FFGameManager::LoadCurrentGameScene()
 {
-	if(_listScene.size() > 0)
+	if(_listFileScene.size() > 0)
 	{
-		((FFBaseUiScene*)_mainScene)->HideGUI();
+		((FFBaseUiScene*)_mainScene)->Unload();
 		
-		_listScene.at(0)->Load();
+		FF_DISPLAY_SIZE size = {0};
+		orxDisplay_GetScreenSize(&size._Width,&size._Height);
+		size._Top =  - size._Height / 2.0f;
+		size._Left = - size._Width / 2.0f;
+		size._Bottom = - size._Top;
+		size._Right = - size._Left;
+		FFGameScene* scene = new FFGameScene((FFBaseManager*)this,size,(orxCHAR*)_listFileScene.at(0).c_str());
+		scene->Load();
 	}
 }

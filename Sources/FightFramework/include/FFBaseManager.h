@@ -5,7 +5,7 @@
 #include "FFScene.h"
 #include "FFGameScene.h"
 #include "FFBaseUiScene.h"
-
+#include "FFSceneManager.h"
 
 
 
@@ -15,8 +15,11 @@ protected:
 	FFScene*					_currentScene;
 	FFScene*					_mainScene;
 
-	std::vector<FFGameScene*>	_listScene;
+	FFSceneManager<FFBaseUiScene*>* _uiSceneManager;
+
+	std::vector<string>	_listFileScene;
 	std::vector<FFBaseUiScene*> _listUiScene;
+
 
 	std::stack<FFScene* > _listActiveScene;
 
@@ -26,6 +29,9 @@ public:
 	FFBaseManager(void);
 	virtual ~FFBaseManager(void);
 
+	bool IsUIScenePresent(string type);
+	FFBaseUiScene* GetUiScene(string type);
+	void AddUiScene(FFBaseUiScene* scene);
 
 public:
 	virtual orxSTATUS Load() = 0;
