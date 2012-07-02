@@ -126,9 +126,19 @@ void MainScene::OnChooseSceneClick()
 void MainScene::OnConfigClick()
 {
 	orxLOG("Options CLICK!!!!!");
-	HideGUI();
-	OptionsScene* optScene = new OptionsScene((FFGameManager*)_gameManager,_sizeDisplay);
-	optScene->Load();
+	Unload();
+	OptionsScene* optScene = NULL;
+	if(_gameManager->IsUIScenePresent(typeid(OptionsScene).name()))
+	{
+		optScene = static_cast<OptionsScene*>(_gameManager->GetUiScene(typeid(OptionsScene).name()));
+	}
+	else
+	{
+		optScene = new OptionsScene((FFGameManager*)_gameManager,_sizeDisplay);
+		_gameManager->AddUiScene(optScene);
+	}
+	if(optScene) 
+		optScene->Load();
 }
 
 void MainScene::OnExitClick()
