@@ -17,6 +17,7 @@ protected:
 
 	BUTTONCLICK _OnClick;
 
+	bool _clickPress;
 public:
 	FFButton(FFBaseUiScene* parent,orxVECTOR& position, orxCHAR* name, BUTTONCLICK onckick);
 	virtual ~FFButton();

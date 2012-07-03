@@ -39,16 +39,6 @@ orxSTATUS MainScene::Update(const orxCLOCK_INFO* pClockInfo)
 	if(orxRender_GetWorldPosition(orxMouse_GetPosition(&vPos),&vPos))
 	{
 		orxOBJECT* obj = orxObject_Pick(&vPos);
-		/*if(_btnStart)
-			_btnStart->Update(obj);
-		if(_btnChooseScene)
-			_btnChooseScene->Update(obj);
-		if(_btnConfig)
-			_btnConfig->Update(obj);
-		if(_btnExit)
-			_btnExit->Update(obj);
-		if(_btnChooseHero)
-			_btnChooseHero->Update(obj);*/
         for(size_t i = 0; i < _buttons.size(); i++)
         {
             _buttons.at(i)->Update(obj);
@@ -69,19 +59,19 @@ void MainScene::InitializeComponent()
 	{
         FFButton* btn = NULL;
 		btn = new FFButton(this,position,"Start",(BUTTONCLICK)&MainScene::OnStartClick);
-        _buttons.push_back(btn);
+        _buttons.push_back(btn); btn = NULL;
 		position.fY += delta;
 		btn = new FFButton(this,position,"Choose scene",(BUTTONCLICK)&MainScene::OnChooseSceneClick);
-        _buttons.push_back(btn);
+        _buttons.push_back(btn); btn = NULL;
 		position.fY += delta;
 		btn = new FFButton(this,position,"Choose hero",NULL);
-        _buttons.push_back(btn);
-		position.fY += delta;
+        _buttons.push_back(btn); btn = NULL;
+		position.fY += delta; 
 		btn = new FFButton(this,position,"Options",(BUTTONCLICK)&MainScene::OnConfigClick);
-        _buttons.push_back(btn);
+        _buttons.push_back(btn); btn = NULL;
 		position.fY += delta;
 		btn =  new FFButton(this,position,"Exit",(BUTTONCLICK)&MainScene::OnExitClick);
-        _buttons.push_back(btn);
+        _buttons.push_back(btn); btn = NULL;
 	}
 }
 
