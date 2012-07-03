@@ -13,11 +13,12 @@ class MainScene :
 	public FFBaseUiScene
 {
 private:
-	FFButton* _btnStart;
-	FFButton* _btnChooseScene;
-	FFButton* _btnChooseHero;
-	FFButton* _btnConfig;
-	FFButton* _btnExit;
+	//FFButton* _btnStart;
+	//FFButton* _btnChooseScene;
+	//FFButton* _btnChooseHero;
+	//FFButton* _btnConfig;
+	//FFButton* _btnExit;
+    std::vector<FFButton*> _buttons;
 
 public:
 	MainScene(FFGameManager* gameManager, FF_DISPLAY_SIZE& size);

@@ -25,31 +25,11 @@ orxSTATUS MainScene::Load()
 
 orxSTATUS MainScene::Unload()
 {
-	if(_btnStart)
-	{
-		delete _btnStart;
-		_btnStart = NULL;
-	}
-	if(_btnChooseScene)
-	{
-		delete _btnChooseScene;
-		_btnChooseScene = NULL;
-	}
-	if(_btnConfig)
-	{
-		delete _btnConfig;
-		_btnConfig= NULL;
-	}
-	if(_btnExit)
-	{
-		delete _btnExit;
-		_btnExit = NULL;
-	}
-	if(_btnChooseHero)
-	{
-		delete _btnChooseHero;
-		_btnChooseHero = NULL;
-	}
+    for(size_t i = 0; i < _buttons.size(); i++)
+    {
+        delete _buttons.at(i);
+    }
+    _buttons.clear();
 	return orxSTATUS_SUCCESS;
 }
 
@@ -59,7 +39,7 @@ orxSTATUS MainScene::Update(const orxCLOCK_INFO* pClockInfo)
 	if(orxRender_GetWorldPosition(orxMouse_GetPosition(&vPos),&vPos))
 	{
 		orxOBJECT* obj = orxObject_Pick(&vPos);
-		if(_btnStart)
+		/*if(_btnStart)
 			_btnStart->Update(obj);
 		if(_btnChooseScene)
 			_btnChooseScene->Update(obj);
@@ -68,7 +48,11 @@ orxSTATUS MainScene::Update(const orxCLOCK_INFO* pClockInfo)
 		if(_btnExit)
 			_btnExit->Update(obj);
 		if(_btnChooseHero)
-			_btnChooseHero->Update(obj);
+			_btnChooseHero->Update(obj);*/
+        for(size_t i = 0; i < _buttons.size(); i++)
+        {
+            _buttons.at(i)->Update(obj);
+        }
 	}
 
 	return orxSTATUS_SUCCESS;
@@ -83,15 +67,21 @@ void MainScene::InitializeComponent()
 	float delta = 50.0f;
 	if(orxConfig_Load(BTNS_FILE) == orxSTATUS_SUCCESS)
 	{
-		_btnStart = new FFButton(this,position,"Start",(BUTTONCLICK)&MainScene::OnStartClick);
+        FFButton* btn = NULL;
+		btn = new FFButton(this,position,"Start",(BUTTONCLICK)&MainScene::OnStartClick);
+        _buttons.push_back(btn);
 		position.fY += delta;
-		_btnChooseScene = new FFButton(this,position,"Choose scene",(BUTTONCLICK)&MainScene::OnChooseSceneClick);
+		btn = new FFButton(this,position,"Choose scene",(BUTTONCLICK)&MainScene::OnChooseSceneClick);
+        _buttons.push_back(btn);
 		position.fY += delta;
-		_btnChooseHero = new FFButton(this,position,"Choose hero",NULL);
+		btn = new FFButton(this,position,"Choose hero",NULL);
+        _buttons.push_back(btn);
 		position.fY += delta;
-		_btnConfig = new FFButton(this,position,"Options",(BUTTONCLICK)&MainScene::OnConfigClick);
+		btn = new FFButton(this,position,"Options",(BUTTONCLICK)&MainScene::OnConfigClick);
+        _buttons.push_back(btn);
 		position.fY += delta;
-		_btnExit =  new FFButton(this,position,"Exit",(BUTTONCLICK)&MainScene::OnExitClick);
+		btn =  new FFButton(this,position,"Exit",(BUTTONCLICK)&MainScene::OnExitClick);
+        _buttons.push_back(btn);
 	}
 }
 
@@ -119,7 +109,6 @@ void MainScene::OnStartClick()
 
 void MainScene::OnChooseSceneClick()
 {
-	_btnStart->Show();
 	orxLOG("Choose scene CLICK!!!!");
 }
 
@@ -153,18 +142,16 @@ void MainScene::OnExitClick()
 
 void MainScene::ShowGUI()
 {
-	_btnStart->Show();
-	_btnChooseScene->Show();
-	_btnChooseHero->Show();
-	_btnConfig->Show();
-	_btnExit->Show();
+    for(size_t i = 0; i < _buttons.size(); i++)
+    {
+        _buttons.at(i)->Show();
+    }
 }
 
 void MainScene::HideGUI()
 {
-	_btnStart->Hide();
-	_btnChooseScene->Hide();
-	_btnChooseHero->Hide();
-	_btnConfig->Hide();
-	_btnExit->Hide();
+	for(size_t i = 0; i < _buttons.size(); i++)
+    {
+        _buttons.at(i)->Hide();
+    }
 }
