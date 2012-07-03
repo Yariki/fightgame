@@ -8,8 +8,8 @@ template<class T>
 class FFSceneManager
 {
 protected:
-	std::vector<T> _listScene;
-
+	
+    std::map<string,T> _listScene;
 public:
 	FFSceneManager();
 	virtual ~FFSceneManager();
@@ -17,7 +17,7 @@ public:
 public:
 	bool IsPresentObjectOfType(string type);
 	T GetObjectType(string type);
-	void AddObjectType(T obj) {_listScene.push_back(obj);}
+	void AddObjectType(T obj) { _listScene.insert(pair<string,T>(typeid(*obj).name(),obj)); }
 
 
 };
@@ -31,10 +31,10 @@ FFSceneManager<T>::FFSceneManager()
 template<class T>
 FFSceneManager<T>::~FFSceneManager()
 {
-	for(size_t i = 0; i < _listScene.size(); i++)
-	{
-		delete _listScene.at(i);
-	}
+
+    for(map<string,T>::iterator p = _listScene.begin();
+        p != _listScene.end(); ++p)
+        delete p->second;
 	_listScene.clear();
 }
 
@@ -42,15 +42,9 @@ template<class T>
 bool FFSceneManager<T>::IsPresentObjectOfType(string type)
 {
 	bool res = false;
-	for(size_t i = 0; i < _listScene.size(); i++)
-	{
-		string typeName = typeid(*(_listScene.at(i))).name();
-		if(!typeName.compare(type))
-		{
-			res = true;
-			break;
-		}
-	}
+	
+    if(_listScene.find(type) != _listScene.end())
+        res = true;
 	return res;
 }
 
@@ -58,15 +52,9 @@ template<class T>
 T FFSceneManager<T>::GetObjectType(string type)
 {
 	T res = NULL;
-	for(size_t i = 0; i < _listScene.size(); i++)
-	{
-		string typeName = typeid(*(_listScene.at(i))).name();
-		if(!typeName.compare(type))
-		{
-			res = _listScene.at(i);
-			break;
-		}
-	}
+	
+    res = _listScene[type];
+
 	return res;
 }
 

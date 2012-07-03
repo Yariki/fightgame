@@ -35,8 +35,6 @@ void FFButton::Update(orxOBJECT* obj)
 		if(isLeft && isNew)
 		{
 			Press();
-			if(_OnClick)
-			 	(_parentForm->*_OnClick)();
 		}
 		else if(isLeft && !isNew)
 		{
@@ -44,6 +42,9 @@ void FFButton::Update(orxOBJECT* obj)
 		}
 		else
 			Hover();
+        if(isLeft && isNew && _OnClick)
+            (_parentForm->*_OnClick)();
+
 	}
 	else
 		Normal();

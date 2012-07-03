@@ -8,6 +8,7 @@
 #include <string>
 #include <vector>
 #include <stack>
+#include <map>
 using namespace std;
 
 #include "tinyxml.h"
