@@ -19,6 +19,7 @@ FFButton::FFButton(FFBaseUiScene* parent,orxVECTOR& position, orxCHAR* name, BUT
 			}
 		}
 	}
+	_clickPress = false;
 }
 
 FFButton::~FFButton()
@@ -35,15 +36,19 @@ void FFButton::Update(orxOBJECT* obj)
 		if(isLeft && isNew)
 		{
 			Press();
+			_clickPress = true;
 		}
 		else if(isLeft && !isNew)
 		{
 			Press();
+			if(_clickPress && _OnClick)
+			{
+				 (_parentForm->*_OnClick)();
+				 _clickPress = false;
+			}
 		}
 		else
 			Hover();
-        if(isLeft && isNew && _OnClick)
-            (_parentForm->*_OnClick)();
 
 	}
 	else

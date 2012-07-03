@@ -1,5 +1,6 @@
 #include "OptionsScene.h"
 
+#define CHOOSEBTN_DELTA_FOR_CHILD 27.0f
 
 OptionsScene::OptionsScene(FFGameManager* gameManager, FF_DISPLAY_SIZE& size)
 	:FFBaseUiScene(gameManager,size)
@@ -77,12 +78,14 @@ void OptionsScene::InitializeComponent()
 		check = new FFCheckBox(this,position,"Use BLOOM",NULL);
 		_listChecks.push_back(check);
 		position.fY += delta;
+		position.fX += CHOOSEBTN_DELTA_FOR_CHILD;
 		FFComboChooseButton* combo = new FFComboChooseButton(this,position,"n/a",NULL);
 		combo->AddItem("800 X 600");
 		combo->AddItem("1024 X 768");
 		combo->AddItem("1280 X 720");
 		combo->AddItem("1920 X 1080");
 		_listCombo.push_back(combo);
+		position.fX -= CHOOSEBTN_DELTA_FOR_CHILD;
 		position.fY += 2 * delta;
 		_btnBack = new FFButton(this,position,"Back",(BUTTONCLICK)&OptionsScene::OnBackClick);
 	}
