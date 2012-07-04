@@ -72,7 +72,7 @@ void OptionsScene::InitializeComponent()
 	float delta = 50.0f;
 	if(orxConfig_Load(BTNS_FILE) == orxSTATUS_SUCCESS)
 	{
-		FFCheckBox* check = new FFCheckBox(this,position,"Fullscrean",NULL);
+		FFCheckBox* check = new FFCheckBox(this,position,"Fullscreen",NULL);
 		_listChecks.push_back(check);
 		position.fY += delta;
 		check = new FFCheckBox(this,position,"Use BLOOM",NULL);

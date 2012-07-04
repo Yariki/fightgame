@@ -2,16 +2,23 @@
 #define __CHOOSESCENE_H_
 
 #include "ffbaseuiscene.h"
+#include "FFGameManager.h"
+#include "FFButton.h"
+#include "FFPreview.h"
 
+#define COLS 3
+#define ROWS 5
 
 class ChooseScene :
     public FFBaseUiScene
 {
 protected:
+	FFPreview* _arrPreview[COLS][ROWS];
+	std::vector<FFButton*> _listButton;
 
 
 public:
-    ChooseScene(FFGameMamager* gameManager, FF_DISPLAY_SIZE& size);
+    ChooseScene(FFGameManager* gameManager, FF_DISPLAY_SIZE& size);
     virtual ~ChooseScene(void);
 
 	virtual orxSTATUS Load();
