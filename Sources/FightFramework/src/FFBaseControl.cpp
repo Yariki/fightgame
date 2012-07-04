@@ -6,7 +6,10 @@ FFBaseControl::FFBaseControl(FFBaseUiScene* parent,orxVECTOR& position, orxCHAR*
 {
 	_parentForm = parent;
 	_position = position;
-	orxString_Copy(_caption,name);
+    _mainObject = orxNULL;
+    _captionObject = orxNULL;
+    if(name != orxNULL)
+	    orxString_Copy(_caption,name);
 }
 
 FFBaseControl::~FFBaseControl()

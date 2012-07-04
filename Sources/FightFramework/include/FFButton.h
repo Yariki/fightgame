@@ -14,7 +14,7 @@ class FFButton : public FFBaseControl
 {
 protected:
 	FF_UI_BUTTON_STATE _state;
-
+    
 	BUTTONCLICK _OnClick;
 
 	bool _clickPress;

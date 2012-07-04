@@ -79,6 +79,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ChooseScene.cpp" />
     <ClCompile Include="FFApplication.cpp" />
     <ClCompile Include="FFGameManager.cpp" />
     <ClCompile Include="main.cpp" />
@@ -89,6 +90,7 @@
     <None Include="orx.ini" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ChooseScene.h" />
     <ClInclude Include="FFApplication.h" />
     <ClInclude Include="FFGameManager.h" />
     <ClInclude Include="MainScene.h" />

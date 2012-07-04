@@ -36,6 +36,9 @@
     <ClCompile Include="OptionsScene.cpp">
       <Filter>GUI</Filter>
     </ClCompile>
+    <ClCompile Include="ChooseScene.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="orx.ini">
@@ -53,6 +56,9 @@
       <Filter>GameFile</Filter>
     </ClInclude>
     <ClInclude Include="OptionsScene.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="ChooseScene.h">
       <Filter>GUI</Filter>
     </ClInclude>
   </ItemGroup>
