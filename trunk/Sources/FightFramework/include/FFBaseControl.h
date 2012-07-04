@@ -11,6 +11,7 @@
 typedef void (FFBaseUiScene::*BUTTONCLICK)(void);
 typedef void (FFBaseUiScene::*CHECKCHANGE)(bool eventValue);
 typedef void (FFBaseUiScene::*COMBOCHANGE)(std::string eventValue);
+typedef void (FFBaseUiScene::*ITEMCHOOSE)(int eventValue);
 
 class FFBaseControl
 {
@@ -27,9 +28,10 @@ public:
 	virtual ~FFBaseControl();
 
 public:
-	void Hide();
-	void Show();
+	virtual void Hide();
+	virtual void Show();
 	bool IsHide() {return _isHide;}
+    orxCHAR* const GetCaption() { return _caption; }
 	virtual void Update(orxOBJECT* obj) = 0;
 };
 

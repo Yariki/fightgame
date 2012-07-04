@@ -10,34 +10,34 @@
 
 
 class MainScene :
-	public FFBaseUiScene
+    public FFBaseUiScene
 {
 private:
 
     std::vector<FFButton*> _buttons;
 
 public:
-	MainScene(FFGameManager* gameManager, FF_DISPLAY_SIZE& size);
-	virtual ~MainScene();
+    MainScene(FFGameManager* gameManager, FF_DISPLAY_SIZE& size);
+    virtual ~MainScene();
 
 public:
-	virtual orxSTATUS Load();
-	virtual orxSTATUS Unload();
-	virtual orxSTATUS Update(const orxCLOCK_INFO* pClockInfo);
-	virtual void InitializeComponent();
+    virtual orxSTATUS Load();
+    virtual orxSTATUS Unload();
+    virtual orxSTATUS Update(const orxCLOCK_INFO* pClockInfo);
+    virtual void InitializeComponent();
 
-	virtual void ShowGUI();
-	virtual void HideGUI();
+    virtual void ShowGUI();
+    virtual void HideGUI();
 
 private:
-	void OnShow();
-	void OnClose();
+    void OnShow();
+    void OnClose();
 
 
-	void OnStartClick();
-	void OnChooseSceneClick();
-	void OnConfigClick();
-	void OnExitClick();
+    void OnStartClick();
+    void OnChooseSceneClick();
+    void OnConfigClick();
+    void OnExitClick();
 
 
 };
