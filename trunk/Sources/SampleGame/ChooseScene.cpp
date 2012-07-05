@@ -41,7 +41,10 @@ orxSTATUS ChooseScene::Unload()
 		for(int j = 0; j < ROWS; j++)
 		{
 			if(_arrPreview[i][j])
+            {
 				delete _arrPreview[i][j];
+                _arrPreview[i][j] = NULL;
+            }
 		}
 	}
 	for(size_t i = 0; i < _listButton.size(); i++)
@@ -95,17 +98,54 @@ void ChooseScene::InitializeComponent()
 		{
 			pos.fX = -75.0;
 			pos.fY += 50.0;
-			FFButton* btn = new FFButton(this,pos,"Back",NULL);
+			FFButton* btn = new FFButton(this,pos,"Back",(BUTTONCLICK)&ChooseScene::OnBackClick);
 			_listButton.push_back(btn);
+            orxVECTOR scale;
+            scale.fX = 0.5;
+            scale.fY = 1.0;
+            pos.fX = -515;
+            pos.fY = -10;
+            btn = new FFButton(this,pos,"<<<",NULL);
+            btn->SetScale(&scale);
+            _listButton.push_back(btn);
+            pos.fX = 400;
+            btn = new FFButton(this,pos,">>>",NULL);
+            btn->SetScale(&scale);
+            _listButton.push_back(btn);
+
 		}
 	}
 }
 
 void ChooseScene::ShowGUI()
-{}
+{
+    for(int i = 0; i < COLS; i++)
+	{
+		for(int j = 0; j < ROWS; j++)
+		{
+            _arrPreview[i][j]->Show();
+		}
+	}
+	for(size_t i = 0; i < _listButton.size(); i++)
+	{
+        _listButton.at(i)->Show();
+	}
+}
 
 void ChooseScene::HideGUI()
-{}
+{
+    for(int i = 0; i < COLS; i++)
+	{
+		for(int j = 0; j < ROWS; j++)
+		{
+            _arrPreview[i][j]->Hide();
+		}
+	}
+	for(size_t i = 0; i < _listButton.size(); i++)
+	{
+        _listButton.at(i)->Hide();
+	}
+}
 
 void ChooseScene::OnShow()
 {
@@ -120,3 +160,18 @@ void ChooseScene::OnClose()
 }
 
 
+void ChooseScene::OnBackClick()
+{
+    HideGUI();
+	OnClose();
+}
+
+void ChooseScene::OnLeftClick()
+{
+
+}
+
+void ChooseScene::OnRightClick()
+{
+    
+}

@@ -33,6 +33,7 @@ public:
 	bool IsHide() {return _isHide;}
     orxCHAR* const GetCaption() { return _caption; }
 	virtual void Update(orxOBJECT* obj) = 0;
+    void SetScale(orxVECTOR* scale);
 };
 
 
