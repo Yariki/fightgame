@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Framework">
+      <UniqueIdentifier>{70f80e32-80f4-45eb-9822-2e31da067b16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Objects">
+      <UniqueIdentifier>{e32c7e91-9354-4c5a-b255-ea7aa4472545}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Scene">
+      <UniqueIdentifier>{71d89114-9b5f-4c67-8f68-3158a31b809c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Manager">
+      <UniqueIdentifier>{84c10e0b-eb64-400e-99b2-3d2c034e093b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Helpers">
+      <UniqueIdentifier>{ece0e88e-d10b-44cd-9f18-c654b725951e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Helpers\Movement">
+      <UniqueIdentifier>{3f2b2766-fbba-464b-989c-4be4afdd6215}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Input">
+      <UniqueIdentifier>{72f7f484-dfa0-48a7-b36d-0e92cd7683de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Scene\Controls">
+      <UniqueIdentifier>{7f9c3d5f-a7e9-4dd3-883a-dad734eca503}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\FFDefines.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FFEnums.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FFInclude.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FFAnimatedObject.h">
+      <Filter>Framework\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FFDynamicAnimatedObject.h">
+      <Filter>Framework\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FFDynamicObject.h">
+      <Filter>Framework\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FFMovableAnimatedObject.h">
+      <Filter>Framework\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FFMovableObject.h">
+      <Filter>Framework\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FFStaticAnimatedObject.h">
+      <Filter>Framework\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FFStaticObject.h">
+      <Filter>Framework\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FFObject.h">
+      <Filter>Framework\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FFScene.h">
+      <Filter>Framework\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FFGameScene.h">
+      <Filter>Framework\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FFStructure.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\IDynamicMoveStrategy.h">
+      <Filter>Framework\Helpers\Movement</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FFLineMoveStrategy.h">
+      <Filter>Framework\Helpers\Movement</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FFDynamicMoveStrategyFactory.h">
+      <Filter>Framework\Helpers\Movement</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FFInputManager.h">
+      <Filter>Framework\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FFBaseUiScene.h">
+      <Filter>Framework\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FFBaseControl.h">
+      <Filter>Framework\Scene\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FFButton.h">
+      <Filter>Framework\Scene\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FFCheckBox.h">
+      <Filter>Framework\Scene\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FFComboChooseButton.h">
+      <Filter>Framework\Scene\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FFBaseManager.h">
+      <Filter>Framework\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FFSceneManager.h">
+      <Filter>Framework\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FFPreview.h">
+      <Filter>Framework\Scene\Controls</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\FFAnimatedObject.cpp">
+      <Filter>Framework\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FFDynamicAnimatedObject.cpp">
+      <Filter>Framework\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FFDynamicObject.cpp">
+      <Filter>Framework\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FFMovableAnimatedObject.cpp">
+      <Filter>Framework\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FFMovableObject.cpp">
+      <Filter>Framework\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FFObject.cpp">
+      <Filter>Framework\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FFStaticAnimatedObject.cpp">
+      <Filter>Framework\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FFStaticObject.cpp">
+      <Filter>Framework\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FFGameScene.cpp">
+      <Filter>Framework\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FFScene.cpp">
+      <Filter>Framework\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\IDynamicMoveStrategy.cpp">
+      <Filter>Framework\Helpers\Movement</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FFLineMoveStrategy.cpp">
+      <Filter>Framework\Helpers\Movement</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FFDynamicMoveStrategyFactory.cpp">
+      <Filter>Framework\Helpers\Movement</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FFInputManager.cpp">
+      <Filter>Framework\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FFBaseControl.cpp">
+      <Filter>Framework\Scene\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FFButton.cpp">
+      <Filter>Framework\Scene\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FFCheckBox.cpp">
+      <Filter>Framework\Scene\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FFComboChooseButton.cpp">
+      <Filter>Framework\Scene\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FFBaseManager.cpp">
+      <Filter>Framework\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FFPreview.cpp">
+      <Filter>Framework\Scene\Controls</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MainGame.xml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+</Project>

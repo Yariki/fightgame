@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="FFAnimatedObject" Collapsed="true">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAMAgAAAAAgAAA=</HashCode>
+      <FileName>include\FFAnimatedObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FFDynamicAnimatedObject" Collapsed="true">
+    <Position X="5.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAwAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAACAAgEAA=</HashCode>
+      <FileName>include\FFDynamicAnimatedObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FFDynamicObject" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQgAAAAAIAABIQAAAAQAAAAACAAAEAAIAAAAAAAAIA=</HashCode>
+      <FileName>include\FFDynamicObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FFMovableAnimatedObject" Collapsed="true">
+    <Position X="0.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAgAAAEAIAEAgAAAAAAAgAAA=</HashCode>
+      <FileName>include\FFMovableAnimatedObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FFMovableObject" Collapsed="true">
+    <Position X="0.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAEAAAAYAAAAAQAAAAgAAAAAAEAABACAEAAAAAg=</HashCode>
+      <FileName>include\FFMovableObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FFObject" Collapsed="true">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACCCIAACQAAACAAAAAAAAAkiAIAgAggKAACg=</HashCode>
+      <FileName>include\FFObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FFStaticAnimatedObject" Collapsed="true">
+    <Position X="3" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAwAAAAAAAIAAAAAAAAAAgAAAAIAAEAAAAAAAAAoAAA=</HashCode>
+      <FileName>include\FFStaticAnimatedObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FFStaticObject" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAQAAAAAAAAAAAAAAEIAAAAAAAAAAAA=</HashCode>
+      <FileName>include\FFStaticObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FFGameScene">
+    <Position X="2.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAgECAAgAAAgADIAAAAAAAAAAgQAMAAAEQAAAAAAA=</HashCode>
+      <FileName>include\FFGameScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FFScene">
+    <Position X="4.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAgACAQIAAAAQAAAAAAAAAAAAAAAAgAQAAAAAAAIA=</HashCode>
+      <FileName>include\FFScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FFGameManager" Collapsed="true">
+    <Position X="15.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAQA0CAAAAAEAAAAACAAEgAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>include\ffgamemanager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FFDynamicMoveStrategyFactory" Collapsed="true">
+    <Position X="12.25" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\FFDynamicMoveStrategyFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FFLineMoveStrategy" Collapsed="true">
+    <Position X="0.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACBQAAAAAAAAAAAAQBAACAAAABABAAIAEAAAAQ=</HashCode>
+      <FileName>include\FFLineMoveStrategy.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IDynamicMoveStrategy" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAAAAAACAAAAAAAAAAACAAAAQ=</HashCode>
+      <FileName>include\IDynamicMoveStrategy.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FFApplication">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQEgAAAAAAAAAAAAAAAAQAAAAFAgAAgIAAiBAAAAAI=</HashCode>
+      <FileName>include\ffapplication.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="FF_DISPLAY_SIZE" Collapsed="true">
+    <Position X="14" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAgAAAAAAAAAAAACAAABAAAAAIAAABA=</HashCode>
+      <FileName>include\ffstructure.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="FF_ANIMATION_OBJECT" Collapsed="true">
+    <Position X="14" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>include\ffenums.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="FF_ANIMATION_DYNAMIC_OBJECT" Collapsed="true">
+    <Position X="12.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAACQAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>include\ffenums.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="FF_STATIC_OBJECT_TYPE" Collapsed="true">
+    <Position X="15.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\ffenums.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="FF_DYNAMIC_OBJECT_TYPE" Collapsed="true">
+    <Position X="15.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\ffenums.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="FF_MOVE_OPERATION" Collapsed="true">
+    <Position X="12.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAIgiAAAQAAIAAAAAAAAIAIAIAIAAAACAIQ=</HashCode>
+      <FileName>include\ffenums.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="FF_MOVE_DIRECTION" Collapsed="true">
+    <Position X="10.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\ffenums.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="FF_SCENE_TYPE" Collapsed="true">
+    <Position X="14" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\ffenums.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MOVE_DIRECTION" Collapsed="true">
+    <Position X="10.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAMAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>include\FFLineMoveStrategy.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="REPEAT_DIRECTION" Collapsed="true">
+    <Position X="12.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAIAAAAAAAgAgAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>include\FFLineMoveStrategy.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DYNAMIC_STRATEGY" Collapsed="true">
+    <Position X="10.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>include\IDynamicMoveStrategy.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

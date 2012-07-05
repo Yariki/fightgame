@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ComboChooseButton">
+    <Position X="4.25" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAQFIAAAAAhQAAAACAoQASAEgBAABAAQEAAIgAAAAAA=</HashCode>
+      <FileName>uimain.cpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CheckBox">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAJEgAAAAAIAAAAAAACAAAAAAIAAQAAAAAgACARIA=</HashCode>
+      <FileName>uimain.cpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Button">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAJEAAAAAAIAAAAAAASAAAAAgIAAAAQQAAgAGABIA=</HashCode>
+      <FileName>uimain.cpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StandAlone" Collapsed="true">
+    <Position X="12" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAQAgAAAAAAAgAAAAACEAAAAAAAAAEAAYAAqAAAAAAo=</HashCode>
+      <FileName>uimain.cpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="GUI_EVENT">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>uimain.cpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="BUTTON_STATE">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAEAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>uimain.cpp</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="CHECKBOX_STATE">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>uimain.cpp</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="GUI_EVENT_TYPE">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIEAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>uimain.cpp</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
