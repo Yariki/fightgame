@@ -37,3 +37,9 @@ void FFBaseControl::Hide()
 	if(_mainObject)
 		orxObject_Enable(_mainObject,_isHide);
 }
+
+void FFBaseControl::SetScale(orxVECTOR* scale)
+{
+    if(_mainObject)
+        orxObject_SetScale(_mainObject,scale);
+}

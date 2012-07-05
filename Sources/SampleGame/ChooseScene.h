@@ -33,7 +33,9 @@ private:
 	void OnShow();
 	void OnClose();
 
-
+    void OnBackClick();
+    void OnRightClick();
+    void OnLeftClick();
 };
 
 #endif //__CHOOSESCENE_H_
