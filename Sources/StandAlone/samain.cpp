@@ -87,7 +87,7 @@ orxSTATUS orxFASTCALL StandAlone::Init()
             {
                 for(int j = 0 ; j < 5; j++)
                 {
-                    FFPreview* preview = new FFPreview(NULL,pos,NULL);       
+                    FFPreview* preview = new FFPreview(NULL,pos,NULL,(i+j));       
                     StandAlone::_listPreview.push_back(preview);
                     pos.fX += dx;
                 }

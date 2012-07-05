@@ -1,11 +1,11 @@
 #include "FFPreview.h"
 
-FFPreview::FFPreview(FFBaseUiScene* parent,orxVECTOR& position, orxCHAR* name)
+FFPreview::FFPreview(FFBaseUiScene* parent,orxVECTOR& position, orxCHAR* name, int number = -1)
     :FFBaseControl(parent,position,name)
 {
     //_OnChoose = onchoose != NULL ? onchoose : NULL;
     _mainObject = orxObject_CreateFromConfig(PREVIEW_SECTION);
-    //_graphic = orxNULL;
+    _number = number;
     if(_mainObject)
     {
         orxObject_SetPosition(_mainObject,&_position);
@@ -13,6 +13,17 @@ FFPreview::FFPreview(FFBaseUiScene* parent,orxVECTOR& position, orxCHAR* name)
         {
             orxString_Copy(_caption,orxConfig_GetString(PREVIEW_CAPTION));   
         }
+        if(_number > -1)
+        sprintf(_caption,"%s %d",_caption,number);
+        for(orxOBJECT* obj = orxObject_GetOwnedChild(_mainObject); obj != orxNULL; obj = orxObject_GetOwnedSibling(obj))
+		{
+			const orxSTRING name = orxObject_GetName(obj);
+			if(!orxString_Compare(name,PREVIEW_CAPTION))
+			{
+				_captionObject = obj;
+				orxObject_SetTextString(_captionObject,_caption);
+			}
+		}
     }
     _onlyOnce = false;
     _scale.fX = _scale.fY = 1.2;

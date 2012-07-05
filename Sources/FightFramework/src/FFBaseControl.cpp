@@ -43,3 +43,13 @@ void FFBaseControl::SetScale(orxVECTOR* scale)
     if(_mainObject)
         orxObject_SetScale(_mainObject,scale);
 }
+
+void FFBaseControl::SetPosition(orxVECTOR* pos)
+{
+    _position.fX = pos->fX;
+    _position.fY = pos->fY;
+    _position.fZ = pos->fZ;
+    if(_mainObject)
+        orxObject_SetPosition(_mainObject,&_position);
+
+}
