@@ -34,6 +34,7 @@ public:
     orxCHAR* const GetCaption() { return _caption; }
 	virtual void Update(orxOBJECT* obj) = 0;
     void SetScale(orxVECTOR* scale);
+    void SetPosition(orxVECTOR* scale);
 };
 
 

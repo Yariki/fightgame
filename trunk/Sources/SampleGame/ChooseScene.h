@@ -6,16 +6,23 @@
 #include "FFButton.h"
 #include "FFPreview.h"
 
-#define COLS 3
-#define ROWS 5
+#define ROWS 3
+#define COLS 5
+
+struct GridData
+{
+    orxVECTOR _pos;
+    FFPreview* _preview;
+};
 
 class ChooseScene :
     public FFBaseUiScene
 {
 protected:
-	FFPreview* _arrPreview[COLS][ROWS];
+	GridData _arrPreview[ROWS][COLS];
 	std::vector<FFButton*> _listButton;
-
+    int _maxCount;
+   
 
 public:
     ChooseScene(FFGameManager* gameManager, FF_DISPLAY_SIZE& size);
@@ -36,6 +43,9 @@ private:
     void OnBackClick();
     void OnRightClick();
     void OnLeftClick();
+
+    void ShiftLeft();
+    void ShiftRight();
 };
 
 #endif //__CHOOSESCENE_H_

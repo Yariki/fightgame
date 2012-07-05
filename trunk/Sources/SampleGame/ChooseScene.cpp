@@ -11,11 +11,13 @@ ChooseScene::ChooseScene(FFGameManager* gameManager, FF_DISPLAY_SIZE& size)
     :FFBaseUiScene(gameManager,size)
 {
 	_type = FFST_UISCENE;
-	for(int i = 0; i < COLS; i++)
+    _maxCount = 20;
+
+	for(int i = 0; i < ROWS; i++)
 	{
-		for(int j = 0; j < ROWS; j++)
+		for(int j = 0; j < COLS; j++)
 		{
-			_arrPreview[i][j] =  NULL;
+            _arrPreview[i][j]._preview =  NULL;
 		}
 	}
 }
@@ -36,14 +38,14 @@ orxSTATUS ChooseScene::Load()
 
 orxSTATUS ChooseScene::Unload()
 {
-	for(int i = 0; i < COLS; i++)
+	for(int i = 0; i < ROWS; i++)
 	{
-		for(int j = 0; j < ROWS; j++)
+		for(int j = 0; j < COLS; j++)
 		{
-			if(_arrPreview[i][j])
+            if(_arrPreview[i][j]._preview)
             {
-				delete _arrPreview[i][j];
-                _arrPreview[i][j] = NULL;
+                delete _arrPreview[i][j]._preview;
+                _arrPreview[i][j]._preview = NULL;
             }
 		}
 	}
@@ -61,11 +63,12 @@ orxSTATUS ChooseScene::Update(const orxCLOCK_INFO* pClockInfo)
 	if(orxRender_GetWorldPosition(orxMouse_GetPosition(&vPos),&vPos))
 	{
 		orxOBJECT* obj = orxObject_Pick(&vPos);
-		for(int i = 0; i < COLS; i++)
+		for(int i = 0; i < ROWS; i++)
 		{
-			for(int j = 0; j < ROWS; j++)
+			for(int j = 0; j < COLS; j++)
 			{
-				_arrPreview[i][j]->Update(obj);
+                if(_arrPreview[i][j]._preview != NULL)
+                    _arrPreview[i][j]._preview->Update(obj);
 			}
 		}
 		for(size_t i = 0; i < _listButton.size(); i++)
@@ -84,16 +87,20 @@ void ChooseScene::InitializeComponent()
 		pos.fX = BEGIN_X;
 		pos.fY = BEGIN_Y;
 		pos.fZ = 0.0;
-		for(int i = 0; i < COLS; i++)
+        int count = 1;
+        
+		for(int i = 0; i < ROWS; i++)
 		{
-			for(int j = 0; j < ROWS; j++)
+			for(int j = 0; j < COLS; j++)
 			{
-				_arrPreview[i][j] = new FFPreview(NULL,pos,NULL);
+                _arrPreview[i][j]._preview= new FFPreview(NULL,pos,NULL,count++);
+                _arrPreview[i][j]._pos = pos;
 				pos.fX += DELTA_X;
 			}
 			pos.fX = BEGIN_X;
 			pos.fY += DELTA_Y;
 		}
+        orxLOG("%d",sizeof(_arrPreview));
 		if(orxConfig_Load(BTNS_FILE) == orxSTATUS_SUCCESS)
 		{
 			pos.fX = -75.0;
@@ -105,11 +112,11 @@ void ChooseScene::InitializeComponent()
             scale.fY = 1.0;
             pos.fX = -515;
             pos.fY = -10;
-            btn = new FFButton(this,pos,"<<<",NULL);
+            btn = new FFButton(this,pos,"<<<",(BUTTONCLICK)&ChooseScene::OnLeftClick);
             btn->SetScale(&scale);
             _listButton.push_back(btn);
             pos.fX = 400;
-            btn = new FFButton(this,pos,">>>",NULL);
+            btn = new FFButton(this,pos,">>>",(BUTTONCLICK)&ChooseScene::OnRightClick);
             btn->SetScale(&scale);
             _listButton.push_back(btn);
 
@@ -119,11 +126,12 @@ void ChooseScene::InitializeComponent()
 
 void ChooseScene::ShowGUI()
 {
-    for(int i = 0; i < COLS; i++)
+    for(int i = 0; i < ROWS; i++)
 	{
-		for(int j = 0; j < ROWS; j++)
+		for(int j = 0; j < COLS; j++)
 		{
-            _arrPreview[i][j]->Show();
+            if(_arrPreview[i][j]._preview != NULL)
+                _arrPreview[i][j]._preview->Show();
 		}
 	}
 	for(size_t i = 0; i < _listButton.size(); i++)
@@ -134,11 +142,12 @@ void ChooseScene::ShowGUI()
 
 void ChooseScene::HideGUI()
 {
-    for(int i = 0; i < COLS; i++)
+    for(int i = 0; i < ROWS; i++)
 	{
-		for(int j = 0; j < ROWS; j++)
+		for(int j = 0; j < COLS; j++)
 		{
-            _arrPreview[i][j]->Hide();
+            if(_arrPreview[i][j]._preview != NULL)
+                _arrPreview[i][j]._preview->Hide();
 		}
 	}
 	for(size_t i = 0; i < _listButton.size(); i++)
@@ -168,10 +177,75 @@ void ChooseScene::OnBackClick()
 
 void ChooseScene::OnLeftClick()
 {
-
+    if(_arrPreview[2][4]._preview == NULL || _arrPreview[2][4]._preview->GetNumber() == _maxCount)
+        return;
+    ShiftLeft();
 }
 
 void ChooseScene::OnRightClick()
 {
+    if(_arrPreview[0][0]._preview == NULL || _arrPreview[0][0]._preview->GetNumber() == 1)
+        return;
+    ShiftRight();
+}
+
+void ChooseScene::ShiftLeft()
+{
+    int count = _arrPreview[2][4]._preview->GetNumber();
+    count++;
+    for(int i = 0;i < ROWS;i++)
+    {
+        if(_arrPreview[i][0]._preview)
+        {
+            delete _arrPreview[i][0]._preview;
+            _arrPreview[i][0]._preview = NULL;
+        }
+    }
+
+    for(int i = 0; i < COLS - 1;i++)
+    {
+        for(int j = 0; j < ROWS;j++)
+        {
+            _arrPreview[j][i]._preview = _arrPreview[j][i+1]._preview;
+            _arrPreview[j][i]._preview->SetPosition(&_arrPreview[j][i]._pos);
+            _arrPreview[j][i+1]._preview = NULL;
+        }
+    }
+    for(int i = 0;i < ROWS; i++)
+    {
+        _arrPreview[i][4]._preview = NULL;
+        if(count <= _maxCount)
+            _arrPreview[i][4]._preview = new FFPreview(this,_arrPreview[i][4]._pos,NULL,count++);
+    }
+}
+
+void ChooseScene::ShiftRight()
+{
+    int count = _arrPreview[0][0]._preview->GetNumber();
     
+    for(int i = 0;i < ROWS;i++)
+    {
+        if(_arrPreview[i][4]._preview)
+        {
+            delete _arrPreview[i][4]._preview;
+            _arrPreview[i][4]._preview = NULL;
+        }
+    }
+
+    for(int i = COLS-1; i > 0;i--)
+    {
+        for(int j = 0; j < ROWS ;j++)
+        {
+            _arrPreview[j][i]._preview = _arrPreview[j][i-1]._preview;
+            _arrPreview[j][i]._preview->SetPosition(&_arrPreview[j][i]._pos);
+            _arrPreview[j][i-1]._preview = NULL;
+        }
+    }
+    for(int i = ROWS-1;i >= 0; i--)
+    {
+        _arrPreview[i][0]._preview = NULL;
+        int j = _arrPreview[i][1]._preview != NULL ? _arrPreview[i][1]._preview->GetNumber() - 1 : 0; 
+        if(count > 0)
+            _arrPreview[i][0]._preview = new FFPreview(this,_arrPreview[i][0]._pos,NULL,j);
+    }
 }
