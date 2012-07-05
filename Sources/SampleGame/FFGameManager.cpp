@@ -81,12 +81,18 @@ bool FFGameManager::LoadGameScene(const TiXmlElement* root)
 	const TiXmlElement* gamescene = root->FirstChildElement(FF_MANAGER_GAMESCENES);
 	if(gamescene)
 	{
-		
+		FF_DISPLAY_SIZE size = {0};
+		orxDisplay_GetScreenSize(&size._Width,&size._Height);
+		size._Top =  - size._Height / 2.0f;
+		size._Left = - size._Width / 2.0f;
+		size._Bottom = - size._Top;
+		size._Right = - size._Left;
 		for(const TiXmlElement* node = gamescene->FirstChildElement(); node ; node = node->NextSiblingElement())
 		{
 			orxCHAR filename[MAX_FILE_PATH];
 			orxString_Copy(filename,node->Attribute(FF_MANAGER_FILENAMESCENE_ATTRIBUTE));
-			_listFileScene.push_back(filename);
+			FFGameScene* gscene = new FFGameScene(this,size,filename);
+			_listFileScene.push_back(gscene);
 		}
 		res = true;
 	}
@@ -168,14 +174,7 @@ void FFGameManager::LoadCurrentGameScene()
 	if(_listFileScene.size() > 0)
 	{
 		((FFBaseUiScene*)_mainScene)->Unload();
-		
-		FF_DISPLAY_SIZE size = {0};
-		orxDisplay_GetScreenSize(&size._Width,&size._Height);
-		size._Top =  - size._Height / 2.0f;
-		size._Left = - size._Width / 2.0f;
-		size._Bottom = - size._Top;
-		size._Right = - size._Left;
-		FFGameScene* scene = new FFGameScene((FFBaseManager*)this,size,(orxCHAR*)_listFileScene.at(0).c_str());
+		FFGameScene* scene = _listFileScene.at(0);
 		scene->Load();
 	}
 }

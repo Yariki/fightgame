@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Game MainScene="..\Data\Scenes\MainScene.xml">
   <GameScenes>
-    <GameScene Filename="..\Data\Scenes\MainScene.xml" />
+    <GameScene Filename="..\Data\Scenes\1.xml" />
+    <GameScene Filename="..\Data\Scenes\2.xml" />
+    <GameScene Filename="..\Data\Scenes\3.xml" />
+    <GameScene Filename="..\Data\Scenes\4.xml" />
+    <GameScene Filename="..\Data\Scenes\5.xml" />
+    <GameScene Filename="..\Data\Scenes\6.xml" />
+    <GameScene Filename="..\Data\Scenes\7.xml" />
+    <GameScene Filename="..\Data\Scenes\8.xml" />
+    <GameScene Filename="..\Data\Scenes\9.xml" />
+    <GameScene Filename="..\Data\Scenes\10.xml" />
   </GameScenes>
 </Game>

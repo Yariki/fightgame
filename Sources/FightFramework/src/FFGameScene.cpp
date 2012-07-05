@@ -6,12 +6,15 @@
 #define FF_DYNAMIC_ANIMATED_OBJECTS			"DynamicAnimatedObjects"
 #define FF_FILENAME_ATTRIBUTE				"Filename"
 
+#define FF_PREVIEW_ATTRIBUTE				"Preview"
+
 
 
 FFGameScene::FFGameScene(FFBaseManager* gameManager,FF_DISPLAY_SIZE& size,orxSTRING filename)
 	:FFScene(gameManager,size,filename)
 {
 	_type = FFST_GAMESCENE;
+	CheckPreview();
 }
 
 
@@ -219,4 +222,19 @@ void FFGameScene::OnClose()
 {
 	SceneEvent ev(FFUE_GAME_SCENE_CLOSE,_gameManager,this);
 	orxEVENT_SEND(orxEVENT_TYPE_USER_DEFINED,0,this,orxNULL,&ev);
+}
+
+void FFGameScene::CheckPreview()
+{
+	TiXmlDocument doc(_nameCfngFile);
+	bool okLoad = doc.LoadFile();
+
+	if(!okLoad)
+	{
+		return;
+	}
+
+	const TiXmlElement* root = doc.RootElement();
+	const char* prev = root->Attribute(FF_PREVIEW_ATTRIBUTE);
+	_filePreview = std::string(prev);
 }
