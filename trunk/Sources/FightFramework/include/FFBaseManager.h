@@ -17,7 +17,7 @@ protected:
 
 	FFSceneManager<FFBaseUiScene*>* _uiSceneManager;
 
-	std::vector<string>	_listFileScene;
+	std::vector<FFGameScene*>	_listFileScene;
 	std::vector<FFBaseUiScene*> _listUiScene;
 
 

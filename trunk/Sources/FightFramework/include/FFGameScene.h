@@ -21,6 +21,8 @@ protected:
 	std::vector<FFStaticAnimatedObject*>	_listStaticAnimEntity;
 	std::vector<FFDynamicObject*>			_listDynamicEntity;
 	std::vector<FFDynamicAnimatedObject*>	_listDynamicAnimEntity;
+	std::string _filePreview;
+
 
 public:
 	FFGameScene(FFBaseManager* gameManager,FF_DISPLAY_SIZE& size,orxSTRING filename);
@@ -31,6 +33,8 @@ public:
 	orxSTATUS				Unload();
 	orxSTATUS				Update(const orxCLOCK_INFO* pClockInfo);
 
+	std::string GetPreviewFileName() { return _filePreview;}
+
 protected:
 	bool					LoadStatic(const TiXmlElement* root);
 	bool					LoadStaticAnimatedObject(const TiXmlElement* root);
@@ -40,6 +44,8 @@ protected:
 private:
 	void OnShow();
 	void OnClose();
+
+	void CheckPreview();
 };
 
 #endif //__FFGAMESCENE_H__

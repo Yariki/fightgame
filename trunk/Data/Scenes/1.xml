@@ -1,4 +1,4 @@
-<Scene Name="main">
+<Scene Name="main" Preview="..\data\Ini\Preview\1.ini">
   <StaticObjects>
     <StaticObjects Filename="..\data\Ini\Ground.ini" />
 	<StaticObjects Filename="..\data\Ini\Wall.ini" />
