@@ -11,7 +11,7 @@ ChooseScene::ChooseScene(FFGameManager* gameManager, FF_DISPLAY_SIZE& size)
     :FFBaseUiScene(gameManager,size)
 {
 	_type = FFST_UISCENE;
-    _maxCount = 20;
+    _maxCount = _gameManager != NULL ? _gameManager->GetGameSceneList()->size() : 0;
 
 	for(int i = 0; i < ROWS; i++)
 	{
@@ -81,47 +81,62 @@ orxSTATUS ChooseScene::Update(const orxCLOCK_INFO* pClockInfo)
 
 void ChooseScene::InitializeComponent()
 {
-	if(orxConfig_Load("../Data/Ini/StaticObject.ini") == orxSTATUS_SUCCESS)
+	
+	orxVECTOR pos;
+	pos.fX = BEGIN_X;
+	pos.fY = BEGIN_Y;
+	pos.fZ = 0.0;
+    int count = 0;
+    const std::vector<FFGameScene*>* list = _gameManager != NULL ? _gameManager->GetGameSceneList() : NULL;
+    if(list != NULL)
+    {
+	    for(int j = 0; j < COLS; j++)
+	    {
+		    for(int i = 0; i < ROWS; i++)
+		    {
+                if(count < _maxCount)
+                {
+                    FFGameScene* scene = list->at(count);
+                    std::string f = scene != NULL ? scene ->GetPreviewFileName().c_str() : "";
+                    const orxCHAR* filename = f.c_str();
+                    _arrPreview[i][j]._preview= new FFPreview(NULL,pos,NULL,filename,count++);
+                    _arrPreview[i][j]._pos = pos;
+			        
+                }
+                else
+                {
+                    _arrPreview[i][j]._preview= NULL;
+                    _arrPreview[i][j]._pos = pos;
+                }
+                pos.fY += DELTA_Y;
+                
+		    }
+		    pos.fY = BEGIN_Y;
+		    pos.fX += DELTA_X;
+	    }
+    }
+    orxLOG("%d",sizeof(_arrPreview));
+	if(orxConfig_Load(BTNS_FILE) == orxSTATUS_SUCCESS)
 	{
-		orxVECTOR pos;
-		pos.fX = BEGIN_X;
-		pos.fY = BEGIN_Y;
-		pos.fZ = 0.0;
-        int count = 1;
-        
-		for(int i = 0; i < ROWS; i++)
-		{
-			for(int j = 0; j < COLS; j++)
-			{
-                _arrPreview[i][j]._preview= new FFPreview(NULL,pos,NULL,count++);
-                _arrPreview[i][j]._pos = pos;
-				pos.fX += DELTA_X;
-			}
-			pos.fX = BEGIN_X;
-			pos.fY += DELTA_Y;
-		}
-        orxLOG("%d",sizeof(_arrPreview));
-		if(orxConfig_Load(BTNS_FILE) == orxSTATUS_SUCCESS)
-		{
-			pos.fX = -75.0;
-			pos.fY += 50.0;
-			FFButton* btn = new FFButton(this,pos,"Back",(BUTTONCLICK)&ChooseScene::OnBackClick);
-			_listButton.push_back(btn);
-            orxVECTOR scale;
-            scale.fX = 0.5;
-            scale.fY = 1.0;
-            pos.fX = -515;
-            pos.fY = -10;
-            btn = new FFButton(this,pos,"<<<",(BUTTONCLICK)&ChooseScene::OnLeftClick);
-            btn->SetScale(&scale);
-            _listButton.push_back(btn);
-            pos.fX = 400;
-            btn = new FFButton(this,pos,">>>",(BUTTONCLICK)&ChooseScene::OnRightClick);
-            btn->SetScale(&scale);
-            _listButton.push_back(btn);
+		pos.fX = -75.0;
+        pos.fY = (-BEGIN_Y) + 50.0;
+		FFButton* btn = new FFButton(this,pos,"Back",(BUTTONCLICK)&ChooseScene::OnBackClick);
+		_listButton.push_back(btn);
+        orxVECTOR scale;
+        scale.fX = 0.5;
+        scale.fY = 1.0;
+        pos.fX = -515;
+        pos.fY = -10;
+        btn = new FFButton(this,pos,"<<<",(BUTTONCLICK)&ChooseScene::OnLeftClick);
+        btn->SetScale(&scale);
+        _listButton.push_back(btn);
+        pos.fX = 400;
+        btn = new FFButton(this,pos,">>>",(BUTTONCLICK)&ChooseScene::OnRightClick);
+        btn->SetScale(&scale);
+        _listButton.push_back(btn);
 
-		}
 	}
+	
 }
 
 void ChooseScene::ShowGUI()
@@ -184,7 +199,7 @@ void ChooseScene::OnLeftClick()
 
 void ChooseScene::OnRightClick()
 {
-    if(_arrPreview[0][0]._preview == NULL || _arrPreview[0][0]._preview->GetNumber() == 1)
+    if(_arrPreview[0][0]._preview == NULL || !_arrPreview[0][0]._preview->GetNumber())
         return;
     ShiftRight();
 }
@@ -211,18 +226,25 @@ void ChooseScene::ShiftLeft()
             _arrPreview[j][i+1]._preview = NULL;
         }
     }
+    const std::vector<FFGameScene*>* list = _gameManager != NULL ? _gameManager->GetGameSceneList() : NULL;
     for(int i = 0;i < ROWS; i++)
     {
         _arrPreview[i][4]._preview = NULL;
-        if(count <= _maxCount)
-            _arrPreview[i][4]._preview = new FFPreview(this,_arrPreview[i][4]._pos,NULL,count++);
+        if(!list || count >= _maxCount)
+            continue;
+        FFGameScene* scene = list->at(count);
+        if(!scene)
+            continue;
+        std::string f = scene != NULL ? scene ->GetPreviewFileName().c_str() : "";
+        const orxCHAR* filename = f.c_str();
+        _arrPreview[i][4]._preview = new FFPreview(this,_arrPreview[i][4]._pos,NULL,filename,count++);
     }
 }
 
 void ChooseScene::ShiftRight()
 {
     int count = _arrPreview[0][0]._preview->GetNumber();
-    
+    count--;
     for(int i = 0;i < ROWS;i++)
     {
         if(_arrPreview[i][4]._preview)
@@ -241,11 +263,17 @@ void ChooseScene::ShiftRight()
             _arrPreview[j][i-1]._preview = NULL;
         }
     }
+    const std::vector<FFGameScene*>* list = _gameManager != NULL ? _gameManager->GetGameSceneList() : NULL;
     for(int i = ROWS-1;i >= 0; i--)
     {
         _arrPreview[i][0]._preview = NULL;
-        int j = _arrPreview[i][1]._preview != NULL ? _arrPreview[i][1]._preview->GetNumber() - 1 : 0; 
-        if(count > 0)
-            _arrPreview[i][0]._preview = new FFPreview(this,_arrPreview[i][0]._pos,NULL,j);
+         if(!list || count == -1)
+            continue;
+        FFGameScene* scene = list->at(count);
+        if(!scene)
+            continue;
+        std::string f = scene != NULL ? scene ->GetPreviewFileName().c_str() : "";
+        const orxCHAR* filename = f.c_str();
+        _arrPreview[i][0]._preview = new FFPreview(this,_arrPreview[i][0]._pos,NULL,filename,count--);
     }
 }

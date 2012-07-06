@@ -14,6 +14,8 @@ FFGameScene::FFGameScene(FFBaseManager* gameManager,FF_DISPLAY_SIZE& size,orxSTR
 	:FFScene(gameManager,size,filename)
 {
 	_type = FFST_GAMESCENE;
+    _firstHero = orxNULL;
+    _secondHero = orxNULL;
 	CheckPreview();
 }
 

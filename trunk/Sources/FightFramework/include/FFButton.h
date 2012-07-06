@@ -32,6 +32,10 @@ protected:
 	void Hover();
 	void Press();
 
+
+private:
+    void CalcCaptionPosition();
+
 };
 
 #endif //__FFBUTTON_H__

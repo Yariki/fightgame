@@ -16,6 +16,7 @@ FFButton::FFButton(FFBaseUiScene* parent,orxVECTOR& position, orxCHAR* name, BUT
 			{
 				_captionObject = obj;
 				orxObject_SetTextString(_captionObject,_caption);
+                CalcCaptionPosition();
 			}
 		}
 	}
@@ -71,4 +72,28 @@ void FFButton::Normal()
 {
 	if(_mainObject)
 		orxObject_SetTargetAnim(_mainObject,BUTTON_ANIMATION_NORMAL);
+}
+
+void FFButton::CalcCaptionPosition()
+{
+    const orxFONT* def = orxFont_GetDefaultFont();
+    orxU32 lenght = orxString_GetLength(_caption);
+    float stringWidth = 0.0f;
+    for(orxU32 i = 0; i < lenght; i++)
+        stringWidth += orxFont_GetCharacterWidth(def,_caption[i]);
+    orxVECTOR sizeMain;
+    orxObject_GetSize(_mainObject,&sizeMain);
+    orxVECTOR posCaption;
+    posCaption.fX = 0.0f;
+    posCaption.fY = 3.0f;
+    posCaption.fZ = 0.0f;
+    float delta = sizeMain.fX - stringWidth;
+    if(delta > 0)
+    {
+        delta /=2.0f;
+        posCaption.fX = delta;
+        orxObject_SetPosition(_captionObject,&posCaption);
+    }
+    else
+        orxObject_SetPosition(_captionObject,&posCaption);
 }

@@ -1,6 +1,6 @@
 
 #include "orx.h"
-#include "FFPreview.h"
+#include "FFButton.h"
 
 #ifndef __STANDALONE_H__
 #define __STANDALONE_H__
@@ -15,8 +15,8 @@ public:
 	static orxSTATUS orxFASTCALL Run();
 	static void orxFASTCALL Exit();
 	static orxOBJECT*  _Object;
-    static FFPreview* _preview;
-    static std::vector<FFPreview*> _listPreview;
+    //static FFPreview* _preview;
+    static std::vector<FFButton*> _list;
 
 protected:
 	StandAlone();
@@ -30,8 +30,8 @@ private:
 
 StandAlone* StandAlone::_Instance = NULL;
 orxOBJECT* StandAlone::_Object = NULL;
-FFPreview* StandAlone::_preview = NULL;
-std::vector<FFPreview*> StandAlone::_listPreview;
+//FFPreview* StandAlone::_preview = NULL;
+std::vector<FFButton*> StandAlone::_list;
 
 StandAlone* StandAlone::Instance()
 {
@@ -65,7 +65,7 @@ orxSTATUS orxFASTCALL StandAlone::Init()
 		
 
 		// create  object
-		orxSTATUS configFileLoad = orxConfig_Load("../Data/Ini/StaticObject.ini");
+		orxSTATUS configFileLoad = orxConfig_Load("../data/Ini/Buttons.ini");
 		if(configFileLoad == orxSTATUS_SUCCESS)
 		{
 			orxInput_Load(orxSTRING_EMPTY);
@@ -77,21 +77,33 @@ orxSTATUS orxFASTCALL StandAlone::Init()
 				orxLOG("Name = %s",orxObject_GetName(o));
 				orxObject_SetTextString(o,"Set Text");
 			}*/
+            orxVECTOR size;
+            orxCHAR t[10] = "aaaaaaaaa";
+            const orxFONT* def = orxFont_GetDefaultFont();
+            
+            float width = 0;
+            for(int i = 0 ; i < 10; i++)
+                width += orxFont_GetCharacterWidth(def,t[i]);
+
             orxVECTOR pos;
-            pos.fX = -300.0;
+            pos.fX = -450.0;
             pos.fY = -300.0;
             pos.fZ = 0.0;
-            float dx = 150;
+            float dx = 175;
             float dy = 150;
+            int c = 1;
             for(int i = 0; i < 2;i++)
             {
                 for(int j = 0 ; j < 5; j++)
                 {
-                    FFPreview* preview = new FFPreview(NULL,pos,NULL,(i+j));       
-                    StandAlone::_listPreview.push_back(preview);
+                    orxCHAR temp[MAX_NAME];
+                    orxString_Print(temp,"%s %d","Button",c);
+                    FFButton* btn = new FFButton(NULL,pos,temp,NULL);
+                    StandAlone::_list.push_back(btn);
+                    c *= 3;
                     pos.fX += dx;
                 }
-                pos.fX = -300;
+                pos.fX = -450.0;
                 pos.fY += dy;
             }
              
@@ -179,9 +191,9 @@ void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* pClockInfo, void* pCont
 	if(orxRender_GetWorldPosition(orxMouse_GetPosition(&vPos),&vPos))
 	{
 		orxOBJECT* obj = orxObject_Pick(&vPos);
-        for(size_t i = 0; i < StandAlone::_listPreview.size(); i++)
+        for(size_t i = 0; i < StandAlone::_list.size(); i++)
         {
-            StandAlone::_listPreview.at(i)->Update(obj);
+            StandAlone::_list.at(i)->Update(obj);
         }
     }
 }
@@ -196,11 +208,11 @@ void orxFASTCALL StandAlone::Exit()
 	//orxObject_Delete(StandAlone::_Object);
     /*if(StandAlone::_preview)
         delete StandAlone::_preview;*/
-    for(size_t i = StandAlone::_listPreview.size(); i < StandAlone::_listPreview.size(); i++)
+    for(size_t i = StandAlone::_list.size(); i < StandAlone::_list.size(); i++)
     {
-        delete StandAlone::_listPreview.at(i);
+        delete StandAlone::_list.at(i);
     }
-    StandAlone::_listPreview.clear();    
+    StandAlone::_list.clear();    
 	return;
 }
 

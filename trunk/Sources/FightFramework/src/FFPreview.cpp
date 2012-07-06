@@ -1,32 +1,37 @@
 #include "FFPreview.h"
 
-FFPreview::FFPreview(FFBaseUiScene* parent,orxVECTOR& position, orxCHAR* name, int number = -1)
+FFPreview::FFPreview(FFBaseUiScene* parent,orxVECTOR& position, orxCHAR* name,const orxCHAR* filepreview, int number = -1)
     :FFBaseControl(parent,position,name)
 {
     //_OnChoose = onchoose != NULL ? onchoose : NULL;
-    _mainObject = orxObject_CreateFromConfig(PREVIEW_SECTION);
+    
     _number = number;
-    if(_mainObject)
+    orxString_Copy(_filePreview ,filepreview);
+    if(orxConfig_Load(_filePreview) == orxSTATUS_SUCCESS)
     {
-        orxObject_SetPosition(_mainObject,&_position);
-        if(orxConfig_PushSection(PREVIEW_SECTION) == orxSTATUS_SUCCESS)
+        _mainObject = orxObject_CreateFromConfig(PREVIEW_SECTION);
+        if(_mainObject)
         {
-            orxString_Copy(_caption,orxConfig_GetString(PREVIEW_CAPTION));   
+            orxObject_SetPosition(_mainObject,&_position);
+            if(orxConfig_PushSection(PREVIEW_SECTION) == orxSTATUS_SUCCESS)
+            {
+                orxString_Copy(_caption,orxConfig_GetString(PREVIEW_CAPTION));   
+            }
+            if(_number > -1)
+            sprintf(_caption,"%s %d",_caption,number);
+            for(orxOBJECT* obj = orxObject_GetOwnedChild(_mainObject); obj != orxNULL; obj = orxObject_GetOwnedSibling(obj))
+		    {
+			    const orxSTRING name = orxObject_GetName(obj);
+			    if(!orxString_Compare(name,PREVIEW_CAPTION))
+			    {
+				    _captionObject = obj;
+				    orxObject_SetTextString(_captionObject,_caption);
+			    }
+		    }
         }
-        if(_number > -1)
-        sprintf(_caption,"%s %d",_caption,number);
-        for(orxOBJECT* obj = orxObject_GetOwnedChild(_mainObject); obj != orxNULL; obj = orxObject_GetOwnedSibling(obj))
-		{
-			const orxSTRING name = orxObject_GetName(obj);
-			if(!orxString_Compare(name,PREVIEW_CAPTION))
-			{
-				_captionObject = obj;
-				orxObject_SetTextString(_captionObject,_caption);
-			}
-		}
     }
     _onlyOnce = false;
-    _scale.fX = _scale.fY = 1.2;
+    _scale.fX = _scale.fY = 1.2f;
 
 }
 

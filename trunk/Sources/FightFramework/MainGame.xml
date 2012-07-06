@@ -11,5 +11,15 @@
     <GameScene Filename="..\Data\Scenes\8.xml" />
     <GameScene Filename="..\Data\Scenes\9.xml" />
     <GameScene Filename="..\Data\Scenes\10.xml" />
+    <GameScene Filename="..\Data\Scenes\11.xml" />
+    <GameScene Filename="..\Data\Scenes\12.xml" />
+    <GameScene Filename="..\Data\Scenes\13.xml" />
+    <GameScene Filename="..\Data\Scenes\14.xml" />
+    <GameScene Filename="..\Data\Scenes\15.xml" />
+    <GameScene Filename="..\Data\Scenes\16.xml" />
+    <GameScene Filename="..\Data\Scenes\17.xml" />
+    <GameScene Filename="..\Data\Scenes\18.xml" />
+    <GameScene Filename="..\Data\Scenes\19.xml" />
+    <GameScene Filename="..\Data\Scenes\20.xml" />
   </GameScenes>
 </Game>
