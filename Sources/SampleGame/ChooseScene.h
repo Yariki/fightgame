@@ -22,7 +22,6 @@ protected:
 	GridData _arrPreview[ROWS][COLS];
 	std::vector<FFButton*> _listButton;
     int _maxCount;
-   
 
 public:
     ChooseScene(FFGameManager* gameManager, FF_DISPLAY_SIZE& size);

@@ -32,6 +32,7 @@ public:
 	bool IsUIScenePresent(string type);
 	FFBaseUiScene* GetUiScene(string type);
 	void AddUiScene(FFBaseUiScene* scene);
+    const std::vector<FFGameScene*>* GetGameSceneList() { return &_listFileScene; }
 
 public:
 	virtual orxSTATUS Load() = 0;

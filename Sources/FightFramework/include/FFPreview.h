@@ -15,8 +15,9 @@ protected:
     bool _onlyOnce;
     orxVECTOR _scale;
     int _number;
+    orxCHAR _filePreview[MAX_NAME];
 public:
-    FFPreview(FFBaseUiScene* parent,orxVECTOR& position, orxCHAR* name,int number);
+    FFPreview(FFBaseUiScene* parent,orxVECTOR& position, orxCHAR* name,const orxCHAR* filepreview, int number);
     virtual ~FFPreview();
 
 public:
