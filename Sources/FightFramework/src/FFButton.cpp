@@ -32,6 +32,13 @@ void FFButton::Update(orxOBJECT* obj)
 {
 	bool isNew = false;
 	bool isLeft = FFInputManager::GetSingleton()->GetInputStatus("MouseLeft",isNew);
+
+	if(!obj)
+	{
+		Normal();
+		return;
+	}
+
 	if(obj == _mainObject || obj == _captionObject)
 	{
 		if(isLeft && isNew)
@@ -65,7 +72,10 @@ void FFButton::Press()
 void FFButton::Hover()
 {
 	if(_mainObject)
+	{
 		orxObject_SetTargetAnim(_mainObject,BUTTON_ANIMATION_HOVER);
+		
+	}
 }
 
 void FFButton::Normal()

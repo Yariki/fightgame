@@ -6,6 +6,9 @@
 #define DELTA_X 150.0
 #define DELTA_Y 150.0
 
+#define BTN_LEFT_FILE "../Data/Ini/ButtonsLeft.ini"
+#define BTN_RIGHT_FILE "../Data/Ini/ButtonsRight.ini"
+
 
 ChooseScene::ChooseScene(FFGameManager* gameManager, FF_DISPLAY_SIZE& size)
     :FFBaseUiScene(gameManager,size)
@@ -57,26 +60,24 @@ orxSTATUS ChooseScene::Unload()
     return orxSTATUS_SUCCESS;
 }
 
-orxSTATUS ChooseScene::Update(const orxCLOCK_INFO* pClockInfo)
+void ChooseScene::UpdateGUI(orxOBJECT* obj)
 {
-	orxVECTOR vPos;
-	if(orxRender_GetWorldPosition(orxMouse_GetPosition(&vPos),&vPos))
+	for(int i = 0; i < ROWS; i++)
 	{
-		orxOBJECT* obj = orxObject_Pick(&vPos);
-		for(int i = 0; i < ROWS; i++)
+		for(int j = 0; j < COLS; j++)
 		{
-			for(int j = 0; j < COLS; j++)
-			{
-                if(_arrPreview[i][j]._preview != NULL)
-                    _arrPreview[i][j]._preview->Update(obj);
-			}
-		}
-		for(size_t i = 0; i < _listButton.size(); i++)
-		{
-			_listButton.at(i)->Update(obj);
+            if(_arrPreview[i][j]._preview != NULL)
+                _arrPreview[i][j]._preview->Update(obj);
 		}
 	}
-    return orxSTATUS_SUCCESS;
+	//for(size_t i = 0; i < _listButton.size(); i++)
+	//{
+	//	_listButton.at(i)->Update(obj);
+	//}
+	_listButton.at(0)->Update(obj);
+	_listButton.at(1)->Update(obj);
+	_listButton.at(2)->Update(obj);
+
 }
 
 void ChooseScene::InitializeComponent()
@@ -122,16 +123,25 @@ void ChooseScene::InitializeComponent()
         pos.fY = (-BEGIN_Y) + 50.0;
 		FFButton* btn = new FFButton(this,pos,"Back",(BUTTONCLICK)&ChooseScene::OnBackClick);
 		_listButton.push_back(btn);
-        orxVECTOR scale;
-        scale.fX = 0.5;
-        scale.fY = 1.0;
-        pos.fX = -515;
+	}
+
+    orxVECTOR scale;
+    scale.fX = 1.5;
+    scale.fY = 1.5;
+	orxConfig_Clear();
+	if(orxConfig_Load(BTN_LEFT_FILE) == orxSTATUS_SUCCESS)
+	{
+        pos.fX = -425;
         pos.fY = -10;
-        btn = new FFButton(this,pos,"<<<",(BUTTONCLICK)&ChooseScene::OnLeftClick);
+        FFButton* btn = new FFButton(this,pos,NULL,(BUTTONCLICK)&ChooseScene::OnLeftClick);
         btn->SetScale(&scale);
         _listButton.push_back(btn);
+	}
+	orxConfig_Clear();
+	if(orxConfig_Load(BTN_RIGHT_FILE) == orxSTATUS_SUCCESS)
+	{
         pos.fX = 400;
-        btn = new FFButton(this,pos,">>>",(BUTTONCLICK)&ChooseScene::OnRightClick);
+        FFButton* btn = new FFButton(this,pos,NULL,(BUTTONCLICK)&ChooseScene::OnRightClick);
         btn->SetScale(&scale);
         _listButton.push_back(btn);
 

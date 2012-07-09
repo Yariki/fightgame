@@ -179,6 +179,9 @@
     <ClCompile Include="src\FFPreview.cpp">
       <Filter>Framework\Scene\Controls</Filter>
     </ClCompile>
+    <ClCompile Include="src\FFBaseUiScene.cpp">
+      <Filter>Framework\Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="MainGame.xml">

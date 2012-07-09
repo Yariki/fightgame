@@ -23,16 +23,17 @@ public:
 public:
     virtual orxSTATUS Load();
     virtual orxSTATUS Unload();
-    virtual orxSTATUS Update(const orxCLOCK_INFO* pClockInfo);
+    
     virtual void InitializeComponent();
-
     virtual void ShowGUI();
     virtual void HideGUI();
+
+protected:
+	void UpdateGUI(orxOBJECT* obj);
 
 private:
     void OnShow();
     void OnClose();
-
 
     void OnStartClick();
     void OnChooseSceneClick();

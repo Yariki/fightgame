@@ -43,24 +43,18 @@ orxSTATUS OptionsScene::Unload()
 	return orxSTATUS_SUCCESS;
 }
 
-orxSTATUS OptionsScene::Update(const orxCLOCK_INFO* pClockInfo)
+void OptionsScene::UpdateGUI(orxOBJECT* obj)
 {
-	orxVECTOR vPos;
-	if(orxRender_GetWorldPosition(orxMouse_GetPosition(&vPos),&vPos))
+	size_t i;
+	for( i =0; i < _listChecks.size(); i++)
 	{
-		orxOBJECT* obj = orxObject_Pick(&vPos);
-		size_t i;
-		for( i =0; i < _listChecks.size(); i++)
-		{
-			_listChecks.at(i)->Update(obj);
-		}
-		for( i =0; i < _listCombo.size(); i++)
-		{
-			_listCombo.at(i)->Update(obj);
-		}
-		_btnBack->Update(obj);
+		_listChecks.at(i)->Update(obj);
 	}
-	return orxSTATUS_SUCCESS;
+	for( i =0; i < _listCombo.size(); i++)
+	{
+		_listCombo.at(i)->Update(obj);
+	}
+	_btnBack->Update(obj);
 }
 
 void OptionsScene::InitializeComponent()
