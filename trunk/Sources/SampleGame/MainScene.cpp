@@ -34,19 +34,12 @@ orxSTATUS MainScene::Unload()
 	return orxSTATUS_SUCCESS;
 }
 
-orxSTATUS MainScene::Update(const orxCLOCK_INFO* pClockInfo)
+void MainScene::UpdateGUI(orxOBJECT* obj)
 {
-	orxVECTOR vPos;
-	if(orxRender_GetWorldPosition(orxMouse_GetPosition(&vPos),&vPos))
-	{
-		orxOBJECT* obj = orxObject_Pick(&vPos);
-        for(size_t i = 0; i < _buttons.size(); i++)
-        {
-            _buttons.at(i)->Update(obj);
-        }
-	}
-
-	return orxSTATUS_SUCCESS;
+    for(size_t i = 0; i < _buttons.size(); i++)
+    {
+        _buttons.at(i)->Update(obj);
+    }
 }
 
 void MainScene::InitializeComponent()

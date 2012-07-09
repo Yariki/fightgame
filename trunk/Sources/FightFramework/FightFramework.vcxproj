@@ -42,6 +42,7 @@
     <ClCompile Include="src\FFAnimatedObject.cpp" />
     <ClCompile Include="src\FFBaseControl.cpp" />
     <ClCompile Include="src\FFBaseManager.cpp" />
+    <ClCompile Include="src\FFBaseUiScene.cpp" />
     <ClCompile Include="src\FFButton.cpp" />
     <ClCompile Include="src\FFCheckBox.cpp" />
     <ClCompile Include="src\FFComboChooseButton.cpp" />
