@@ -11,7 +11,7 @@
 
 class FFRadioButtonGroup;
 
-typedef (FFRadioButtonGroup::*RADIOCHOOSE)(int index);
+typedef void (FFRadioButtonGroup::*RADIOCHOOSE)(int index);
 
 class FFRadioButton: public FFBaseControl
 {

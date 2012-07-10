@@ -39,7 +39,7 @@ void FFRadioButton::Update(orxOBJECT* obj)
 			SetState(CHB_CHECK);
             if(_OnChoose && _group)
             {
-                
+                (_group->*_OnChoose)(_index);
             }
 		}
 	}
