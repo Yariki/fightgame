@@ -32,6 +32,7 @@
     <ClInclude Include="include\FFObject.h" />
     <ClInclude Include="include\FFPreview.h" />
     <ClInclude Include="include\FFRadioButton.h" />
+    <ClInclude Include="include\FFRadioButtonGroup.h" />
     <ClInclude Include="include\FFScene.h" />
     <ClInclude Include="include\FFSceneManager.h" />
     <ClInclude Include="include\FFStaticAnimatedObject.h" />
@@ -58,6 +59,7 @@
     <ClCompile Include="src\FFObject.cpp" />
     <ClCompile Include="src\FFPreview.cpp" />
     <ClCompile Include="src\FFRadioButton.cpp" />
+    <ClCompile Include="src\FFRadioButtonGroup.cpp" />
     <ClCompile Include="src\FFScene.cpp" />
     <ClCompile Include="src\FFStaticAnimatedObject.cpp" />
     <ClCompile Include="src\FFStaticObject.cpp" />
