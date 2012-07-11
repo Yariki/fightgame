@@ -36,7 +36,10 @@
     <ClCompile Include="OptionsScene.cpp">
       <Filter>GUI</Filter>
     </ClCompile>
-    <ClCompile Include="ChooseScene.cpp">
+    <ClCompile Include="BaseChooseScene.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="GameSceneChoose.cpp">
       <Filter>GUI</Filter>
     </ClCompile>
   </ItemGroup>
@@ -58,7 +61,10 @@
     <ClInclude Include="OptionsScene.h">
       <Filter>GUI</Filter>
     </ClInclude>
-    <ClInclude Include="ChooseScene.h">
+    <ClInclude Include="BaseChooseScene.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GameSceneChoose.h">
       <Filter>GUI</Filter>
     </ClInclude>
   </ItemGroup>

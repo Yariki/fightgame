@@ -3,7 +3,7 @@
 
 #include "MainScene.h"
 #include "OptionsScene.h"
-#include "ChooseScene.h"
+#include "GameSceneChoose.h"
 
 MainScene::MainScene(FFGameManager* gameManager, FF_DISPLAY_SIZE& size)
 	:FFBaseUiScene(gameManager,size)
@@ -95,14 +95,14 @@ void MainScene::OnChooseSceneClick()
 {
 	orxLOG("Choose scene CLICK!!!!");
 	Unload();
-	ChooseScene* chooseScene = NULL;
-	if(_gameManager->IsUIScenePresent(typeid(ChooseScene).name()))
+	GameSceneChoose* chooseScene = NULL;
+	if(_gameManager->IsUIScenePresent(typeid(GameSceneChoose).name()))
 	{
-		chooseScene = static_cast<ChooseScene*>(_gameManager->GetUiScene(typeid(ChooseScene).name()));
+		chooseScene = static_cast<GameSceneChoose*>(_gameManager->GetUiScene(typeid(GameSceneChoose).name()));
 	}
 	else
 	{
-		chooseScene = new ChooseScene((FFGameManager*)_gameManager,_sizeDisplay);
+		chooseScene = new GameSceneChoose((FFGameManager*)_gameManager,_sizeDisplay);
 		_gameManager->AddUiScene(chooseScene);
 	}
 	if(chooseScene) 
