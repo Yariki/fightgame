@@ -79,9 +79,10 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ChooseScene.cpp" />
+    <ClCompile Include="BaseChooseScene.cpp" />
     <ClCompile Include="FFApplication.cpp" />
     <ClCompile Include="FFGameManager.cpp" />
+    <ClCompile Include="GameSceneChoose.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainScene.cpp" />
     <ClCompile Include="OptionsScene.cpp" />
@@ -90,9 +91,10 @@
     <None Include="orx.ini" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ChooseScene.h" />
+    <ClInclude Include="BaseChooseScene.h" />
     <ClInclude Include="FFApplication.h" />
     <ClInclude Include="FFGameManager.h" />
+    <ClInclude Include="GameSceneChoose.h" />
     <ClInclude Include="MainScene.h" />
     <ClInclude Include="OptionsScene.h" />
   </ItemGroup>

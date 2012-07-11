@@ -7,6 +7,7 @@ FFRadioButton::FFRadioButton(FFBaseUiScene* parent,FFRadioButtonGroup* group, or
     _OnChoose = onchoose != NULL ? onchoose : NULL;
     _state = CHB_NORMAL;
     _group = group;
+    _index = index;
     _mainObject = orxObject_CreateFromConfig(RADIO_SECTION);
 	if(_mainObject)
 	{

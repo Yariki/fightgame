@@ -13,8 +13,9 @@ class FFRadioButtonGroup : public FFBaseControl
 {
 protected:
 	std::vector<FFRadioItemData> _listButtons;
-	int _lastSelectedIndex;
-	
+	int _lastIndex;
+    int _currentIndex;
+	orxVECTOR _posNextBox;
 
 public:
 	FFRadioButtonGroup(FFBaseUiScene* parent,orxVECTOR& position, orxCHAR* name);
@@ -24,7 +25,7 @@ public:
 	void Hide();
 	void Show();
 	void Update(orxOBJECT* obj);
-	void AddItem(std::string itemName);
+	void AddItem(std::string& itemName);
 
 
 private:

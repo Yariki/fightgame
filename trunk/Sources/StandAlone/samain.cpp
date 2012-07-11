@@ -1,6 +1,6 @@
 
 #include "orx.h"
-#include "FFButton.h"
+#include "FFRadioButtonGroup.h"
 
 #ifndef __STANDALONE_H__
 #define __STANDALONE_H__
@@ -16,7 +16,9 @@ public:
 	static void orxFASTCALL Exit();
 	static orxOBJECT*  _Object;
     //static FFPreview* _preview;
-    static std::vector<FFButton*> _list;
+    //static std::vector<FFButton*> _list;
+    static FFRadioButtonGroup* _radioGroup;
+    static FFRadioButtonGroup* _radioGroup1;
 
 protected:
 	StandAlone();
@@ -31,7 +33,9 @@ private:
 StandAlone* StandAlone::_Instance = NULL;
 orxOBJECT* StandAlone::_Object = NULL;
 //FFPreview* StandAlone::_preview = NULL;
-std::vector<FFButton*> StandAlone::_list;
+//std::vector<FFButton*> StandAlone::_list;
+FFRadioButtonGroup* StandAlone::_radioGroup =  NULL;
+FFRadioButtonGroup* StandAlone::_radioGroup1 =  NULL;
 
 StandAlone* StandAlone::Instance()
 {
@@ -62,53 +66,31 @@ orxSTATUS orxFASTCALL StandAlone::Init()
 	{
 		orxLOG("\nInit app");
 		orxViewport_CreateFromConfig("Viewport");
-		
-
+		orxInput_Load(orxSTRING_EMPTY);
+        FFInputManager::GetSingleton()->LoadInputSettings();
 		// create  object
 		orxSTATUS configFileLoad = orxConfig_Load("../data/Ini/Buttons.ini");
 		if(configFileLoad == orxSTATUS_SUCCESS)
 		{
-			orxInput_Load(orxSTRING_EMPTY);
-			/*StandAlone::_Object = orxObject_CreateFromConfig("StaticEntity");
-
-			orxOBJECT* obj = StandAlone::_Object;
-			for ( orxOBJECT* o = orxObject_GetOwnedChild(obj); o != orxNULL; o = orxObject_GetOwnedSibling(o))
-			{
-				orxLOG("Name = %s",orxObject_GetName(o));
-				orxObject_SetTextString(o,"Set Text");
-			}*/
-            orxVECTOR size;
-            orxCHAR t[10] = "aaaaaaaaa";
-            const orxFONT* def = orxFont_GetDefaultFont();
-            
-            float width = 0;
-            for(int i = 0 ; i < 10; i++)
-                width += orxFont_GetCharacterWidth(def,t[i]);
+			
 
             orxVECTOR pos;
             pos.fX = -450.0;
             pos.fY = -300.0;
             pos.fZ = 0.0;
-            float dx = 175;
-            float dy = 150;
-            int c = 1;
-            for(int i = 0; i < 2;i++)
-            {
-                for(int j = 0 ; j < 5; j++)
-                {
-                    orxCHAR temp[MAX_NAME];
-                    orxString_Print(temp,"%s %d","Button",c);
-                    FFButton* btn = new FFButton(NULL,pos,temp,NULL);
-                    StandAlone::_list.push_back(btn);
-                    c *= 3;
-                    pos.fX += dx;
-                }
-                pos.fX = -450.0;
-                pos.fY += dy;
-            }
-             
-			orxLOG("\n Object was created");
+            StandAlone::_radioGroup = new FFRadioButtonGroup(NULL,pos,NULL);
+            StandAlone::_radioGroup->AddItem(string("Item 1"));
+            StandAlone::_radioGroup->AddItem(string("Item 2"));
+            StandAlone::_radioGroup->AddItem(string("Item 3"));
+            pos.fY = 0;
+            StandAlone::_radioGroup1 = new FFRadioButtonGroup(NULL,pos,NULL);
+            StandAlone::_radioGroup1->AddItem(string("Item 1"));
+            StandAlone::_radioGroup1->AddItem(string("Item 2"));
+            StandAlone::_radioGroup1->AddItem(string("Item 3"));
+            StandAlone::_radioGroup1->AddItem(string("Item 4"));
+            StandAlone::_radioGroup1->AddItem(string("Item 5"));
 
+            orxLOG("\n Object was created");
 		}
 	}
 
@@ -191,10 +173,12 @@ void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* pClockInfo, void* pCont
 	if(orxRender_GetWorldPosition(orxMouse_GetPosition(&vPos),&vPos))
 	{
 		orxOBJECT* obj = orxObject_Pick(&vPos);
-        for(size_t i = 0; i < StandAlone::_list.size(); i++)
+      /*  for(size_t i = 0; i < StandAlone::_list.size(); i++)
         {
             StandAlone::_list.at(i)->Update(obj);
-        }
+        }*/
+        StandAlone::_radioGroup->Update(obj);
+        StandAlone::_radioGroup1->Update(obj);
     }
 }
 
@@ -208,11 +192,17 @@ void orxFASTCALL StandAlone::Exit()
 	//orxObject_Delete(StandAlone::_Object);
     /*if(StandAlone::_preview)
         delete StandAlone::_preview;*/
-    for(size_t i = StandAlone::_list.size(); i < StandAlone::_list.size(); i++)
+  /*  for(size_t i = StandAlone::_list.size(); i < StandAlone::_list.size(); i++)
     {
         delete StandAlone::_list.at(i);
     }
-    StandAlone::_list.clear();    
+    StandAlone::_list.clear();   */ 
+
+    if(StandAlone::_radioGroup)
+        delete StandAlone::_radioGroup;
+     if(StandAlone::_radioGroup1)
+        delete StandAlone::_radioGroup1;
+
 	return;
 }
 
