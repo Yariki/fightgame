@@ -50,8 +50,10 @@
 // defines name of nodes in game xml file
 #define FF_MANAGER_GAMESCENES						"GameScenes"
 #define FF_MANAGER_UISCENES							"UIScenes"
+#define FF_MANAGER_HEROS							"Heroes"
 #define FF_MANAGER_GAMESCENE						"GameScene"
 #define FF_MANAGER_UISCENE							"UIScene"
+#define FF_MANAGER_HERO								"Hero"
 #define FF_MANAGER__MAINSCENE_ATTRIBUTE				"MainScene"
 #define FF_MANAGER_FILENAMESCENE_ATTRIBUTE			"Filename"
 
