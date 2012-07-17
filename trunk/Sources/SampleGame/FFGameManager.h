@@ -26,6 +26,7 @@ protected:
 	bool LoadGameScene(const TiXmlElement* root);
 	bool LoadUIScene(const TiXmlElement* root);
 	bool LoadMainScene(const TiXmlElement* root);
+	bool LoadHeroes(const TiXmlElement* root);
 };
 
 #endif //__FFGAMEMANAGER_H__

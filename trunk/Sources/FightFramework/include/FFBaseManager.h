@@ -19,7 +19,7 @@ protected:
 
 	std::vector<FFGameScene*>	_listFileScene;
 	std::vector<FFBaseUiScene*> _listUiScene;
-
+	std::vector<std::string> _listHeroPreview;
 
 	std::stack<FFScene* > _listActiveScene;
 
@@ -33,6 +33,7 @@ public:
 	FFBaseUiScene* GetUiScene(string type);
 	void AddUiScene(FFBaseUiScene* scene);
     const std::vector<FFGameScene*>* GetGameSceneList() { return &_listFileScene; }
+	const std::vector<std::string>* GetHeroPreviewList() {return &_listHeroPreview;}
 
 public:
 	virtual orxSTATUS Load() = 0;

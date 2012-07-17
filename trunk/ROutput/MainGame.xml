@@ -22,12 +22,4 @@
     <GameScene Filename="..\Data\Scenes\19.xml" />
     <GameScene Filename="..\Data\Scenes\20.xml" />
   </GameScenes>
-  <Heroes>
-    <Hero Filename="..\Data\Heroes\1.xml" />
-    <Hero Filename="..\Data\Heroes\2.xml" />
-    <Hero Filename="..\Data\Heroes\3.xml" />
-    <Hero Filename="..\Data\Heroes\4.xml" />
-    <Hero Filename="..\Data\Heroes\5.xml" />
-    <Hero Filename="..\Data\Heroes\6.xml" />
-  </Heroes>
 </Game>

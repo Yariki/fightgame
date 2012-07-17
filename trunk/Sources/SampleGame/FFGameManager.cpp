@@ -35,6 +35,7 @@ orxSTATUS FFGameManager::Load()
 
 	LoadGameScene(root);
 	LoadMainScene(root);
+	LoadHeroes(root);
 
 
 
@@ -100,6 +101,23 @@ bool FFGameManager::LoadGameScene(const TiXmlElement* root)
 	return res;
 }
 
+
+bool FFGameManager::LoadHeroes(const TiXmlElement* root)
+{
+	bool res = false;
+	const TiXmlElement* heroes = root->FirstChildElement(FF_MANAGER_HEROS);
+	if(heroes)
+	{
+		for(const TiXmlElement* node = heroes->FirstChildElement(); node ; node = node->NextSiblingElement())
+		{
+			orxCHAR filename[MAX_FILE_PATH];
+			orxString_Copy(filename,node->Attribute(FF_MANAGER_FILENAMESCENE_ATTRIBUTE));
+			_listHeroPreview.push_back(std::string(filename));
+		}
+		res = true;
+	}
+	return res;
+}
 
 bool FFGameManager::LoadMainScene(const TiXmlElement* root)
 {
