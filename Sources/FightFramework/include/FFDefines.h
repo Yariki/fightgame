@@ -5,6 +5,9 @@
 
 #define BTNS_FILE "../Data/Ini/Buttons.ini"
 
+#define SAFEDELETE(obj) if(obj){ delete obj; obj = NULL;}
+
+
 // names of section in main ini file
 #define  FF_MAIN_VIEWPORT							"Viewport"
 
