@@ -4,6 +4,7 @@
 
 
 #define MAIN_GAME_FILE "MainGame.xml"
+#define IMAGE_PREVIEW  "Preview"
 
 
 FFGameManager::FFGameManager(void)
@@ -112,7 +113,20 @@ bool FFGameManager::LoadHeroes(const TiXmlElement* root)
 		{
 			orxCHAR filename[MAX_FILE_PATH];
 			orxString_Copy(filename,node->Attribute(FF_MANAGER_FILENAMESCENE_ATTRIBUTE));
-			_listHeroPreview.push_back(std::string(filename));
+			// TODO: now we just read preview file name from file settings, in future 
+			// we should create class Hero, and add to this class method which will call "GetPreviewFileName"
+			TiXmlDocument doc;
+			bool isLoad = doc.LoadFile(filename);
+			if(isLoad)
+			{
+				const TiXmlElement* root = doc.RootElement();
+				if(!root)
+					continue;
+				orxString_Copy(filename,root->Attribute(IMAGE_PREVIEW));
+				if(orxString_GetLength(filename))
+					_listHeroPreview.push_back(std::string(filename));
+			}
+			
 		}
 		res = true;
 	}

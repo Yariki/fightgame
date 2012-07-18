@@ -26,6 +26,7 @@ public:
 	void Show();
 	void Update(orxOBJECT* obj);
 	void AddItem(std::string& itemName);
+	int GetCurrentItemIndex() {return _currentIndex;}
 
 
 private:

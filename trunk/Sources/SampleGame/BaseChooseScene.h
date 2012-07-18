@@ -36,13 +36,13 @@ public:
 	virtual orxSTATUS Load();
 	virtual orxSTATUS Unload();
 	
-	void InitializeComponent();
+	virtual void InitializeComponent();
 
 	virtual void ShowGUI();
 	virtual void HideGUI();
 
 protected:
-	void UpdateGUI(orxOBJECT* obj);
+	virtual void UpdateGUI(orxOBJECT* obj);
     virtual void InitializePreview(orxVECTOR& pos) = 0;
 
 private:

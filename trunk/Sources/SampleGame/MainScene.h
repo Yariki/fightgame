@@ -37,6 +37,7 @@ private:
 
     void OnStartClick();
     void OnChooseSceneClick();
+	void OnChooseHeroClick();
     void OnConfigClick();
     void OnExitClick();
 

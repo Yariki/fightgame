@@ -4,6 +4,7 @@
 #include "MainScene.h"
 #include "OptionsScene.h"
 #include "GameSceneChoose.h"
+#include "HeroSceneChoose.h"
 
 MainScene::MainScene(FFGameManager* gameManager, FF_DISPLAY_SIZE& size)
 	:FFBaseUiScene(gameManager,size)
@@ -58,7 +59,7 @@ void MainScene::InitializeComponent()
 		btn = new FFButton(this,position,"Choose scene",(BUTTONCLICK)&MainScene::OnChooseSceneClick);
         _buttons.push_back(btn); btn = NULL;
 		position.fY += delta;
-		btn = new FFButton(this,position,"Choose hero",NULL);
+		btn = new FFButton(this,position,"Choose hero",(BUTTONCLICK)&MainScene::OnChooseHeroClick);
         _buttons.push_back(btn); btn = NULL;
 		position.fY += delta; 
 		btn = new FFButton(this,position,"Options",(BUTTONCLICK)&MainScene::OnConfigClick);
@@ -108,6 +109,26 @@ void MainScene::OnChooseSceneClick()
 	if(chooseScene) 
 		chooseScene->Load();
 }
+
+
+void MainScene::OnChooseHeroClick()
+{
+	orxLOG("Choose hero CLICK!!!!");
+	Unload();
+	HeroSceneChoose* chooseHero = NULL;
+	if(_gameManager->IsUIScenePresent(typeid(HeroSceneChoose).name()))
+	{
+		chooseHero = static_cast<HeroSceneChoose*>(_gameManager->GetUiScene(typeid(HeroSceneChoose).name()));
+	}
+	else
+	{
+		chooseHero = new HeroSceneChoose((FFGameManager*)_gameManager,_sizeDisplay);
+		_gameManager->AddUiScene(chooseHero);
+	}
+	if(chooseHero) 
+		chooseHero->Load();
+}
+
 
 void MainScene::OnConfigClick()
 {
