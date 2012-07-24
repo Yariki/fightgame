@@ -78,7 +78,7 @@ void BaseChooseScene::InitializeComponent()
 	orxVECTOR pos;
 	pos.fX = BEGIN_X;
 	pos.fY = BEGIN_Y;
-	pos.fZ = 0.0;
+	pos.fZ = 1.0;
 
     InitializePreview(pos);
 

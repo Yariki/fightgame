@@ -1,9 +1,10 @@
 #include "FFPreview.h"
 
-FFPreview::FFPreview(FFBaseUiScene* parent,orxVECTOR& position, orxCHAR* name,const orxCHAR* filepreview, int number = -1)
+
+FFPreview::FFPreview(FFBaseUiScene* parent,orxVECTOR& position, orxCHAR* name,const orxCHAR* filepreview,ITEMCHOOSE onitemchoose, int number = -1)
     :FFBaseControl(parent,position,name)
 {
-    //_OnChoose = onchoose != NULL ? onchoose : NULL;
+    _OnChoose = onitemchoose != NULL ? onitemchoose : NULL;
     
     _number = number;
     orxString_Copy(_filePreview ,filepreview);
@@ -32,16 +33,29 @@ FFPreview::FFPreview(FFBaseUiScene* parent,orxVECTOR& position, orxCHAR* name,co
     }
     _onlyOnce = false;
     _scale.fX = _scale.fY = 1.2f;
-
+	
 }
 
 FFPreview::~FFPreview()
 {
+	
 }
 
 void FFPreview::Update(orxOBJECT* obj)
 {
-    if(obj == _mainObject)
+	bool isMoveOn = false;
+
+	if(obj == _mainObject)  
+		isMoveOn = true;
+	else
+	{
+		std::vector<orxOBJECT*>::iterator pos;
+		pos = find(_listLink.begin(),_listLink.end(),obj);
+		if(pos != _listLink.end())
+			isMoveOn = true;
+	}
+	
+    if(isMoveOn)
     {
        
         if(_mainObject)
@@ -61,6 +75,10 @@ void FFPreview::Update(orxOBJECT* obj)
             orxObject_SetPosition(_mainObject,&pos);
             _onlyOnce = true;
         }
+		bool isNew = false;
+		bool isLeft = FFInputManager::GetSingleton()->GetInputStatus("MouseLeft",isNew);
+		if(isLeft && isNew)
+			(_parentForm->*_OnChoose)(_number);
     }
     else
     {
@@ -80,4 +98,53 @@ void FFPreview::SetScale(orxVECTOR* scale)
 {
     _scale.fX = scale->fX;
     _scale.fY = scale->fY;
+}
+
+bool FFPreview::LinkObject(orxOBJECT* obj)
+{
+	if(!obj) // only 2 objects can be linked
+		return false;
+	orxOBJECT* plastChild = NULL;
+	if(!_listLink.size())
+	{
+		plastChild = _captionObject;
+	}
+	else if(_listLink.size() == 1)
+	{
+		plastChild = _listLink.at(0);
+	}
+	_listLink.push_back(obj);
+
+	orxVECTOR vec = _position;
+	vec.fZ = 0.0f;
+
+	orxObject_SetOwner(obj,plastChild);
+	orxObject_SetPosition(obj,&vec);
+
+	return true;
+}
+
+
+bool FFPreview::UnlinkObject(orxOBJECT* obj)
+{
+	if(!obj || _listLink.size() == 0)
+		return false;
+
+	std::vector<orxOBJECT*>::iterator pos;
+	pos = find(_listLink.begin(),_listLink.end(),obj);
+	if(pos != _listLink.end())
+		_listLink.erase(pos);
+
+	orxObject_SetOwner(obj,orxNULL);
+	if(_listLink.size() == 1)
+		orxObject_SetOwner(_listLink.at(0),_captionObject);
+	return true;
+}
+
+template<typename T>
+void FFPreview::remove(std::vector<T>* vec, size_t pos)
+{
+	std::vector<T>::iterator it = vec->begin();
+	std::advance(it,pos);
+	vec->erase(it);
 }

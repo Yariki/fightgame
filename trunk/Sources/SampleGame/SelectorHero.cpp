@@ -4,6 +4,7 @@
 SelectorHero::SelectorHero(orxSTRING filename)
 	:FFStaticObject(filename)
 {
+	Create();
 	Hide();
 }
 

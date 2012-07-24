@@ -15,5 +15,4 @@ struct FF_DISPLAY_SIZE
 
 
 
-
 #endif //__FF_STRUCTURE__
