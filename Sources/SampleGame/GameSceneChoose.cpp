@@ -29,7 +29,7 @@ void GameSceneChoose::InitializePreview(orxVECTOR& pos)
                     FFGameScene* scene = list->at(count);
                     std::string f = scene != NULL ? scene ->GetPreviewFileName().c_str() : "";
                     const orxCHAR* filename = f.c_str();
-                    _arrPreview[i][j]._preview= new FFPreview(NULL,pos,NULL,filename,count++);
+                    _arrPreview[i][j]._preview= new FFPreview(NULL,pos,NULL,filename,NULL,count++);
                     _arrPreview[i][j]._pos = pos;
 			        
                 }
@@ -61,7 +61,7 @@ void GameSceneChoose::InitializeLeftColumn(int i)
             continue;
         std::string f = scene != NULL ? scene ->GetPreviewFileName().c_str() : "";
         const orxCHAR* filename = f.c_str();
-        _arrPreview[i][0]._preview = new FFPreview(this,_arrPreview[i][0]._pos,NULL,filename,count--);
+        _arrPreview[i][0]._preview = new FFPreview(this,_arrPreview[i][0]._pos,NULL,filename,NULL,count--);
     }
 }
 
@@ -80,6 +80,6 @@ void GameSceneChoose::InitializeRightColumn(int i)
             continue;
         std::string f = scene != NULL ? scene ->GetPreviewFileName().c_str() : "";
         const orxCHAR* filename = f.c_str();
-        _arrPreview[i][4]._preview = new FFPreview(this,_arrPreview[i][4]._pos,NULL,filename,count++);
+        _arrPreview[i][4]._preview = new FFPreview(this,_arrPreview[i][4]._pos,NULL,filename,NULL,count++);
     }
 }

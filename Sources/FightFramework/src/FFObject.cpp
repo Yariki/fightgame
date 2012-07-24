@@ -3,12 +3,13 @@
 
 FFObject::FFObject(void)
 {
-	_object = orxObject_Create();
+	_object = NULL;
 }
 
 FFObject::FFObject(orxSTRING filename)
 {
 	orxString_Copy(_nameCfgFile,filename);
+	_object = orxObject_CreateFromConfig(_nameCfgFile);
 }
 
 

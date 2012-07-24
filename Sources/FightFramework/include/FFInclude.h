@@ -9,6 +9,8 @@
 #include <vector>
 #include <stack>
 #include <map>
+#include <list>
+#include <algorithm>
 using namespace std;
 
 #include "tinyxml.h"

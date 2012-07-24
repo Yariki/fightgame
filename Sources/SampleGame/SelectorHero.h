@@ -17,7 +17,7 @@ public:
 	void Show();
 
 	bool IsHide() {return _isHide;}
-	orxOBJECT* GetObject() { return _object;}
+	orxOBJECT* GetSelector() { return _object;}
 
 };
 

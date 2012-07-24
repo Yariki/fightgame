@@ -15,7 +15,7 @@ class HeroSceneChoose :
 protected:
 	FFRadioButtonGroup*  _radioButtonGroup;
 	std::vector<SelectorHero*> _selectors; // it is two selectors: index  0 - first hero selector; index 1 - second hero selector
-
+	int _currentChoose ;
 
 public:
 	HeroSceneChoose(FFGameManager* gameManager, FF_DISPLAY_SIZE& size);
@@ -34,6 +34,10 @@ private:
 
 	void InitializeRightColumn(int i);
 	void InitializeLeftColumn(int i);
+
+
+
+	void OnPreviewChoose(int index);
 
 };
 
