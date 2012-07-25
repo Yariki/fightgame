@@ -11,6 +11,7 @@ FFGameManager::FFGameManager(void)
 	:FFBaseManager()
 {
 	_fileConfigName = MAIN_GAME_FILE;
+	_indexFirstHero = _indexSecondHero = _indexGameScene = -1;
 }
 
 FFGameManager::~FFGameManager(void)
@@ -153,26 +154,33 @@ bool FFGameManager::LoadMainScene(const TiXmlElement* root)
 
 orxSTATUS FFGameManager::UserEventHandler(const orxEVENT* pEvent)
 {
-	SceneEvent* ev = static_cast<SceneEvent*>(pEvent->pstPayload);
+	BaseEvent* ev = static_cast<BaseEvent*>(pEvent->pstPayload);
 
 	switch(ev->GetEvent())
 	{
 		case FFUE_UI_SCENE_SHOW:	
-			orxLOG("FFUE_UI_SCENE_SHOW");
-			_currentScene = ev->GetScene();
+			{
+				SceneEvent* e = static_cast<SceneEvent*>(pEvent->pstPayload);						
+				orxLOG("FFUE_UI_SCENE_SHOW");
+				_currentScene = e->GetScene();
+			}
 			break;
 		case FFUE_UI_SCENE_CLOSE:	
 			{
+				SceneEvent* e = static_cast<SceneEvent*>(pEvent->pstPayload);
 				orxLOG("FFUE_UI_SCENE_CLOSE");
-				FFBaseUiScene* active = static_cast<FFBaseUiScene*>(ev->GetScene());
+				FFBaseUiScene* active = static_cast<FFBaseUiScene*>(e->GetScene());
 				_currentScene = NULL;
 				_listForDelete.push_back(active);
 				((FFBaseUiScene*)_mainScene)->Load();
 			}
 			break;
 		case FFUE_GAME_SCENE_SHOW:
-			orxLOG("FFUE_GAME_SCENE_SHOW");
-			_listActiveScene.push(ev->GetScene());
+			{
+				SceneEvent* e = static_cast<SceneEvent*>(pEvent->pstPayload);
+				orxLOG("FFUE_GAME_SCENE_SHOW");
+				_listActiveScene.push(e->GetScene());
+			}
 			break;
 		case FFUE_GAME_SCENE_CLOSE:
 			orxLOG("FFUE_GAME_SCENE_CLOSE");
@@ -195,6 +203,28 @@ orxSTATUS FFGameManager::UserEventHandler(const orxEVENT* pEvent)
 				}
 			}
 			break;
+		case FFUE_FIRST_HERO_CHOOSE:
+			{
+				ChooseHeroEvent* heroEv = static_cast<ChooseHeroEvent*>(pEvent->pstPayload);
+				_indexFirstHero = heroEv->GetHeroIndex();
+				orxLOG("CHOOSE FIRST HERO - %d",_indexFirstHero);
+			}
+			break;
+		case FFUE_SECOND_HERO_CHOOSE:
+			{
+				ChooseHeroEvent* heroEv = static_cast<ChooseHeroEvent*>(pEvent->pstPayload);
+				_indexSecondHero = heroEv->GetHeroIndex();
+				orxLOG("CHOOSE SECOND HERO - %d",_indexSecondHero);
+			}
+			break;
+		case FFUE_GAME_SCENE_CHOOSE:
+			{
+				ChooseGameSceneEvent* e = static_cast<ChooseGameSceneEvent*>(pEvent->pstPayload);
+				_indexGameScene  = e->GetHeroIndex();
+				orxLOG("CHOOSE GAME SCENE - %d",_indexGameScene);
+			}
+			break;
+
 	}
 
 	return orxSTATUS_SUCCESS;

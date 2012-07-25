@@ -16,6 +16,11 @@ HeroSceneChoose::HeroSceneChoose(FFGameManager* gameManager, FF_DISPLAY_SIZE& si
 
 HeroSceneChoose::~HeroSceneChoose(void)
 {
+	Unload();
+}
+
+orxSTATUS HeroSceneChoose::Unload()
+{
 	SAFEDELETE(_radioButtonGroup);
 
 	for(int i = 0;i < COLS;i++)
@@ -28,14 +33,16 @@ HeroSceneChoose::~HeroSceneChoose(void)
 			}
 		}
 
+		for(size_t i = 0; i < _selectors.size(); i++)
+		{
+			delete _selectors.at(i);
+			_selectors.at(i) = NULL;
+		}
+		_selectors.clear();
 
-	for(size_t i = 0; i < _selectors.size(); i++)
-	{
-		delete _selectors.at(i);
-		_selectors.at(i) = NULL;
-	}
-	_selectors.clear();
+		return __super::Unload();
 }
+
 
 
 void HeroSceneChoose::InitializeComponent()
@@ -188,5 +195,18 @@ void HeroSceneChoose::OnPreviewChoose(int index)
 	{
 		_arrPreview[row][col]._preview->LinkObject( _selectors.at(_currentChoose)->GetSelector());
 		_selectors.at(_currentChoose)->Show();
+
+		FF_UI_EVENT ev;
+		switch(_currentChoose)
+		{
+		case 0:
+			ev = FFUE_FIRST_HERO_CHOOSE;
+			break;
+		case 1:
+			ev = FFUE_SECOND_HERO_CHOOSE;
+			break;
+		}
+		ChooseHeroEvent e(ev,index);
+		orxEVENT_SEND(orxEVENT_TYPE_USER_DEFINED,0,this,orxNULL,&e);
 	}
 }

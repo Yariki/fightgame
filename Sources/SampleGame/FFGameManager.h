@@ -10,6 +10,10 @@ class FFGameManager : public FFBaseManager
 
 protected:
 	std::vector<FFScene*> _listForDelete;
+	int _indexFirstHero;
+	int _indexSecondHero;
+	int _indexGameScene;
+
 
 public:
 	FFGameManager(void);

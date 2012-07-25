@@ -23,6 +23,7 @@ public:
 
 	virtual void ShowGUI();
 	virtual void HideGUI();
+	virtual orxSTATUS Unload();
 
 protected:
 	void UpdateGUI(orxOBJECT* obj);
