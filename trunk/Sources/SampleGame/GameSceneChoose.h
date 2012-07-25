@@ -17,6 +17,8 @@ protected:
 private:
     void InitializeRightColumn(int i);
     void InitializeLeftColumn(int i);
+
+	void OnPreviewChoose(int index);
 };
 
 

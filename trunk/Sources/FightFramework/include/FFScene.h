@@ -34,12 +34,29 @@ private:
 };
 
 
-class SceneEvent
+class BaseEvent
+{
+public:
+	BaseEvent(FF_UI_EVENT  ev)
+	{
+		_event = ev;
+	}
+	virtual ~BaseEvent(){}
+
+	FF_UI_EVENT GetEvent() { return  _event;}
+
+protected:
+	FF_UI_EVENT _event;
+};
+
+
+class SceneEvent : public BaseEvent
 {
 public:
 	SceneEvent(FF_UI_EVENT ev, FFBaseManager* manager, FFScene* scene)
+		:BaseEvent(ev)
 	{
-		_event = ev;
+		
 		_gameManager = manager;
 		_scene = scene;
 	}
@@ -51,13 +68,36 @@ public:
 
 	FFBaseManager*	GetManager() {return _gameManager;}
 	FFScene*		GetScene()	{return _scene;}
-	FF_UI_EVENT		GetEvent() {return _event;}
-
-private:
-	FF_UI_EVENT		_event;
+	
+protected:
 	FFBaseManager*	_gameManager;
 	FFScene*		_scene;
 };
 
+class ChooseHeroEvent : public BaseEvent
+{
+public:
+	ChooseHeroEvent(FF_UI_EVENT ev,int arg) 
+		:BaseEvent(ev)
+	{
+		_heroIndex = arg;
+	}
+	virtual ~ChooseHeroEvent() {}
+
+	int GetHeroIndex() {return _heroIndex;}
+
+protected:
+	int _heroIndex;
+
+};
+
+class ChooseGameSceneEvent : public ChooseHeroEvent
+{
+public:
+	ChooseGameSceneEvent(FF_UI_EVENT ev, int arg)
+		:ChooseHeroEvent(ev,arg)
+	{}
+	virtual ~ChooseGameSceneEvent(){}
+};
 
 #endif //__FFSCENE_H__

@@ -71,7 +71,7 @@ void FFPreview::Update(orxOBJECT* obj)
             float dy = abs(((size.fY * _scale.fY) - size.fY) / 2);
             pos.fX = _position.fX - dx;
             pos.fY = _position.fY - dy; 
-            pos.fZ = 0.0;
+            pos.fZ = 1.0;
             orxObject_SetPosition(_mainObject,&pos);
             _onlyOnce = true;
         }
