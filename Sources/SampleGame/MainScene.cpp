@@ -10,6 +10,7 @@ MainScene::MainScene(FFGameManager* gameManager, FF_DISPLAY_SIZE& size)
 	:FFBaseUiScene(gameManager,size)
 {
 	_type = FFST_UISCENE;
+	_mainLabel =  NULL;
 }
 
 
@@ -32,6 +33,12 @@ orxSTATUS MainScene::Unload()
         delete _buttons.at(i);
     }
     _buttons.clear();
+	if(_mainLabel)
+	{
+		delete _mainLabel;
+		_mainLabel = NULL;
+	}
+
 	return orxSTATUS_SUCCESS;
 }
 
@@ -67,6 +74,18 @@ void MainScene::InitializeComponent()
 		position.fY += delta;
 		btn =  new FFButton(this,position,"Exit",(BUTTONCLICK)&MainScene::OnExitClick);
         _buttons.push_back(btn); btn = NULL;
+
+		position.fX = -150;
+		position.fY = -250;
+		_mainLabel = new FFLabel(this,position,"Fight Game");
+		orxVECTOR scale;
+		scale.fX = 2.5;
+		scale.fY = 2.5;
+		_mainLabel->SetScale(&scale);
+		_mainLabel->SetSmoothing(true);
+		FF_COLOR clr;
+		clr.R = 1.0;  clr.B = 0; clr.G = 0; clr.A = 0.75;
+		_mainLabel->SetColor(clr);
 	}
 }
 

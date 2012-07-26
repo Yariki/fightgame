@@ -12,6 +12,13 @@ struct FF_DISPLAY_SIZE
 	orxFLOAT _Bottom;
 };
 
+struct FF_COLOR
+{
+	float R;
+	float B;
+	float G;
+	float A;
+};
 
 
 
