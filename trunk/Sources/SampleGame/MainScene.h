@@ -6,7 +6,7 @@
 #include "ffbaseuiscene.h"
 #include "FFGameManager.h"
 #include "FFButton.h"
-
+#include "FFLabel.h"
 
 
 class MainScene :
@@ -15,6 +15,7 @@ class MainScene :
 private:
 
     std::vector<FFButton*> _buttons;
+	FFLabel* _mainLabel;
 
 public:
     MainScene(FFGameManager* gameManager, FF_DISPLAY_SIZE& size);

@@ -26,6 +26,7 @@
     <ClInclude Include="include\FFGameScene.h" />
     <ClInclude Include="include\FFInclude.h" />
     <ClInclude Include="include\FFInputManager.h" />
+    <ClInclude Include="include\FFLabel.h" />
     <ClInclude Include="include\FFLineMoveStrategy.h" />
     <ClInclude Include="include\FFMovableAnimatedObject.h" />
     <ClInclude Include="include\FFMovableObject.h" />
@@ -53,6 +54,7 @@
     <ClCompile Include="src\FFDynamicObject.cpp" />
     <ClCompile Include="src\FFGameScene.cpp" />
     <ClCompile Include="src\FFInputManager.cpp" />
+    <ClCompile Include="src\FFLabel.cpp" />
     <ClCompile Include="src\FFLineMoveStrategy.cpp" />
     <ClCompile Include="src\FFMovableAnimatedObject.cpp" />
     <ClCompile Include="src\FFMovableObject.cpp" />

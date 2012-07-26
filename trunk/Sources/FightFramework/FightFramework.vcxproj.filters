@@ -123,6 +123,9 @@
     <ClInclude Include="include\FFRadioButtonGroup.h">
       <Filter>Framework\Scene\Controls</Filter>
     </ClInclude>
+    <ClInclude Include="include\FFLabel.h">
+      <Filter>Framework\Scene\Controls</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\FFAnimatedObject.cpp">
@@ -192,6 +195,9 @@
       <Filter>Framework\Scene\Controls</Filter>
     </ClCompile>
     <ClCompile Include="src\FFRadioButtonGroup.cpp">
+      <Filter>Framework\Scene\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FFLabel.cpp">
       <Filter>Framework\Scene\Controls</Filter>
     </ClCompile>
   </ItemGroup>
