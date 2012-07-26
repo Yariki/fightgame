@@ -75,6 +75,7 @@ typedef enum __orxOBJECT_EVENT_t
 } orxOBJECT_EVENT;
 
 
+
 /** Internal object structure */
 typedef struct __orxOBJECT_t                orxOBJECT;
 
