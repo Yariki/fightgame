@@ -26,10 +26,10 @@ void FFStaticObject::Create()
 			switch(_type)
 			{
 			case FFSOT_STATIC:
-				_object = orxObject_CreateFromConfig(FF_STATIC_OBCJECT_SECTION_NAME);
+				_object = orxObject_CreateFromConfig(FF_STATIC_OBJECT_SECTION_NAME);
 				break;
 			case FFSOT_ANIMATED:
-				_object = orxObject_CreateFromConfig(FF_STATIC_ANIMATED_OBCJECT_SECTION_NAME);
+				_object = orxObject_CreateFromConfig(FF_STATIC_ANIMATED_OBJECT_SECTION_NAME);
 				break;
 			}
 			//orxConfig_Clear();

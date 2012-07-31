@@ -1,6 +1,7 @@
 
 #include "orx.h"
 #include "FFRadioButtonGroup.h"
+#include "FFMovableAnimatedObject.h"
 
 #ifndef __STANDALONE_H__
 #define __STANDALONE_H__
@@ -14,11 +15,9 @@ public:
 	static orxSTATUS orxFASTCALL Init();
 	static orxSTATUS orxFASTCALL Run();
 	static void orxFASTCALL Exit();
-	static orxOBJECT*  _Object;
-    //static FFPreview* _preview;
-    //static std::vector<FFButton*> _list;
-    static FFRadioButtonGroup* _radioGroup;
-    static FFRadioButtonGroup* _radioGroup1;
+	static orxOBJECT*  _BallObject;
+	static orxOBJECT*  _WallObject;
+	static FFMovableAnimatedObject * _moveObject;
 
 protected:
 	StandAlone();
@@ -31,11 +30,10 @@ private:
 };
 
 StandAlone* StandAlone::_Instance = NULL;
-orxOBJECT* StandAlone::_Object = NULL;
-//FFPreview* StandAlone::_preview = NULL;
-//std::vector<FFButton*> StandAlone::_list;
-FFRadioButtonGroup* StandAlone::_radioGroup =  NULL;
-FFRadioButtonGroup* StandAlone::_radioGroup1 =  NULL;
+orxOBJECT* StandAlone::_BallObject = NULL;
+orxOBJECT* StandAlone::_WallObject = NULL;
+FFMovableAnimatedObject* StandAlone::_moveObject = NULL;
+
 
 StandAlone* StandAlone::Instance()
 {
@@ -69,28 +67,24 @@ orxSTATUS orxFASTCALL StandAlone::Init()
 		orxInput_Load(orxSTRING_EMPTY);
         FFInputManager::GetSingleton()->LoadInputSettings();
 		// create  object
-		orxSTATUS configFileLoad = orxConfig_Load("../data/Ini/Buttons.ini");
+		orxSTATUS configFileLoad = orxConfig_Load("../data/Ini/PhysicTemplate.ini");
 		if(configFileLoad == orxSTATUS_SUCCESS)
 		{
+			//_BallObject = orxObject_CreateFromConfig("Ball");
+			_WallObject = orxObject_CreateFromConfig("Walls");
 			
+			_moveObject = new FFMovableAnimatedObject("../data/Ini/MovableAnimObject.ini");
+			_moveObject->Create();
+			
+			//orxConfig_Load("../data/Ini/MovableAnimObject.ini");
+			//_BallObject = orxObject_CreateFromConfig("MovableAnimatedEntity");
 
-            orxVECTOR pos;
-            pos.fX = -450.0;
-            pos.fY = -300.0;
-            pos.fZ = 0.0;
-            StandAlone::_radioGroup = new FFRadioButtonGroup(NULL,pos,NULL);
-            StandAlone::_radioGroup->AddItem(string("Item 1"));
-            StandAlone::_radioGroup->AddItem(string("Item 2"));
-            StandAlone::_radioGroup->AddItem(string("Item 3"));
-            pos.fY = 0;
-            StandAlone::_radioGroup1 = new FFRadioButtonGroup(NULL,pos,NULL);
-            StandAlone::_radioGroup1->AddItem(string("Item 1"));
-            StandAlone::_radioGroup1->AddItem(string("Item 2"));
-            StandAlone::_radioGroup1->AddItem(string("Item 3"));
-            StandAlone::_radioGroup1->AddItem(string("Item 4"));
-            StandAlone::_radioGroup1->AddItem(string("Item 5"));
-
-            orxLOG("\n Object was created");
+			orxVECTOR gravity;
+			gravity.fX = 0.0;
+			gravity.fY = 1000.0;
+			gravity.fZ = 0.0;
+			orxPhysics_SetGravity(&gravity);
+			
 		}
 	}
 
@@ -153,33 +147,40 @@ orxSTATUS orxFASTCALL StandAlone::EventHandler(const orxEVENT* pEvent)
 
 void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* pClockInfo, void* pContext)
 {
-	/*if(orxInput_IsActive("Explosion"))
+	orxVECTOR impulse;
+	if(orxInput_IsActive("Right"))
 	{
- 		orxObject_SetTargetAnim(StandAlone::_Object,"WalkRight");
+ 		impulse.fX = 0.25;
+		impulse.fY = 0.0;
+		impulse.fZ = 0.0;
+		//orxObject_ApplyImpulse(_BallObject,&impulse,NULL);
 	}
-	else if(orxInput_IsActive("GoRight"))
+	else if(orxInput_IsActive("Left"))
 	{
-		orxObject_SetTargetAnim(StandAlone::_Object,"WalkRight");
+		impulse.fX = -0.25;
+		impulse.fY = 0.0;
+		impulse.fZ = 0.0;
+		//orxObject_ApplyImpulse(_BallObject,&impulse,NULL);
+		
 	}
-	else if(orxInput_IsActive("GoLeft"))
+	else if(orxInput_IsActive("Up"))
 	{
-		orxObject_SetTargetAnim(StandAlone::_Object,"WalkLeft");
+		impulse.fX = 0.0;
+		impulse.fY = -1.0;
+		impulse.fZ = 0.0;
+		//orxObject_ApplyForce(_BallObject,&impulse,NULL);
+
 	}
-	else
+	else if(orxInput_IsActive("Space"))
 	{
-		orxObject_SetTargetAnim(StandAlone::_Object,"WalkRight");
-	}*/
-    orxVECTOR vPos;
-	if(orxRender_GetWorldPosition(orxMouse_GetPosition(&vPos),&vPos))
-	{
-		orxOBJECT* obj = orxObject_Pick(&vPos);
-      /*  for(size_t i = 0; i < StandAlone::_list.size(); i++)
-        {
-            StandAlone::_list.at(i)->Update(obj);
-        }*/
-        StandAlone::_radioGroup->Update(obj);
-        StandAlone::_radioGroup1->Update(obj);
-    }
+		/*if(_BallObject)
+		orxObject_Delete(_BallObject);
+		_BallObject = */
+		//orxObject_CreateFromConfig("Ball");
+	}
+	if(_moveObject)
+		_moveObject->Update(pClockInfo);
+
 }
 
 orxSTATUS orxFASTCALL StandAlone::Run()
@@ -189,19 +190,13 @@ orxSTATUS orxFASTCALL StandAlone::Run()
 
 void orxFASTCALL StandAlone::Exit()
 {
-	//orxObject_Delete(StandAlone::_Object);
-    /*if(StandAlone::_preview)
-        delete StandAlone::_preview;*/
-  /*  for(size_t i = StandAlone::_list.size(); i < StandAlone::_list.size(); i++)
-    {
-        delete StandAlone::_list.at(i);
-    }
-    StandAlone::_list.clear();   */ 
 
-    if(StandAlone::_radioGroup)
-        delete StandAlone::_radioGroup;
-     if(StandAlone::_radioGroup1)
-        delete StandAlone::_radioGroup1;
+	if(_BallObject)
+		orxObject_Delete(_BallObject);
+	if(_WallObject)
+		orxObject_Delete(_WallObject);
+	if(_moveObject)
+		delete _moveObject;
 
 	return;
 }
