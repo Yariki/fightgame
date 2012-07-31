@@ -70,7 +70,7 @@ orxSTATUS orxFASTCALL StandAlone::Init()
 		orxSTATUS configFileLoad = orxConfig_Load("../data/Ini/PhysicTemplate.ini");
 		if(configFileLoad == orxSTATUS_SUCCESS)
 		{
-			//_BallObject = orxObject_CreateFromConfig("Ball");
+			_BallObject = orxObject_CreateFromConfig("Ball");
 			_WallObject = orxObject_CreateFromConfig("Walls");
 			
 			_moveObject = new FFMovableAnimatedObject("../data/Ini/MovableAnimObject.ini");
@@ -84,6 +84,7 @@ orxSTATUS orxFASTCALL StandAlone::Init()
 			gravity.fY = 1000.0;
 			gravity.fZ = 0.0;
 			orxPhysics_SetGravity(&gravity);
+			orxConfig_Load("../data/Ini/PhysicTemplate.ini");
 			
 		}
 	}
@@ -176,7 +177,7 @@ void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* pClockInfo, void* pCont
 		/*if(_BallObject)
 		orxObject_Delete(_BallObject);
 		_BallObject = */
-		//orxObject_CreateFromConfig("Ball");
+		orxObject_CreateFromConfig("Ball");
 	}
 	if(_moveObject)
 		_moveObject->Update(pClockInfo);
