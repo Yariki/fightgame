@@ -29,12 +29,12 @@ void FFDynamicObject::Create()
 		switch(_type)
 		{
 		case FFSOT_STATIC:
-			_object = orxObject_CreateFromConfig(FF_DYNAMIC_OBCJECT_SECTION_NAME);
-			section = FF_DYNAMIC_OBCJECT_SECTION_NAME;
+			_object = orxObject_CreateFromConfig(FF_DYNAMIC_OBJECT_SECTION_NAME);
+			section = FF_DYNAMIC_OBJECT_SECTION_NAME;
 			break;
 		case FFSOT_ANIMATED:
-			_object = orxObject_CreateFromConfig(FF_DYNAMIC_ANIMATED_OBCJECT_SECTION_NAME);
-			section = FF_DYNAMIC_ANIMATED_OBCJECT_SECTION_NAME;
+			_object = orxObject_CreateFromConfig(FF_DYNAMIC_ANIMATED_OBJECT_SECTION_NAME);
+			section = FF_DYNAMIC_ANIMATED_OBJECT_SECTION_NAME;
 			break;
 		}
 

@@ -21,7 +21,7 @@ public:
 public:
 	virtual void		Create();
 	FF_MOVE_OPERATION	GetMoveOperation();
-	void				SetMoveOpertion(FF_MOVE_OPERATION moveOperation);
+	void				SetMoveOperation(FF_MOVE_OPERATION moveOperation);
 	FF_MOVE_DIRECTION	GetDirection();
 	void				SetDirection(FF_MOVE_DIRECTION direction);
 	virtual orxSTATUS	Update(const orxCLOCK_INFO* pClockInfo);

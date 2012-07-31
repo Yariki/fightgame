@@ -1,6 +1,6 @@
 #include "FFMovableObject.h"
+#include "FFInputManager.h"
 
-#define SPEED			"Speed"
 
 FFMovableObject::FFMovableObject(void)
 {
@@ -22,8 +22,15 @@ void FFMovableObject::Create()
 	if(std::string(_nameCfgFile).length() > 0)
 	{
 		orxConfig_Load(_nameCfgFile);
-		_object = orxObject_CreateFromConfig(FF_MOVABLE_OBCJECT_SECTION_NAME);
-		orxConfig_GetVector(SPEED,&_speed);
+		_object = orxObject_CreateFromConfig(FF_MOVABLE_OBJECT_SECTION_NAME);
+		if(orxConfig_PushSection(FF_MOVABLE_OBJECT_SECTION_NAME) == orxSTATUS_SUCCESS)
+		{
+			orxConfig_GetVector(FF_POSITION,&_position);
+			orxConfig_GetVector(FF_SPEED,&_speed);
+
+			orxConfig_PopSection();
+		}
+
 
 		orxConfig_Clear();
 		orxObject_SetUserData(_object,this);
@@ -45,7 +52,7 @@ FF_MOVE_OPERATION FFMovableObject::GetMoveOperation()
 	return _currentMoveOperation;
 }
 
-void FFMovableObject::SetMoveOpertion(FF_MOVE_OPERATION moveOperation)
+void FFMovableObject::SetMoveOperation(FF_MOVE_OPERATION moveOperation)
 {
 	_currentMoveOperation = moveOperation;
 }
@@ -54,16 +61,18 @@ orxSTATUS FFMovableObject::Update(const orxCLOCK_INFO* pClockInfo)
 {
 	orxVECTOR speed;
 	orxVector_Mulf(&speed,&_speed,pClockInfo->fDT);
-
-	if(orxInput_IsActive(FF_M_RIGHT_WALKING))
+	bool isNew = false;
+	if(FFInputManager::GetSingleton()->GetInputStatus(KEY_RIGHT,isNew))
 	{
 		_position.fX += speed.fX;
 		_currentMoveDirection = FFMD_RIGHT;
+		
 	}
-	else if(orxInput_IsActive(FF_M_LEFT_WALKING))
+	else if(FFInputManager::GetSingleton()->GetInputStatus(KEY_LEFT,isNew))
 	{
 		_position.fX -= speed.fX;
 		_currentMoveDirection =  FFMD_LEFT;
+		
 	}
 
 	SetPosition(_position);

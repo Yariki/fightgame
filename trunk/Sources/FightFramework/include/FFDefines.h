@@ -14,12 +14,12 @@
 
 
 // name section in config-ini file
-#define  FF_STATIC_OBCJECT_SECTION_NAME				"StaticEntity"
-#define  FF_DYNAMIC_OBCJECT_SECTION_NAME			"DynamicEntity"
-#define  FF_MOVABLE_OBCJECT_SECTION_NAME			"MovableEntity"
-#define  FF_STATIC_ANIMATED_OBCJECT_SECTION_NAME	"StaticAnimatedEntity"
-#define  FF_DYNAMIC_ANIMATED_OBCJECT_SECTION_NAME	"DynamicAnimatedEntity"
-#define  FF_MOVABLE_ANIMATED_OBCJECT_SECTION_NAME	"MovableAnimatedEntity"
+#define  FF_STATIC_OBJECT_SECTION_NAME				"StaticEntity"
+#define  FF_DYNAMIC_OBJECT_SECTION_NAME			"DynamicEntity"
+#define  FF_MOVABLE_OBJECT_SECTION_NAME			"MovableEntity"
+#define  FF_STATIC_ANIMATED_OBJECT_SECTION_NAME	"StaticAnimatedEntity"
+#define  FF_DYNAMIC_ANIMATED_OBJECT_SECTION_NAME	"DynamicAnimatedEntity"
+#define  FF_MOVABLE_ANIMATED_OBJECT_SECTION_NAME	"MovableAnimatedEntity"
 
 
 // names of animation for static and dynamic object
@@ -59,6 +59,11 @@
 #define FF_MANAGER_HERO								"Hero"
 #define FF_MANAGER__MAINSCENE_ATTRIBUTE				"MainScene"
 #define FF_MANAGER_FILENAMESCENE_ATTRIBUTE			"Filename"
+
+// additional 
+
+#define FF_POSITION									"Position"
+#define FF_SPEED									"Speed"
 
 
 // ui input manager defines
