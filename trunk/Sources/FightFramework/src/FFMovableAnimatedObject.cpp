@@ -52,32 +52,28 @@ orxSTATUS FFMovableAnimatedObject::Update(const orxCLOCK_INFO* pClockInfo)
 	orxVector_Mulf(&speed,&_speed,pClockInfo->fDT);
 
 	bool isNew = false;
-
+	bool isChanged = false;
 
 	orxObject_GetPosition(_object,&_position);
+	if(FFInputManager::GetSingleton()->GetInputStatus(KEY_UP,isNew) && isNew)
+	{
+		_position.fY -= 75;
+		isChanged = true;
+	}
 	if(FFInputManager::GetSingleton()->GetInputStatus(KEY_RIGHT,isNew))
 	{
 		
 		_position.fX += speed.fX;
 		_currentMoveDirection = FFMD_RIGHT;
 		SetAnimation(FF_M_RIGHT_WALKING);
-		SetPosition(_position);
+		isChanged = true;
 	}
 	else if(FFInputManager::GetSingleton()->GetInputStatus(KEY_LEFT,isNew))
 	{
-		
 		_position.fX -= speed.fX;
 		_currentMoveDirection =  FFMD_LEFT;
 		SetAnimation(FF_M_LEFT_WALKING);
-		SetPosition(_position);
-	}
-	else if(FFInputManager::GetSingleton()->GetInputStatus(KEY_UP,isNew))
-	{
-		orxVECTOR impulse;
-		impulse.fX = 0.0;
-		impulse.fY = -5.0;
-		impulse.fZ = 0.0;
-		orxObject_ApplyForce(_object,&impulse,NULL);
+		isChanged = true;
 	}
 	else
 	{
@@ -90,6 +86,10 @@ orxSTATUS FFMovableAnimatedObject::Update(const orxCLOCK_INFO* pClockInfo)
 			SetAnimation(FF_M_LEFT_STAND);
 			break;
 		}
+	}
+	if(isChanged)
+	{
+		SetPosition(_position);
 	}
 
 	return orxSTATUS_SUCCESS;

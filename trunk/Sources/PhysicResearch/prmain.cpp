@@ -1,7 +1,7 @@
 
 #include "orx.h"
-#include "FFRadioButtonGroup.h"
-#include "FFMovableAnimatedObject.h"
+
+#include "PhysicsWorld.h"
 
 #ifndef __STANDALONE_H__
 #define __STANDALONE_H__
@@ -15,9 +15,7 @@ public:
 	static orxSTATUS orxFASTCALL Init();
 	static orxSTATUS orxFASTCALL Run();
 	static void orxFASTCALL Exit();
-	static orxOBJECT*  _BallObject;
-	static orxOBJECT*  _WallObject;
-	static FFMovableAnimatedObject * _moveObject;
+	static PhysicsWorld* _pw;
 
 protected:
 	StandAlone();
@@ -30,9 +28,8 @@ private:
 };
 
 StandAlone* StandAlone::_Instance = NULL;
-orxOBJECT* StandAlone::_BallObject = NULL;
-orxOBJECT* StandAlone::_WallObject = NULL;
-FFMovableAnimatedObject* StandAlone::_moveObject = NULL;
+PhysicsWorld* StandAlone::_pw =  NULL;
+
 
 
 StandAlone* StandAlone::Instance()
@@ -56,7 +53,6 @@ orxSTATUS orxFASTCALL StandAlone::Init()
 	const orxSTRING zInputExplosion;
 
 	eResult = orxEvent_AddHandler(orxEVENT_TYPE_LOCALE,EventHandler);
-	//eResult = orxEvent_AddHandler(orxEVENT_TYPE_PHYSICS,EventHandler);
 	pClock = orxClock_FindFirst(orx2F(-1.0f),orxCLOCK_TYPE_CORE);
 	eResult = orxClock_Register(pClock,Update,orxNULL,orxMODULE_ID_MAIN,
 		orxCLOCK_PRIORITY_NORMAL);
@@ -66,27 +62,12 @@ orxSTATUS orxFASTCALL StandAlone::Init()
 		orxLOG("\nInit app");
 		orxViewport_CreateFromConfig("Viewport");
 		orxInput_Load(orxSTRING_EMPTY);
-        FFInputManager::GetSingleton()->LoadInputSettings();
+        
 		// create  object
 		orxSTATUS configFileLoad = orxConfig_Load("../data/Ini/PhysicTemplate.ini");
 		if(configFileLoad == orxSTATUS_SUCCESS)
 		{
-			//_BallObject = orxObject_CreateFromConfig("Ball");
-			_WallObject = orxObject_CreateFromConfig("Walls");
-			
-			_moveObject = new FFMovableAnimatedObject("../data/Ini/MovableAnimObject.ini");
-			_moveObject->Create();
-			
-			//orxConfig_Load("../data/Ini/MovableAnimObject.ini");
-			//_BallObject = orxObject_CreateFromConfig("MovableAnimatedEntity");
-
-			orxVECTOR gravity;
-			gravity.fX = 0.0;
-			gravity.fY = 1000.0;
-			gravity.fZ = 0.0;
-			orxPhysics_SetGravity(&gravity);
-			orxConfig_Load("../data/Ini/PhysicTemplate.ini");
-			
+			_pw = new PhysicsWorld();			
 		}
 	}
 
@@ -144,18 +125,6 @@ orxSTATUS orxFASTCALL StandAlone::EventHandler(const orxEVENT* pEvent)
 		}
 	}
 
-	//if(pEvent->eID == orxPHYSICS_EVENT_CONTACT_ADD)
-	//{
-	//	orxOBJECT *obj1, *obj2;
-	//	obj1 = orxOBJECT(pEvent->hRecipient);
-	//	obj2 = orxOBJECT(pEvent->hSender);
-
-
-
-
-	//	orxLOG("CONTACT ADD!!!!");
-
-	//}
 
 
 	return orxSTATUS_SUCCESS;
@@ -164,38 +133,40 @@ orxSTATUS orxFASTCALL StandAlone::EventHandler(const orxEVENT* pEvent)
 void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* pClockInfo, void* pContext)
 {
 	orxVECTOR impulse;
+	
 	if(orxInput_IsActive("Right"))
 	{
- 		impulse.fX = 0.25;
-		impulse.fY = 0.0;
-		impulse.fZ = 0.0;
-		//orxObject_ApplyImpulse(_BallObject,&impulse,NULL);
-	}
-	else if(orxInput_IsActive("Left"))
-	{
-		impulse.fX = -0.25;
-		impulse.fY = 0.0;
-		impulse.fZ = 0.0;
-		//orxObject_ApplyImpulse(_BallObject,&impulse,NULL);
-		
-	}
-	else if(orxInput_IsActive("Up"))
-	{
-		impulse.fX = 0.0;
-		impulse.fY = -1.0;
-		impulse.fZ = 0.0;
-		//orxObject_ApplyForce(_BallObject,&impulse,NULL);
+		orxVECTOR force;
+		force.fX = 150.0f;
+		force.fY = 0.0f;
+		force.fZ = 0.0f;
+		if(_pw)
+			_pw->SetSpeed(&force);
 
 	}
-	else if(orxInput_IsActive("Space"))
+	if(orxInput_IsActive("Left"))
 	{
-		/*if(_BallObject)
-		orxObject_Delete(_BallObject);
-		_BallObject = */
-		orxObject_CreateFromConfig("Ball");
+		orxVECTOR force;
+		force.fX = -150.0f;
+		force.fY = 0.0f;
+		force.fZ = 0.0f;
+		if(_pw)
+			_pw->SetSpeed(&force);
+
+		
 	}
-	if(_moveObject)
-		_moveObject->Update(pClockInfo);
+	if(orxInput_IsActive("Up"))
+	{
+		orxVECTOR force;
+		force.fX = 0.0f;
+		force.fY = -300.0f;
+		force.fZ = 0.0f;
+		if(_pw)
+			_pw->SetSpeed(&force);
+
+	}
+	if(_pw)
+		_pw->Update(pClockInfo->fDT);
 
 }
 
@@ -207,12 +178,9 @@ orxSTATUS orxFASTCALL StandAlone::Run()
 void orxFASTCALL StandAlone::Exit()
 {
 
-	if(_BallObject)
-		orxObject_Delete(_BallObject);
-	if(_WallObject)
-		orxObject_Delete(_WallObject);
-	if(_moveObject)
-		delete _moveObject;
+	if(_pw)
+		delete _pw;
+
 
 	return;
 }
