@@ -4,11 +4,13 @@
 
 FFMovableAnimatedObject::FFMovableAnimatedObject(void)
 {
+	_controller =  NULL;
 }
 
 FFMovableAnimatedObject::FFMovableAnimatedObject(orxSTRING filename)
 	:FFMovableObject(filename)
 {
+	_controller =  NULL;
 }
 
 
@@ -55,42 +57,51 @@ orxSTATUS FFMovableAnimatedObject::Update(const orxCLOCK_INFO* pClockInfo)
 	bool isChanged = false;
 
 	orxObject_GetPosition(_object,&_position);
-	if(FFInputManager::GetSingleton()->GetInputStatus(KEY_UP,isNew) && isNew)
+	if(_controller)
 	{
-		_position.fY -= 75;
-		isChanged = true;
-	}
-	if(FFInputManager::GetSingleton()->GetInputStatus(KEY_RIGHT,isNew))
-	{
-		
-		_position.fX += speed.fX;
-		_currentMoveDirection = FFMD_RIGHT;
-		SetAnimation(FF_M_RIGHT_WALKING);
-		isChanged = true;
-	}
-	else if(FFInputManager::GetSingleton()->GetInputStatus(KEY_LEFT,isNew))
-	{
-		_position.fX -= speed.fX;
-		_currentMoveDirection =  FFMD_LEFT;
-		SetAnimation(FF_M_LEFT_WALKING);
-		isChanged = true;
-	}
-	else
-	{
-		switch(_currentMoveDirection)
+		if(_controller->IsUp(isNew) && isNew)
 		{
-		case FFMD_RIGHT:
-			SetAnimation(FF_M_RIGHT_STAND);
-			break;
-		case FFMD_LEFT:
-			SetAnimation(FF_M_LEFT_STAND);
-			break;
+			_position.fY -= 75;
+			isChanged = true;
+		}
+		if(_controller->IsRight(isNew))
+		{
+
+			_position.fX += speed.fX;
+			_currentMoveDirection = FFMD_RIGHT;
+			SetAnimation(FF_M_RIGHT_WALKING);
+			isChanged = true;
+		}
+		else if(_controller->IsLeft(isNew))
+		{
+			_position.fX -= speed.fX;
+			_currentMoveDirection =  FFMD_LEFT;
+			SetAnimation(FF_M_LEFT_WALKING);
+			isChanged = true;
+		}
+		else
+		{
+			switch(_currentMoveDirection)
+			{
+			case FFMD_RIGHT:
+				SetAnimation(FF_M_RIGHT_STAND);
+				break;
+			case FFMD_LEFT:
+				SetAnimation(FF_M_LEFT_STAND);
+				break;
+			}
 		}
 	}
+	
 	if(isChanged)
 	{
 		SetPosition(_position);
 	}
 
 	return orxSTATUS_SUCCESS;
+}
+
+void FFMovableAnimatedObject::SetController(FFBaseController* controller)
+{
+	_controller = controller;
 }

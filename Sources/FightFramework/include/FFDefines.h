@@ -2,6 +2,9 @@
 #define  __FFDEFINES_H__
 
 #define MAX_FILE_PATH 260
+#define MAX_KEY_NAME  25
+
+
 
 #define BTNS_FILE "../Data/Ini/Buttons.ini"
 
@@ -90,6 +93,14 @@
 #define	MOUSE_WHEEL_UP		"WheelUp"
 #define	MOUSE_WHEEL_DOWN	"WheelDown"
 
+// defines for controller of objects
+#define CONTROLLER_FIRST	"Controller1"
+#define CONTROLLER_SECOND	"Controller2"
+
+#define WALK_RIGHT_SECTION	"WalkRight"
+#define WALK_LEFT_SECTION	"WalkLeft"
+#define JUMP_SECTION		"Jump"
+#define DOWN_SECTION		"Seat"
 
 
 #endif  __FFDEFINES_H__

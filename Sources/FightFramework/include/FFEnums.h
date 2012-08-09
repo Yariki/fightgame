@@ -94,6 +94,12 @@ enum FF_UI_CHECKBOX_STATE
 };
 
 
+enum FF_CONTROLLER_ID
+{
+	FFCI_FIRST,
+	FFCI_SECOND
+};
+
 
 // GUI enums end
 

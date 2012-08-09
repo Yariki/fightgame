@@ -126,6 +126,12 @@
     <ClInclude Include="include\FFLabel.h">
       <Filter>Framework\Scene\Controls</Filter>
     </ClInclude>
+    <ClInclude Include="include\FFPlayerController.h">
+      <Filter>Framework\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FFBaseController.h">
+      <Filter>Framework\Input</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\FFAnimatedObject.cpp">
@@ -199,6 +205,9 @@
     </ClCompile>
     <ClCompile Include="src\FFLabel.cpp">
       <Filter>Framework\Scene\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FFPlayerController.cpp">
+      <Filter>Framework\Input</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

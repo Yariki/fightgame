@@ -2,12 +2,13 @@
 #define __FFMOVABLEANIMATEDOBJECT_H__
 
 #include "FFMovableObject.h"
+#include "FFBaseController.h"
 
 class FFMovableAnimatedObject:public FFMovableObject
 {
 protected:
 	orxSTRING _currentAnimationName;
-
+	FFBaseController* _controller;
 public:
 	FFMovableAnimatedObject(void);
 	FFMovableAnimatedObject(orxSTRING filename);
@@ -21,6 +22,7 @@ public:
 public:
 	orxSTRING				GetAnimation();
 	void					SetAnimation(orxSTRING animation);
+	void					SetController(FFBaseController* controller);
 
 };
 

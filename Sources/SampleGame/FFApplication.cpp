@@ -16,7 +16,7 @@ FFApplication::~FFApplication(void)
 	{
 		delete _manager;
 	}
-	
+	FFInputManager::GetSingleton()->UnloadSettings();
 }
 
 

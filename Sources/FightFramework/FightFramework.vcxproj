@@ -13,6 +13,7 @@
   <ItemGroup>
     <ClInclude Include="include\FFAnimatedObject.h" />
     <ClInclude Include="include\FFBaseControl.h" />
+    <ClInclude Include="include\FFBaseController.h" />
     <ClInclude Include="include\FFBaseManager.h" />
     <ClInclude Include="include\FFBaseUiScene.h" />
     <ClInclude Include="include\FFButton.h" />
@@ -31,6 +32,7 @@
     <ClInclude Include="include\FFMovableAnimatedObject.h" />
     <ClInclude Include="include\FFMovableObject.h" />
     <ClInclude Include="include\FFObject.h" />
+    <ClInclude Include="include\FFPlayerController.h" />
     <ClInclude Include="include\FFPreview.h" />
     <ClInclude Include="include\FFRadioButton.h" />
     <ClInclude Include="include\FFRadioButtonGroup.h" />
@@ -59,6 +61,7 @@
     <ClCompile Include="src\FFMovableAnimatedObject.cpp" />
     <ClCompile Include="src\FFMovableObject.cpp" />
     <ClCompile Include="src\FFObject.cpp" />
+    <ClCompile Include="src\FFPlayerController.cpp" />
     <ClCompile Include="src\FFPreview.cpp" />
     <ClCompile Include="src\FFRadioButton.cpp" />
     <ClCompile Include="src\FFRadioButtonGroup.cpp" />

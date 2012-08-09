@@ -76,6 +76,7 @@ orxSTATUS orxFASTCALL StandAlone::Init()
 			
 			_moveObject = new FFMovableAnimatedObject("../data/Ini/MovableAnimObject.ini");
 			_moveObject->Create();
+			_moveObject->SetController(FFInputManager::GetSingleton()->GetPlayerController(FFCI_SECOND));
 			
 			//orxConfig_Load("../data/Ini/MovableAnimObject.ini");
 			//_BallObject = orxObject_CreateFromConfig("MovableAnimatedEntity");
