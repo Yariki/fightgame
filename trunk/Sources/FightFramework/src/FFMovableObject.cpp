@@ -25,8 +25,11 @@ void FFMovableObject::Create()
 		_object = orxObject_CreateFromConfig(FF_MOVABLE_OBJECT_SECTION_NAME);
 		if(orxConfig_PushSection(FF_MOVABLE_OBJECT_SECTION_NAME) == orxSTATUS_SUCCESS)
 		{
-			orxConfig_GetVector(FF_POSITION,&_position);
-			orxConfig_GetVector(FF_SPEED,&_speed);
+			orxVECTOR a;
+			orxConfig_GetVector(FF_POSITION,&a);
+			_position = a;
+			orxConfig_GetVector(FF_SPEED,&a);
+			_speed = a;
 
 			orxConfig_PopSection();
 		}
@@ -59,18 +62,18 @@ void FFMovableObject::SetMoveOperation(FF_MOVE_OPERATION moveOperation)
 
 orxSTATUS FFMovableObject::Update(const orxCLOCK_INFO* pClockInfo)
 {
-	orxVECTOR speed;
-	orxVector_Mulf(&speed,&_speed,pClockInfo->fDT);
+	//orxVECTOR speed;
+	//orxVector_Mulf(&speed,&_speed,pClockInfo->fDT);
 	bool isNew = false;
 	if(FFInputManager::GetSingleton()->GetInputStatus(KEY_RIGHT,isNew))
 	{
-		_position.fX += speed.fX;
+		//_position.fX += speed.fX;
 		_currentMoveDirection = FFMD_RIGHT;
 		
 	}
 	else if(FFInputManager::GetSingleton()->GetInputStatus(KEY_LEFT,isNew))
 	{
-		_position.fX -= speed.fX;
+		//_position.fX -= speed.fX;
 		_currentMoveDirection =  FFMD_LEFT;
 		
 	}

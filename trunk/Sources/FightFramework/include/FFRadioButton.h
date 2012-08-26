@@ -22,7 +22,7 @@ protected:
     FFRadioButtonGroup* _group;
 
 public:
-    FFRadioButton(FFBaseUiScene* parent,FFRadioButtonGroup* group, orxVECTOR& pos, orxCHAR* name, RADIOCHOOSE onchoose, int index);
+    FFRadioButton(FFBaseUiScene* parent,FFRadioButtonGroup* group, FFVector3& pos, orxCHAR* name, RADIOCHOOSE onchoose, int index);
     virtual ~FFRadioButton();
 
     void Update(orxOBJECT* obj);

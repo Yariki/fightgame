@@ -3,7 +3,7 @@
 #define DELTA_RADIO_BOX 20.0f
 
 
-FFRadioButtonGroup::FFRadioButtonGroup(FFBaseUiScene* parent,orxVECTOR& position, orxCHAR* name)
+FFRadioButtonGroup::FFRadioButtonGroup(FFBaseUiScene* parent,FFVector3& position, orxCHAR* name)
 	: FFBaseControl(parent,position,name)
 {
     _posNextBox = _position;
@@ -50,7 +50,7 @@ void FFRadioButtonGroup::AddItem(std::string& itemName)
     data._item = new FFRadioButton(_parentForm,this,
         _posNextBox,name,(RADIOCHOOSE)&FFRadioButtonGroup::OnChooseItem,index);
     _listButtons.push_back(data);
-    _posNextBox.fY += DELTA_RADIO_BOX;
+    _posNextBox._y += DELTA_RADIO_BOX;
 }
 
 void FFRadioButtonGroup::Update(orxOBJECT* obj)

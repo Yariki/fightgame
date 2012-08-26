@@ -1,6 +1,6 @@
 #include "FFComboChooseButton.h"
 
-FFComboChooseButton::FFComboChooseButton(FFBaseUiScene* parent, orxVECTOR& position, orxCHAR* name, COMBOCHANGE oncombochange)
+FFComboChooseButton::FFComboChooseButton(FFBaseUiScene* parent, FFVector3& position, orxCHAR* name, COMBOCHANGE oncombochange)
 	:FFBaseControl(parent,position,name)
 {
 	_OnChooseChange = oncombochange != NULL ? oncombochange : NULL;
@@ -8,7 +8,7 @@ FFComboChooseButton::FFComboChooseButton(FFBaseUiScene* parent, orxVECTOR& posit
 	_mainObject = orxObject_CreateFromConfig(CHOOSEBUTTON_SECTION);
 	if(_mainObject)
 	{
-		orxObject_SetPosition(_mainObject, &_position);
+		orxObject_SetPosition(_mainObject, _position);
 		for(orxOBJECT* obj = orxObject_GetOwnedChild(_mainObject); obj != orxNULL; obj = orxObject_GetOwnedSibling(obj))
 		{
 			const orxSTRING name = orxObject_GetName(obj);

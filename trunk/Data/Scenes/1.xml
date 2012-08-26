@@ -8,9 +8,7 @@
   <StaticAnimatedObjects>
 	<StaticAnimatedObject Filename="..\data\Ini\Tree.ini" />
   </StaticAnimatedObjects>
-  <DynamicObjects>
-	<DynamicObject Filename="..\data\Ini\DynamicObject.ini" />
-  </DynamicObjects>
+
   <DynamicAnimatedObjects>
 	<DynamicAnimatedObject Filename="..\data\Ini\DynamicAminObject.ini" />
   </DynamicAnimatedObjects>

@@ -12,7 +12,7 @@ public:
     virtual ~GameSceneChoose(void);
 
 protected:
-    void InitializePreview(orxVECTOR& pos);
+    void InitializePreview(FFVector3& pos);
 
 private:
     void InitializeRightColumn(int i);

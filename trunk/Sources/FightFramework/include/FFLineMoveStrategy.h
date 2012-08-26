@@ -3,6 +3,7 @@
 #define __FFLINEMOVESTRATEGY_H__
 
 #include "IDynamicMoveStrategy.h"
+#include "FFVector3.h"
 
 enum MOVE_DIRECTION
 {
@@ -44,8 +45,8 @@ enum REPEAT_DIRECTION
 class FFLineMoveStrategy: public IDynamicMoveStrategy
 {
 protected:
-	orxVECTOR			_startPosition;
-	orxVECTOR			_finishPosition;
+	FFVector3			_startPosition;
+	FFVector3			_finishPosition;
 	orxFLOAT			_speed;
 	MOVE_DIRECTION		_direction;
 	REPEAT_DIRECTION    _repeat;
@@ -61,8 +62,8 @@ public:
 	virtual void						ReadConfiguration();
 
 private:
-	FF_ANIMATION_DYNAMIC_OBJECT			CalcX(orxVECTOR* outPos,const orxCLOCK_INFO* pClockInfo );
-	FF_ANIMATION_DYNAMIC_OBJECT			CalcY(orxVECTOR* outPos,const orxCLOCK_INFO* pClockInfo );
+	FF_ANIMATION_DYNAMIC_OBJECT			CalcX(FFVector3* outPos,const orxCLOCK_INFO* pClockInfo );
+	FF_ANIMATION_DYNAMIC_OBJECT			CalcY(FFVector3* outPos,const orxCLOCK_INFO* pClockInfo );
 
 
 };

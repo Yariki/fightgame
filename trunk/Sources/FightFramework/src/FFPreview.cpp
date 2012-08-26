@@ -1,7 +1,7 @@
 #include "FFPreview.h"
 
 
-FFPreview::FFPreview(FFBaseUiScene* parent,orxVECTOR& position, orxCHAR* name,const orxCHAR* filepreview,ITEMCHOOSE onitemchoose, int number = -1)
+FFPreview::FFPreview(FFBaseUiScene* parent,FFVector3& position, orxCHAR* name,const orxCHAR* filepreview,ITEMCHOOSE onitemchoose, int number = -1)
     :FFBaseControl(parent,position,name)
 {
     _OnChoose = onitemchoose != NULL ? onitemchoose : NULL;
@@ -13,7 +13,7 @@ FFPreview::FFPreview(FFBaseUiScene* parent,orxVECTOR& position, orxCHAR* name,co
         _mainObject = orxObject_CreateFromConfig(PREVIEW_SECTION);
         if(_mainObject)
         {
-            orxObject_SetPosition(_mainObject,&_position);
+            orxObject_SetPosition(_mainObject,_position);
             if(orxConfig_PushSection(PREVIEW_SECTION) == orxSTATUS_SUCCESS)
             {
                 orxString_Copy(_caption,orxConfig_GetString(PREVIEW_CAPTION));   
@@ -32,7 +32,7 @@ FFPreview::FFPreview(FFBaseUiScene* parent,orxVECTOR& position, orxCHAR* name,co
         }
     }
     _onlyOnce = false;
-    _scale.fX = _scale.fY = 1.2f;
+    _scale._x = _scale._y = 1.2f;
 	
 }
 
@@ -60,19 +60,21 @@ void FFPreview::Update(orxOBJECT* obj)
        
         if(_mainObject)
         {
-            orxObject_SetScale(_mainObject,&_scale);
+            orxObject_SetScale(_mainObject,_scale);
         }
         if(!_onlyOnce)
         {
-            orxVECTOR pos;
-            orxVECTOR size;
-            orxObject_GetSize(_mainObject,&size);
-            float dx = abs(((size.fX * _scale.fX) - size.fX) / 2);
-            float dy = abs(((size.fY * _scale.fY) - size.fY) / 2);
-            pos.fX = _position.fX - dx;
-            pos.fY = _position.fY - dy; 
-            pos.fZ = 1.0;
-            orxObject_SetPosition(_mainObject,&pos);
+			orxVECTOR t;
+            FFVector3 pos;
+            FFVector3 size;
+            orxObject_GetSize(_mainObject,&t);
+			size = t;
+            float dx = abs(((size._x * _scale._x) - size._x) / 2);
+            float dy = abs(((size._y * _scale._y) - size._y) / 2);
+            pos._x = _position._x - dx;
+            pos._y = _position._y - dy; 
+            pos._z = 1.0;
+            orxObject_SetPosition(_mainObject,pos);
             _onlyOnce = true;
         }
 		bool isNew = false;
@@ -83,21 +85,21 @@ void FFPreview::Update(orxOBJECT* obj)
     else
     {
         _onlyOnce = false;
-        orxVECTOR scale;
-        scale.fX = 1.0;
-        scale.fY = 1.0;
+        FFVector3 scale;
+        scale._x = 1.0;
+        scale._y = 1.0;
         if(_mainObject)
         {
-            orxObject_SetScale(_mainObject,&scale);
+            orxObject_SetScale(_mainObject,scale);
         }
-        orxObject_SetPosition(_mainObject,&_position);
+        orxObject_SetPosition(_mainObject,_position);
     }
 }
 
-void FFPreview::SetScale(orxVECTOR* scale)
+void FFPreview::SetScale(FFVector3* scale)
 {
-    _scale.fX = scale->fX;
-    _scale.fY = scale->fY;
+    _scale._x = scale->_x;
+    _scale._y = scale->_y;
 }
 
 bool FFPreview::LinkObject(orxOBJECT* obj)
@@ -115,11 +117,11 @@ bool FFPreview::LinkObject(orxOBJECT* obj)
 	}
 	_listLink.push_back(obj);
 
-	orxVECTOR vec = _position;
-	vec.fZ = 0.0f;
+	FFVector3 vec = _position;
+	vec._z = 0.0f;
 
 	orxObject_SetOwner(obj,plastChild);
-	orxObject_SetPosition(obj,&vec);
+	orxObject_SetPosition(obj,vec);
 
 	return true;
 }

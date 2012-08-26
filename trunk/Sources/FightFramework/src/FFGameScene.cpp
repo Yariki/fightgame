@@ -16,6 +16,7 @@ FFGameScene::FFGameScene(FFBaseManager* gameManager,FF_DISPLAY_SIZE& size,orxSTR
 	_type = FFST_GAMESCENE;
     _firstHero = orxNULL;
     _secondHero = orxNULL;
+	_physWorld = new FFPhysicsWorld();
 	CheckPreview();
 }
 
@@ -44,7 +45,7 @@ orxSTATUS FFGameScene::Load()
 	orxConfig_Clear();
 	bool staticLoad = LoadStatic(root);
 	bool staticAnim = LoadStaticAnimatedObject(root);
-	bool dynamicLoad = LoadDynamicObject(root);
+	bool dynamicLoad = false;//LoadDynamicObject(root);
 	bool dynamicAnim = LoadDynamicAnimatedObject(root);
 
 	if(staticLoad)
@@ -52,6 +53,8 @@ orxSTATUS FFGameScene::Load()
 		for(unsigned int i = 0; i<_listStaticEntity.size();i++)
 		{
 			_listStaticEntity.at(i)->Create();
+			if(_listStaticEntity.at(i)->GetTypeEntity() ==  FTE_STATIC)
+				_physWorld->AddWall(_listStaticEntity.at(i));
 		}
 	}
 
@@ -107,6 +110,10 @@ orxSTATUS FFGameScene::Unload()
 	_listStaticAnimEntity.clear();
 	_listDynamicEntity.clear();
 	_listDynamicAnimEntity.clear();
+	
+	SAFEDELETE(_firstHero);
+	SAFEDELETE(_secondHero);
+	SAFEDELETE(_physWorld);
 
 	return orxSTATUS_SUCCESS;
 }
@@ -135,6 +142,10 @@ orxSTATUS FFGameScene::Update(const orxCLOCK_INFO* pClockInfo)
 	{
 		_listDynamicAnimEntity.at(i)->Update(pClockInfo);
 	}
+	if(_firstHero)
+		_firstHero->Update(pClockInfo);
+	if(_physWorld)
+		_physWorld->UpdateWorld(pClockInfo->fDT);
 
 	return orxSTATUS_SUCCESS;
 }
@@ -152,6 +163,7 @@ bool FFGameScene::LoadStatic(const TiXmlElement* root)
 			orxString_Copy(filename,node->Attribute(FF_FILENAME_ATTRIBUTE));
 			FFStaticObject* obj = new FFStaticObject(filename);
 			_listStaticEntity.push_back(obj);
+			
 		}
 		res = true;
 	}
@@ -240,3 +252,22 @@ void FFGameScene::CheckPreview()
 	const char* prev = root->Attribute(FF_PREVIEW_ATTRIBUTE);
 	_filePreview = std::string(prev);
 }
+
+
+void FFGameScene::SetHero(FFMovableAnimatedObject* hero, FF_HERO id)
+{
+	switch (id)
+	{
+	case FFH_FIRST :
+		_firstHero = hero;
+		_firstHero->SetController(FFInputManager::GetSingleton()->GetPlayerController(FFCI_FIRST));
+		break;
+	case FFH_SECOND:
+		_secondHero = hero;
+		break;
+	}
+	hero->Create();
+	_physWorld->AddObject(hero);
+
+}
+

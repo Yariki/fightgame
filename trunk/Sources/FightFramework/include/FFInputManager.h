@@ -2,7 +2,7 @@
 #define __FFINPUTMAMNAGER_H__
 
 #include "FFInclude.h"
-
+#include "FFVector3.h"
 #include "FFBaseController.h"
 #define CONTROLLER1 0
 #define CONTROLLER2 1
@@ -34,7 +34,7 @@ public:
 	
 	bool					LoadSettings();
 	bool					GetInputStatus(orxCHAR* key, bool& newState);
-	void					GetMousePosition(orxVECTOR* position);
+	void					GetMousePosition(FFVector3* position);
 	FFBaseController*		GetPlayerController(FF_CONTROLLER_ID id);
 	void					UnloadSettings();
 

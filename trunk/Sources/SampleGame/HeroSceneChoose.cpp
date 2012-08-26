@@ -51,10 +51,10 @@ void HeroSceneChoose::InitializeComponent()
 
 	if(orxConfig_Load(BTNS_FILE) == orxSTATUS_SUCCESS)
 	{
-		orxVECTOR pos;
-		pos.fX = BEGIN_X;
-		pos.fY = BEGIN_Y - 60;
-		pos.fZ = 0;
+		FFVector3 pos;
+		pos._x = BEGIN_X;
+		pos._y = BEGIN_Y - 60;
+		pos._z = 0;
 		_radioButtonGroup = new FFRadioButtonGroup(this,pos,NULL);
 		_radioButtonGroup->AddItem(string("Choose FIRST  HERO!"));
 		_radioButtonGroup->AddItem(string("Choose SECOND  HERO!"));
@@ -71,7 +71,7 @@ void HeroSceneChoose::InitializeComponent()
 	}
 }
 
-void HeroSceneChoose::InitializePreview(orxVECTOR& pos)
+void HeroSceneChoose::InitializePreview(FFVector3& pos)
 {
 	int count = 0;
 	const std::vector<std::string>* list = _gameManager != NULL ? _gameManager->GetHeroPreviewList() : NULL;
@@ -94,11 +94,11 @@ void HeroSceneChoose::InitializePreview(orxVECTOR& pos)
 					_arrPreview[i][j]._preview= NULL;
 					_arrPreview[i][j]._pos = pos;
 				}
-				pos.fY += DELTA_Y;
+				pos._y += DELTA_Y;
 
 			}
-			pos.fY = BEGIN_Y;
-			pos.fX += DELTA_X;
+			pos._y = BEGIN_Y;
+			pos._x += DELTA_X;
 		}
 	}
 }

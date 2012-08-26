@@ -30,7 +30,7 @@ protected:
 	COMBOCHANGE _OnChooseChange;
 
 public:
-	FFComboChooseButton(FFBaseUiScene* parent, orxVECTOR& position, orxCHAR* name, COMBOCHANGE oncombochange);
+	FFComboChooseButton(FFBaseUiScene* parent, FFVector3& position, orxCHAR* name, COMBOCHANGE oncombochange);
 	virtual ~FFComboChooseButton();
 
 	void Update(orxOBJECT* obj);

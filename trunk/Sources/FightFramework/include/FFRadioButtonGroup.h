@@ -15,10 +15,10 @@ protected:
 	std::vector<FFRadioItemData> _listButtons;
 	int _lastIndex;
     int _currentIndex;
-	orxVECTOR _posNextBox;
+	FFVector3 _posNextBox;
 
 public:
-	FFRadioButtonGroup(FFBaseUiScene* parent,orxVECTOR& position, orxCHAR* name);
+	FFRadioButtonGroup(FFBaseUiScene* parent,FFVector3& position, orxCHAR* name);
 	virtual ~FFRadioButtonGroup();
 
 public:

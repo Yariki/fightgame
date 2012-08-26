@@ -68,9 +68,13 @@ bool FFInputManager::GetInputStatus(orxCHAR* key, bool& newState)
 	return res;
 }
 
-void FFInputManager::GetMousePosition(orxVECTOR* position)
+void FFInputManager::GetMousePosition(FFVector3* position)
 {
-	orxMouse_GetPosition(position);
+	orxVECTOR t;
+	orxMouse_GetPosition(&t);
+	position->_x = t.fX;
+	position->_y = t.fY;
+	position->_z = t.fZ;
 }
 
 void  FFInputManager::LoadInputSettings()

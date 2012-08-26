@@ -2,13 +2,13 @@
 #include "FFLabel.h"
 
 
-FFLabel::FFLabel(FFBaseUiScene* parent, orxVECTOR& position, orxCHAR* name)
+FFLabel::FFLabel(FFBaseUiScene* parent, FFVector3& position, orxCHAR* name)
 	:FFBaseControl(parent,position,name)
 {
 	_mainObject = orxObject_CreateFromConfig(LABEL_SECTION);
 	if(_mainObject)
 	{
-		orxObject_SetPosition(_mainObject,&_position);
+		orxObject_SetPosition(_mainObject,_position);
 		orxObject_SetTextString(_mainObject,_caption);
 	}
 }

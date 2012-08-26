@@ -19,7 +19,7 @@ protected:
 
 	bool _clickPress;
 public:
-	FFButton(FFBaseUiScene* parent,orxVECTOR& position, orxCHAR* name, BUTTONCLICK onckick);
+	FFButton(FFBaseUiScene* parent,FFVector3& position, orxCHAR* name, BUTTONCLICK onckick);
 	virtual ~FFButton();
 
 	FF_UI_BUTTON_STATE GetState() {return _state;}

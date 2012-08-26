@@ -1,7 +1,7 @@
 #include "FFCheckBox.h"
 
 
-FFCheckBox::FFCheckBox(FFBaseUiScene* parent, orxVECTOR& position, orxCHAR* name, 
+FFCheckBox::FFCheckBox(FFBaseUiScene* parent, FFVector3& position, orxCHAR* name, 
 	CHECKCHANGE oncheckchange)
 	:FFBaseControl(parent,position,name)
 {
@@ -10,7 +10,7 @@ FFCheckBox::FFCheckBox(FFBaseUiScene* parent, orxVECTOR& position, orxCHAR* name
 	_mainObject = orxObject_CreateFromConfig(CHECKBOX_SECTION);
 	if(_mainObject)
 	{
-		orxObject_SetPosition(_mainObject,&_position);
+		orxObject_SetPosition(_mainObject,_position);
 		for(orxOBJECT* obj = orxObject_GetOwnedChild(_mainObject); obj != orxNULL; obj = orxObject_GetOwnedSibling(obj))
 		{
 			const orxSTRING name = orxObject_GetName(obj);

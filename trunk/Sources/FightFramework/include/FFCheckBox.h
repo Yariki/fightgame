@@ -17,7 +17,7 @@ protected:
 	CHECKCHANGE _OnCheckChange;
 
 public:
-	FFCheckBox(FFBaseUiScene* parent, orxVECTOR& position, orxCHAR* name, CHECKCHANGE oncheckchange);
+	FFCheckBox(FFBaseUiScene* parent, FFVector3& position, orxCHAR* name, CHECKCHANGE oncheckchange);
 	virtual ~FFCheckBox();
 
 	FF_UI_CHECKBOX_STATE GetState() {return _state;}

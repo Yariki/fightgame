@@ -4,6 +4,7 @@
 #include "FFInclude.h"
 #include "FFBaseUiScene.h"
 #include "FFInputManager.h"
+#include "FFVector3.h"
 
 #define MAX_NAME 260
 
@@ -20,11 +21,11 @@ protected:
 
 	orxOBJECT*	_mainObject;
 	orxOBJECT* _captionObject;
-	orxVECTOR _position;
+	FFVector3 _position;
 	orxCHAR _caption[MAX_NAME];
 	bool _isHide;
 public:
-	FFBaseControl(FFBaseUiScene* parent,orxVECTOR& position, orxCHAR* name);
+	FFBaseControl(FFBaseUiScene* parent,FFVector3& position, orxCHAR* name);
 	virtual ~FFBaseControl();
 
 public:
@@ -34,8 +35,8 @@ public:
     orxCHAR* const GetCaption() { return _caption; }
 	virtual void Update(orxOBJECT* obj) = 0;
 
-    void SetScale(orxVECTOR* scale);
-    void SetPosition(orxVECTOR* scale);
+    void SetScale(FFVector3* scale);
+    void SetPosition(FFVector3* scale);
 	
 	void SetSmoothing(bool isSmoothing);
 	bool GetSmoothing();

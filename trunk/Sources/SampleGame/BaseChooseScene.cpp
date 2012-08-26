@@ -75,30 +75,30 @@ void BaseChooseScene::UpdateGUI(orxOBJECT* obj)
 void BaseChooseScene::InitializeComponent()
 {
 	
-	orxVECTOR pos;
-	pos.fX = BEGIN_X;
-	pos.fY = BEGIN_Y;
-	pos.fZ = 1.0;
+	FFVector3 pos;
+	pos._x = BEGIN_X;
+	pos._y = BEGIN_Y;
+	pos._z = 1.0;
 
     InitializePreview(pos);
 
     orxLOG("%d",sizeof(_arrPreview));
 	if(orxConfig_Load(BTNS_FILE) == orxSTATUS_SUCCESS)
 	{
-		pos.fX = -75.0;
-        pos.fY = (-BEGIN_Y) + 50.0;
+		pos._x = -75.0;
+        pos._y = (-BEGIN_Y) + 50.0;
 		FFButton* btn = new FFButton(this,pos,"Back",(BUTTONCLICK)&BaseChooseScene::OnBackClick);
 		_listButton.push_back(btn);
 	}
 
-    orxVECTOR scale;
-    scale.fX = 1.5;
-    scale.fY = 1.5;
+    FFVector3 scale;
+    scale._x = 1.5;
+    scale._y = 1.5;
 	orxConfig_Clear();
 	if(orxConfig_Load(BTN_LEFT_FILE) == orxSTATUS_SUCCESS)
 	{
-        pos.fX = -425;
-        pos.fY = -10;
+        pos._x = -425;
+        pos._y = -10;
         FFButton* btn = new FFButton(this,pos,NULL,(BUTTONCLICK)&BaseChooseScene::OnLeftClick);
         btn->SetScale(&scale);
         _listButton.push_back(btn);
@@ -106,7 +106,7 @@ void BaseChooseScene::InitializeComponent()
 	orxConfig_Clear();
 	if(orxConfig_Load(BTN_RIGHT_FILE) == orxSTATUS_SUCCESS)
 	{
-        pos.fX = 400;
+        pos._x = 400;
         FFButton* btn = new FFButton(this,pos,NULL,(BUTTONCLICK)&BaseChooseScene::OnRightClick);
         btn->SetScale(&scale);
         _listButton.push_back(btn);
