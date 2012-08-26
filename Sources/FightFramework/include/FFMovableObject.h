@@ -10,7 +10,7 @@ class FFMovableObject:public FFObject
 protected:
 	FF_MOVE_DIRECTION	_currentMoveDirection;
 	FF_MOVE_OPERATION	_currentMoveOperation;
-	orxVECTOR			_speed;
+	//FFVector3			_speed;
 	
 
 public:

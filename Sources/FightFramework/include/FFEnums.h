@@ -93,6 +93,8 @@ enum FF_UI_CHECKBOX_STATE
 	CHB_CHECK
 };
 
+// GUI enums end
+
 
 enum FF_CONTROLLER_ID
 {
@@ -100,7 +102,26 @@ enum FF_CONTROLLER_ID
 	FFCI_SECOND
 };
 
+enum FF_TYPE_ENTITY
+{
+	FTE_NONE,
+	FTE_STATIC,
+	FTE_DYNAMIC
+};
 
-// GUI enums end
+enum FF_HIT_SIDE
+{
+	FHS_NONE,
+	FHS_LEFT,
+	FHS_RIGHT
+};
+
+enum FF_HERO
+{
+	FFH_NONE,
+	FFH_FIRST,
+	FFH_SECOND
+};
+
 
 #endif //__FFENUMS_H__

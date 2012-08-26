@@ -81,11 +81,11 @@ orxSTATUS orxFASTCALL StandAlone::Init()
 			//orxConfig_Load("../data/Ini/MovableAnimObject.ini");
 			//_BallObject = orxObject_CreateFromConfig("MovableAnimatedEntity");
 
-			orxVECTOR gravity;
-			gravity.fX = 0.0;
-			gravity.fY = 1000.0;
-			gravity.fZ = 0.0;
-			orxPhysics_SetGravity(&gravity);
+			FFVector3 gravity;
+			gravity._x = 0.0;
+			gravity._y = 1000.0;
+			gravity._z = 0.0;
+			orxPhysics_SetGravity(gravity);
 			orxConfig_Load("../data/Ini/PhysicTemplate.ini");
 			
 		}
@@ -164,27 +164,27 @@ orxSTATUS orxFASTCALL StandAlone::EventHandler(const orxEVENT* pEvent)
 
 void orxFASTCALL StandAlone::Update(const orxCLOCK_INFO* pClockInfo, void* pContext)
 {
-	orxVECTOR impulse;
+	FFVector3 impulse;
 	if(orxInput_IsActive("Right"))
 	{
- 		impulse.fX = 0.25;
-		impulse.fY = 0.0;
-		impulse.fZ = 0.0;
+ 		impulse._x = 0.25;
+		impulse._y = 0.0;
+		impulse._z = 0.0;
 		//orxObject_ApplyImpulse(_BallObject,&impulse,NULL);
 	}
 	else if(orxInput_IsActive("Left"))
 	{
-		impulse.fX = -0.25;
-		impulse.fY = 0.0;
-		impulse.fZ = 0.0;
+		impulse._x = -0.25;
+		impulse._y = 0.0;
+		impulse._z = 0.0;
 		//orxObject_ApplyImpulse(_BallObject,&impulse,NULL);
 		
 	}
 	else if(orxInput_IsActive("Up"))
 	{
-		impulse.fX = 0.0;
-		impulse.fY = -1.0;
-		impulse.fZ = 0.0;
+		impulse._x = 0.0;
+		impulse._y = -1.0;
+		impulse._z = 0.0;
 		//orxObject_ApplyForce(_BallObject,&impulse,NULL);
 
 	}

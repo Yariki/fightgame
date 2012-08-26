@@ -1,7 +1,7 @@
 #include "FFRadioButton.h"
 
 
-FFRadioButton::FFRadioButton(FFBaseUiScene* parent,FFRadioButtonGroup* group, orxVECTOR& pos, orxCHAR* name,RADIOCHOOSE onchoose,int index = -1)
+FFRadioButton::FFRadioButton(FFBaseUiScene* parent,FFRadioButtonGroup* group, FFVector3& pos, orxCHAR* name,RADIOCHOOSE onchoose,int index = -1)
     :FFBaseControl(parent,pos,name)
 {
     _OnChoose = onchoose != NULL ? onchoose : NULL;
@@ -11,7 +11,7 @@ FFRadioButton::FFRadioButton(FFBaseUiScene* parent,FFRadioButtonGroup* group, or
     _mainObject = orxObject_CreateFromConfig(RADIO_SECTION);
 	if(_mainObject)
 	{
-		orxObject_SetPosition(_mainObject,&_position);
+		orxObject_SetPosition(_mainObject,_position);
 		for(orxOBJECT* obj = orxObject_GetOwnedChild(_mainObject); obj != orxNULL; obj = orxObject_GetOwnedSibling(obj))
 		{
 			const orxSTRING name = orxObject_GetName(obj);

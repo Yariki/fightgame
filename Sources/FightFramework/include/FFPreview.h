@@ -13,7 +13,7 @@ class FFPreview : public FFBaseControl
 {
 protected:
     bool _onlyOnce;
-    orxVECTOR _scale;
+    FFVector3 _scale;
     int _number;
     orxCHAR _filePreview[MAX_NAME];
 	std::vector<orxOBJECT*> _listLink;
@@ -22,12 +22,12 @@ protected:
 	ITEMCHOOSE	_OnChoose;
 
 public:
-    FFPreview(FFBaseUiScene* parent,orxVECTOR& position, orxCHAR* name,const orxCHAR* filepreview, ITEMCHOOSE onitemchoose, int number);
+    FFPreview(FFBaseUiScene* parent,FFVector3& position, orxCHAR* name,const orxCHAR* filepreview, ITEMCHOOSE onitemchoose, int number);
     virtual ~FFPreview();
 
 public:
     void Update(orxOBJECT* obj);
-    void SetScale(orxVECTOR* scale);
+    void SetScale(FFVector3* scale);
     int GetNumber() { return _number;}
 
 	bool LinkObject(orxOBJECT* obj);

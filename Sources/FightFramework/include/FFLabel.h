@@ -11,7 +11,7 @@ class FFLabel : public FFBaseControl
 {
 
 public:
-	FFLabel(FFBaseUiScene* parent, orxVECTOR& position, orxCHAR* name);
+	FFLabel(FFBaseUiScene* parent, FFVector3& position, orxCHAR* name);
 	virtual ~FFLabel();
 
 	virtual void Update(orxOBJECT* obj){}

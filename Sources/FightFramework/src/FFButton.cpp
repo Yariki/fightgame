@@ -1,14 +1,14 @@
 #include "FFButton.h"
 
 
-FFButton::FFButton(FFBaseUiScene* parent,orxVECTOR& position, orxCHAR* name, BUTTONCLICK onckick)
+FFButton::FFButton(FFBaseUiScene* parent,FFVector3& position, orxCHAR* name, BUTTONCLICK onckick)
 	:FFBaseControl(parent,position,name)
 {
 	_OnClick = onckick != NULL ? onckick : NULL;
 	_mainObject = orxObject_CreateFromConfig(BUTTON_SECTION);
 	if(_mainObject)
 	{
-		orxObject_SetPosition(_mainObject,&_position);
+		orxObject_SetPosition(_mainObject,_position);
 		for(orxOBJECT* obj = orxObject_GetOwnedChild(_mainObject); obj != orxNULL; obj = orxObject_GetOwnedSibling(obj))
 		{
 			const orxSTRING name = orxObject_GetName(obj);
@@ -91,19 +91,21 @@ void FFButton::CalcCaptionPosition()
     float stringWidth = 0.0f;
     for(orxU32 i = 0; i < lenght; i++)
         stringWidth += orxFont_GetCharacterWidth(def,_caption[i]);
-    orxVECTOR sizeMain;
-    orxObject_GetSize(_mainObject,&sizeMain);
-    orxVECTOR posCaption;
-    posCaption.fX = 0.0f;
-    posCaption.fY = 3.0f;
-    posCaption.fZ = 0.0f;
-    float delta = sizeMain.fX - stringWidth;
+    FFVector3 sizeMain;
+	orxVECTOR t;
+    orxObject_GetSize(_mainObject,&t);
+	sizeMain = t;
+    FFVector3 posCaption;
+    posCaption._x = 0.0f;
+    posCaption._y = 3.0f;
+    posCaption._z = 0.0f;
+    float delta = sizeMain._x - stringWidth;
     if(delta > 0)
     {
         delta /=2.0f;
-        posCaption.fX = delta;
-        orxObject_SetPosition(_captionObject,&posCaption);
+        posCaption._x = delta;
+        orxObject_SetPosition(_captionObject,posCaption);
     }
     else
-        orxObject_SetPosition(_captionObject,&posCaption);
+        orxObject_SetPosition(_captionObject,posCaption);
 }

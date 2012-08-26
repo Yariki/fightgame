@@ -4,12 +4,16 @@
 FFObject::FFObject(void)
 {
 	_object = NULL;
+	_hitSide = FHS_NONE;
+	_typeEntity = FTE_NONE;
 }
 
 FFObject::FFObject(orxSTRING filename)
 {
 	orxString_Copy(_nameCfgFile,filename);
 	_object = orxObject_CreateFromConfig(_nameCfgFile);
+	_hitSide = FHS_NONE;
+	_typeEntity = FTE_NONE;
 }
 
 
@@ -24,7 +28,7 @@ orxCOLOR FFObject::GetColor()
 	return _color;
 }
 
-orxVECTOR FFObject::GetPosition()
+FFVector3 FFObject::GetPosition()
 {
 	return _position;
 }
@@ -34,21 +38,23 @@ orxFLOAT FFObject::GetRotation()
 	return _rotation;
 }
 
-orxVECTOR FFObject::GetScale()
+FFVector3 FFObject::GetScale()
 {
 	return _scale;
 }
 
-orxVECTOR* FFObject::GetSize()
+FFVector3 FFObject::GetSize()
 {
 	if(_object)
 	{
-		orxObject_GetSize(_object,_size);
+		orxVECTOR a;
+		orxObject_GetSize(_object,&a);
+		_size = a;
 		return _size;
 	}
 	else
 	{
-		return orxNULL;
+		return FFVector3(0.0,0.0,0.0);
 	}
 }
 
@@ -59,11 +65,13 @@ void FFObject::SetColor(orxCOLOR& color)
 		orxObject_SetColor(_object,&_color);
 }
 
-void FFObject::SetPosition(orxVECTOR& pos)
+void FFObject::SetPosition(FFVector3& pos)
 {
-	_position = pos;
+	if(&_position != &pos)
+		_position = pos;
 	if(_object)
-		orxObject_SetPosition(_object,&_position);
+		orxObject_SetPosition(_object,_position);
+	UpdateAABox();
 }
 
 void FFObject::SetRotation(orxFLOAT& rot)
@@ -73,9 +81,54 @@ void FFObject::SetRotation(orxFLOAT& rot)
 		orxObject_SetRotation(_object, _rotation);
 }
 
-void FFObject::SetScale(orxVECTOR& scale)
+void FFObject::SetScale(FFVector3& scale)
 {
 	_scale = scale;
 	if(_object)
-		orxObject_SetScale(_object,&_scale);
+		orxObject_SetScale(_object,_scale);
+}
+
+void FFObject::SetSpeed(FFVector3& speed)
+{
+	switch(_hitSide)
+	{
+	case FHS_NONE:
+		_speed._x = speed._x;
+		break;
+	case FHS_LEFT:
+		if(_speed._x > 0)
+			_speed._x = speed._x;
+		break;
+	case FHS_RIGHT:
+		if(speed._x < 0)
+			_speed._x = speed._x;
+		break;
+	}
+	if(_speed._y == 0)
+		_speed._y = speed._y;
+}
+
+bool FFObject::IsMove()
+{
+	return _speed._x != 0 || _speed._y != 0;
+}
+
+void FFObject::Stop()
+{
+	_speed.Zero();
+	_acceleration.Zero();
+	_forces.Zero();
+}
+
+void FFObject::UpdateAABox()
+{
+	if(_object)
+	{
+		orxVECTOR temp;
+		orxVECTOR scale;
+		orxObject_GetSize(_object,&temp);
+		_size = temp;
+		_aabox.vTL = _position;
+		_aabox.vBR = (_position + _size);
+	}
 }

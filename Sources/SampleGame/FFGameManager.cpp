@@ -126,6 +126,12 @@ bool FFGameManager::LoadHeroes(const TiXmlElement* root)
 				orxString_Copy(filename,root->Attribute(IMAGE_PREVIEW));
 				if(orxString_GetLength(filename))
 					_listHeroPreview.push_back(std::string(filename));
+				for(const TiXmlElement* elHero = root->FirstChildElement(); elHero; elHero = elHero->NextSiblingElement())
+				{
+					orxString_Copy(filename,elHero->Attribute(FF_MANAGER_FILENAMESCENE_ATTRIBUTE));
+					if(orxString_GetLength(filename))
+						_listHero.push_back(std::string(filename));
+				}
 			}
 			
 		}
@@ -238,5 +244,11 @@ void FFGameManager::LoadCurrentGameScene()
 		((FFBaseUiScene*)_mainScene)->Unload();
 		FFGameScene* scene = _listFileScene.at(0);
 		scene->Load();
+		if(_indexFirstHero < _listHero.size())
+		{
+
+			FFMovableAnimatedObject* hero = new FFMovableAnimatedObject((orxCHAR*)_listHero.at(_indexFirstHero).c_str());
+			scene->SetHero(hero,FFH_FIRST);
+		}
 	}
 }

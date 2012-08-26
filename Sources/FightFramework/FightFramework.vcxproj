@@ -32,6 +32,7 @@
     <ClInclude Include="include\FFMovableAnimatedObject.h" />
     <ClInclude Include="include\FFMovableObject.h" />
     <ClInclude Include="include\FFObject.h" />
+    <ClInclude Include="include\FFPhysicsWorld.h" />
     <ClInclude Include="include\FFPlayerController.h" />
     <ClInclude Include="include\FFPreview.h" />
     <ClInclude Include="include\FFRadioButton.h" />
@@ -41,6 +42,7 @@
     <ClInclude Include="include\FFStaticAnimatedObject.h" />
     <ClInclude Include="include\FFStaticObject.h" />
     <ClInclude Include="include\FFStructure.h" />
+    <ClInclude Include="include\FFVector3.h" />
     <ClInclude Include="include\IDynamicMoveStrategy.h" />
   </ItemGroup>
   <ItemGroup>
@@ -61,6 +63,7 @@
     <ClCompile Include="src\FFMovableAnimatedObject.cpp" />
     <ClCompile Include="src\FFMovableObject.cpp" />
     <ClCompile Include="src\FFObject.cpp" />
+    <ClCompile Include="src\FFPhysicsWorld.cpp" />
     <ClCompile Include="src\FFPlayerController.cpp" />
     <ClCompile Include="src\FFPreview.cpp" />
     <ClCompile Include="src\FFRadioButton.cpp" />
@@ -68,6 +71,7 @@
     <ClCompile Include="src\FFScene.cpp" />
     <ClCompile Include="src\FFStaticAnimatedObject.cpp" />
     <ClCompile Include="src\FFStaticObject.cpp" />
+    <ClCompile Include="src\FFVector3.cpp" />
     <ClCompile Include="src\IDynamicMoveStrategy.cpp" />
   </ItemGroup>
   <ItemGroup>

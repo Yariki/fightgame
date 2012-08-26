@@ -52,35 +52,35 @@ void MainScene::UpdateGUI(orxOBJECT* obj)
 
 void MainScene::InitializeComponent()
 {
-	orxVECTOR position;
-	position.fX = -75.0f;
-	position.fY = -150.0f;
-	position.fZ = 0.0f;
+	FFVector3 position;
+	position._x = -75.0f;
+	position._y = -150.0f;
+	position._z = 0.0f;
 	float delta = 50.0f;
 	if(orxConfig_Load(BTNS_FILE) == orxSTATUS_SUCCESS)
 	{
         FFButton* btn = NULL;
 		btn = new FFButton(this,position,"Start",(BUTTONCLICK)&MainScene::OnStartClick);
         _buttons.push_back(btn); btn = NULL;
-		position.fY += delta;
+		position._y += delta;
 		btn = new FFButton(this,position,"Choose scene",(BUTTONCLICK)&MainScene::OnChooseSceneClick);
         _buttons.push_back(btn); btn = NULL;
-		position.fY += delta;
+		position._y += delta;
 		btn = new FFButton(this,position,"Choose hero",(BUTTONCLICK)&MainScene::OnChooseHeroClick);
         _buttons.push_back(btn); btn = NULL;
-		position.fY += delta; 
+		position._y += delta; 
 		btn = new FFButton(this,position,"Options",(BUTTONCLICK)&MainScene::OnConfigClick);
         _buttons.push_back(btn); btn = NULL;
-		position.fY += delta;
+		position._y += delta;
 		btn =  new FFButton(this,position,"Exit",(BUTTONCLICK)&MainScene::OnExitClick);
         _buttons.push_back(btn); btn = NULL;
 
-		position.fX = -150;
-		position.fY = -250;
+		position._x = -150;
+		position._y = -250;
 		_mainLabel = new FFLabel(this,position,"Fight Game");
-		orxVECTOR scale;
-		scale.fX = 2.5;
-		scale.fY = 2.5;
+		FFVector3 scale;
+		scale._x = 2.5;
+		scale._y = 2.5;
 		_mainLabel->SetScale(&scale);
 		_mainLabel->SetSmoothing(true);
 		FF_COLOR clr;

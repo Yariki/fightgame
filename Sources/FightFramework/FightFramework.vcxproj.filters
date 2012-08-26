@@ -37,6 +37,9 @@
     <Filter Include="Framework\Scene\Controls">
       <UniqueIdentifier>{7f9c3d5f-a7e9-4dd3-883a-dad734eca503}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Framework\Physics">
+      <UniqueIdentifier>{d555a370-60d6-4a53-8e7d-90bddd3ca0d8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\FFDefines.h">
@@ -132,6 +135,12 @@
     <ClInclude Include="include\FFBaseController.h">
       <Filter>Framework\Input</Filter>
     </ClInclude>
+    <ClInclude Include="include\FFVector3.h">
+      <Filter>Framework\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FFPhysicsWorld.h">
+      <Filter>Framework\Physics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\FFAnimatedObject.cpp">
@@ -208,6 +217,12 @@
     </ClCompile>
     <ClCompile Include="src\FFPlayerController.cpp">
       <Filter>Framework\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FFVector3.cpp">
+      <Filter>Framework\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FFPhysicsWorld.cpp">
+      <Filter>Framework\Physics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

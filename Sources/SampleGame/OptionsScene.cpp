@@ -59,28 +59,28 @@ void OptionsScene::UpdateGUI(orxOBJECT* obj)
 
 void OptionsScene::InitializeComponent()
 {
-	orxVECTOR position;
-	position.fX = -75.0f;
-	position.fY = -150.0f;
-	position.fZ = 0.0f;
+	FFVector3 position;
+	position._x = -75.0f;
+	position._y = -150.0f;
+	position._z = 0.0f;
 	float delta = 50.0f;
 	if(orxConfig_Load(BTNS_FILE) == orxSTATUS_SUCCESS)
 	{
 		FFCheckBox* check = new FFCheckBox(this,position,"Fullscreen",NULL);
 		_listChecks.push_back(check);
-		position.fY += delta;
+		position._y += delta;
 		check = new FFCheckBox(this,position,"Use BLOOM",NULL);
 		_listChecks.push_back(check);
-		position.fY += delta;
-		position.fX += CHOOSEBTN_DELTA_FOR_CHILD;
+		position._y += delta;
+		position._x += CHOOSEBTN_DELTA_FOR_CHILD;
 		FFComboChooseButton* combo = new FFComboChooseButton(this,position,"n/a",NULL);
 		combo->AddItem("800 X 600");
 		combo->AddItem("1024 X 768");
 		combo->AddItem("1280 X 720");
 		combo->AddItem("1920 X 1080");
 		_listCombo.push_back(combo);
-		position.fX -= CHOOSEBTN_DELTA_FOR_CHILD;
-		position.fY += 2 * delta;
+		position._x -= CHOOSEBTN_DELTA_FOR_CHILD;
+		position._y += 2 * delta;
 		_btnBack = new FFButton(this,position,"Back",(BUTTONCLICK)&OptionsScene::OnBackClick);
 	}
 }

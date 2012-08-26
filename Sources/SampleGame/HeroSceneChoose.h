@@ -29,7 +29,7 @@ protected:
 	void UpdateGUI(orxOBJECT* obj);
 	void InitializeComponent();
 
-	void InitializePreview(orxVECTOR& pos);
+	void InitializePreview(FFVector3& pos);
 
 private:
 

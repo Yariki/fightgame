@@ -9,6 +9,7 @@ class FFMovableAnimatedObject:public FFMovableObject
 protected:
 	orxSTRING _currentAnimationName;
 	FFBaseController* _controller;
+	bool _isChanged;
 public:
 	FFMovableAnimatedObject(void);
 	FFMovableAnimatedObject(orxSTRING filename);
@@ -18,7 +19,7 @@ public:
 public:
 	void					Create();
 	orxSTATUS				Update(const orxCLOCK_INFO* pClockInfo);
-
+	void					UpdatePhysics(float deltaTime);
 public:
 	orxSTRING				GetAnimation();
 	void					SetAnimation(orxSTRING animation);

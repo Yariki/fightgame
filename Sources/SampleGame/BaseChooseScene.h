@@ -17,7 +17,7 @@
 
 struct GridData
 {
-    orxVECTOR _pos;
+    FFVector3 _pos;
     FFPreview* _preview;
 };
 
@@ -43,7 +43,7 @@ public:
 
 protected:
 	virtual void UpdateGUI(orxOBJECT* obj);
-    virtual void InitializePreview(orxVECTOR& pos) = 0;
+    virtual void InitializePreview(FFVector3& pos) = 0;
 
 private:
 	void OnShow();

@@ -2,7 +2,7 @@
 #include "FFBaseControl.h"
 
 
-FFBaseControl::FFBaseControl(FFBaseUiScene* parent,orxVECTOR& position, orxCHAR* name)
+FFBaseControl::FFBaseControl(FFBaseUiScene* parent,FFVector3& position, orxCHAR* name)
 {
 	_parentForm = parent;
 	_position = position;
@@ -38,19 +38,19 @@ void FFBaseControl::Hide()
 		orxObject_Enable(_mainObject,_isHide);
 }
 
-void FFBaseControl::SetScale(orxVECTOR* scale)
+void FFBaseControl::SetScale(FFVector3* scale)
 {
     if(_mainObject)
-        orxObject_SetScale(_mainObject,scale);
+        orxObject_SetScale(_mainObject,*scale);
 }
 
-void FFBaseControl::SetPosition(orxVECTOR* pos)
+void FFBaseControl::SetPosition(FFVector3* pos)
 {
-    _position.fX = pos->fX;
-    _position.fY = pos->fY;
-    _position.fZ = pos->fZ;
+    _position._x = pos->_x;
+    _position._y = pos->_y;
+    _position._z = pos->_z;
     if(_mainObject)
-        orxObject_SetPosition(_mainObject,&_position);
+        orxObject_SetPosition(_mainObject,_position);
 
 }
 

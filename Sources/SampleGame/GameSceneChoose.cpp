@@ -14,7 +14,7 @@ GameSceneChoose::~GameSceneChoose(void)
 }
 
 
-void GameSceneChoose::InitializePreview(orxVECTOR& pos)
+void GameSceneChoose::InitializePreview(FFVector3& pos)
 {
     int count = 0;
     const std::vector<FFGameScene*>* list = _gameManager != NULL ? _gameManager->GetGameSceneList() : NULL;
@@ -38,11 +38,11 @@ void GameSceneChoose::InitializePreview(orxVECTOR& pos)
                     _arrPreview[i][j]._preview= NULL;
                     _arrPreview[i][j]._pos = pos;
                 }
-                pos.fY += DELTA_Y;
+                pos._y += DELTA_Y;
                 
 		    }
-		    pos.fY = BEGIN_Y;
-		    pos.fX += DELTA_X;
+		    pos._y = BEGIN_Y;
+		    pos._x += DELTA_X;
 	    }
     }
 }

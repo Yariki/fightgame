@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="7ec4c201-55cd-432b-987b-0642d1d3ccd3" name="FFArch" linkedPackageId="8ad0b55f-170f-42a1-b913-435df930fef1" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" dslVersion="1.0.0.0" Id="7ec4c201-55cd-432b-987b-0642d1d3ccd3" name="FFArch" linkedPackageId="8ad0b55f-170f-42a1-b913-435df930fef1" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <appliedStereotypesInternal>
     <stereotypeInstance Id="3136a502-c144-4b0e-a21c-0f260f86835b" name="metamodel" profile="StandardProfileL3">
       <elementDefinition Id="9c7d496c-4eaa-45bf-8d7b-587d48cee2a3" />
@@ -1178,6 +1178,24 @@
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="019cc0a0-4c96-409b-866a-1b6bad1125c0" name="FFBasePhysicsObject" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="006d5aec-a371-4a66-a938-a7dc3fe8930b" />
+        <ownedAttributesInternal>
+          <property Id="0b4cdc77-b950-48ec-a4e0-f8703ef06c0a" name="_size" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="87ff34f9-f9db-4ac8-86b5-67b35a04b402" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="b71d6f0a-d426-4420-966b-064f8a7b930e" LastKnownName="FFVector3" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="b71d6f0a-d426-4420-966b-064f8a7b930e" name="FFVector3" isAbstract="false" isLeaf="false" cachedFullName="FFVector3">
+        <elementDefinition Id="c451f426-2329-435f-ba51-d1d780c8aeb7" />
+      </referencedType>
+    </packageHasNamedElement>
   </packagedElements>
   <package Id="8ad0b55f-170f-42a1-b913-435df930fef1" name="FightFrameworkArch">
     <elementDefinition Id="0ce451aa-c109-4a40-b04a-f07967e56ca0" />

@@ -11,11 +11,13 @@ FFMovableAnimatedObject::FFMovableAnimatedObject(orxSTRING filename)
 	:FFMovableObject(filename)
 {
 	_controller =  NULL;
+	_isChanged = false;
 }
 
 
 FFMovableAnimatedObject::~FFMovableAnimatedObject(void)
 {
+	_controller = NULL;
 }
 
 void FFMovableAnimatedObject::Create()
@@ -26,8 +28,21 @@ void FFMovableAnimatedObject::Create()
 		_object = orxObject_CreateFromConfig(FF_MOVABLE_ANIMATED_OBJECT_SECTION_NAME);
 		if(orxConfig_PushSection(FF_MOVABLE_ANIMATED_OBJECT_SECTION_NAME) == orxSTATUS_SUCCESS)
 		{
-			orxConfig_GetVector(FF_POSITION,&_position);
-			orxConfig_GetVector(FF_SPEED,&_speed);
+
+			orxCHAR temp[MAX_FILE_PATH];
+			orxString_Copy(temp,orxConfig_GetString(ENTITY_TYPE_SECTION));
+			if(!orxString_Compare(temp,ENTITY_TYPE_DYNAMIC_VALUE))
+				_typeEntity = FTE_DYNAMIC;
+
+			orxVECTOR a;
+			orxConfig_GetVector(FF_POSITION,&a);
+			_position = a;
+			//orxObject_SetPosition(_object,(orxVECTOR*)_position);
+			orxConfig_GetVector(FF_SPEED,&a);
+			_speed = a;
+			orxConfig_GetVector(FORCES_SECTION,&a);
+			_forces = a;
+			_mass = orxConfig_GetFloat(MASS_SECTION);
 
 			orxConfig_PopSection();
 		}
@@ -50,34 +65,34 @@ void FFMovableAnimatedObject::SetAnimation(orxSTRING animation)
 
 orxSTATUS FFMovableAnimatedObject::Update(const orxCLOCK_INFO* pClockInfo)
 {
-	orxVECTOR speed;
-	orxVector_Mulf(&speed,&_speed,pClockInfo->fDT);
-
+	
+	orxVECTOR temp;
 	bool isNew = false;
-	bool isChanged = false;
-
-	orxObject_GetPosition(_object,&_position);
+	_isChanged = false;
 	if(_controller)
 	{
 		if(_controller->IsUp(isNew) && isNew)
 		{
-			_position.fY -= 75;
-			isChanged = true;
+			FFVector3 speed(0.0,-300,0.0);
+			SetSpeed(speed);
+			_isChanged = true;
 		}
 		if(_controller->IsRight(isNew))
 		{
 
-			_position.fX += speed.fX;
+			FFVector3 speed(150.0,0,0.0);
+			SetSpeed(speed);
 			_currentMoveDirection = FFMD_RIGHT;
 			SetAnimation(FF_M_RIGHT_WALKING);
-			isChanged = true;
+			_isChanged = true;
 		}
 		else if(_controller->IsLeft(isNew))
 		{
-			_position.fX -= speed.fX;
+			FFVector3 speed(-150.0,0,0.0);
+			SetSpeed(speed);
 			_currentMoveDirection =  FFMD_LEFT;
 			SetAnimation(FF_M_LEFT_WALKING);
-			isChanged = true;
+			_isChanged = true;
 		}
 		else
 		{
@@ -92,11 +107,6 @@ orxSTATUS FFMovableAnimatedObject::Update(const orxCLOCK_INFO* pClockInfo)
 			}
 		}
 	}
-	
-	if(isChanged)
-	{
-		SetPosition(_position);
-	}
 
 	return orxSTATUS_SUCCESS;
 }
@@ -104,4 +114,17 @@ orxSTATUS FFMovableAnimatedObject::Update(const orxCLOCK_INFO* pClockInfo)
 void FFMovableAnimatedObject::SetController(FFBaseController* controller)
 {
 	_controller = controller;
+}
+
+void FFMovableAnimatedObject::UpdatePhysics(float deltaTime)
+{
+	FFVector3 temp;
+	temp = _speed * deltaTime;
+	_position += temp;
+	if(_object)
+		orxObject_SetPosition(_object,(orxVECTOR*)_position);
+	float g = _mass * deltaTime;
+	//_speed._x += g;
+	_speed._y += g;
+	UpdateAABox();
 }

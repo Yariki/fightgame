@@ -103,4 +103,14 @@
 #define DOWN_SECTION		"Seat"
 
 
+// for physics
+
+#define ENTITY_TYPE_SECTION "EntityType"
+#define ENTITY_TYPE_WALL_VALUE "Wall"
+#define ENTITY_TYPE_DYNAMIC_VALUE "Dynamic"
+
+#define MASS_SECTION "Mass"
+#define FORCES_SECTION "Forces"
+
+
 #endif  __FFDEFINES_H__
